@@ -1,0 +1,84 @@
+//https://github.com/leedo/alice/blob/master/src/css/colors/solarized.scss
+$font_family: "Lucida Grande", Helvetica, sans-serif;
+$font_family_monospace: Menlo, monospace;
+
+$base03:    #002b36;
+$base02:    #073642;
+$base01:    #586e75;
+$base00:    #657b83;
+$base0:     #839496;
+$base1:     #93a1a1;
+$base2:     #eee8d5;
+$base3:     #fdf6e3;
+$yellow:    #b58900;
+$orange:    #cb4b16;
+$red:       #dc322f;
+$magenta:   #d33682;
+$violet:    #6c71c4;
+$blue:      #268bd2;
+$cyan:      #2aa198;
+$green:     #859900;
+
+$default_text: $base02;
+$nicks: $base02;
+
+$links: $base3;
+$links_hover: #E8E2D0;
+div.msg a { color: $orange; }
+div.msg a:hover { color: #B6461E }
+
+$message_background: $base3;
+$message_nick_column_background: $base2;
+
+$message_self_background: #FFFAED;
+$message_self_nick_column_background: #FFFAED;
+
+$nick_column_border: #DDD7C5;
+$message_border: $base2;
+$message_border_fold: $base1;
+$message_highlight: $orange;
+
+$timehint_color: $base1;
+$nicklist_color: $base02;
+$nicklist_color_hover: $base03;
+
+$logo_color: $base00;
+$logo_border_dark: $base03;
+$logo_border_light: $base1;
+
+$textentry_border: #44555A;
+$textentry_background: $base3;
+$textentry_toolbar_background: rgba(0,0,0,0.6);
+
+$textentry_button_color: $base1;
+$textentry_button_active_color: $base01;
+$textentry_toolbar_toggle_color: #000;
+$textentry_toolbar_toggle_active_background: rgba(0,0,0,0.6);
+$textentry_toolbar_toggle_active_color: #fff;
+$textentry_toolbar_background: $base2;
+$textentry_toolbar_border: #DDD7C5;
+
+$avatar_border: $base3;
+
+$topic_background: $base0;
+$topic_border_top: 1px solid $base1;
+$topic_border_bottom: 1px solid $base02;
+$topic_text: $base3;
+
+$event_border: $base3;
+$event_background: #BBD6EA;
+$event_text: #002b36;
+
+// old shit
+$tab_background: $base01;
+$tab_background_active: $base00;
+$tab_background_blurred: #4B5E64;
+$tab_background_hover: #4B5E64;
+$tab_border: transparent;
+$tab_border_active: #44555A;
+$tab_border_blurred: #44555A;
+$tab_text: #fff;
+$tab_text_blurred: $base2;
+
+$scrollbar_background: #DDD7C5;
+$scrollbar_thumb: $base00;

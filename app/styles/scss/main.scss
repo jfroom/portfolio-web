@@ -1,0 +1,28 @@
+@import 'colors/solarized';
+@import 'partials/angular';
+@import 'partials/mixins';
+
+@import 'bootstrap/variables';
+@import '../../../bower_components/bootstrap-sass/lib/bootstrap.scss';
+
+@import 'icon-sprite'; // see includePath
+@import 'partials/animate-custom';
+
+$fa-font-path: '../../bower_components/font-awesome/fonts';
+@import '../../../bower_components/font-awesome/scss/font-awesome.scss';
+
+@import 'bootstrap/base-elements';
+@import 'bootstrap/callouts';
+@import 'bootstrap/buttons';
+@import 'bootstrap/header';
+@import 'bootstrap/navbar';
+
+@import 'bootstrap/navbar_offcanvas';
+@import 'bootstrap/intro';
+@import 'bootstrap/img-caption';
+@import 'bootstrap/work';
+@import 'bootstrap/about';
+@import 'bootstrap/contact';
+@import 'bootstrap/footer';
+@import 'bootstrap/video';
+

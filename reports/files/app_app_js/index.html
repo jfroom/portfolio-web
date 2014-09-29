@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>app/app.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+      <p class="stat">63.63</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
+      <p class="stat">85</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
+      <p class="stat">25.75</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+      <p class="stat">1.26</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(function() {
+  if (window.appData) {
+    if (typeof console !== &quot;undefined&quot; &amp;&amp; console !== null) {
+      console.log(&quot;[APP] build:&quot; + window.appData.build);
+    }
+  }
+
+  window.app = angular.module(&quot;app&quot;, [&quot;ngSanitize&quot;, &quot;services.utils&quot;, &quot;services.log&quot;, &quot;directives.utils&quot;, &quot;directives.image&quot;, &quot;directives.html&quot;, &quot;services.navigation&quot;, &quot;app.enums&quot;, &quot;app.work&quot;, &quot;ngRoute&quot;, &quot;angularMoment&quot;]);
+
+  app.value(&#039;$anchorScroll&#039;, angular.noop);
+
+  app.config([
+    &quot;$routeProvider&quot;, &quot;$locationProvider&quot;, &quot;$interpolateProvider&quot;, &quot;enums&quot;, function($routeProvider, $locationProvider, $interpolateProvider, enums) {
+      $interpolateProvider.startSymbol(&#039;{[&#039;).endSymbol(&#039;]}&#039;);
+      if (window.location.hash.indexOf(&quot;#&quot;) &gt; -1 &amp;&amp; window.location.hash.indexOf(&quot;#!&quot;) &lt;= -1) {
+        window.location.hash = window.location.hash.replace(&quot;#&quot;, &quot;#!&quot;);
+      }
+      $routeProvider.when(&#039;/work/:project&#039;, {
+        event: enums.EventType.WorkLoad
+      }).when(&#039;/about&#039;, {
+        event: enums.EventType.AnchorScroll
+      }).when(&#039;/contact&#039;, {
+        event: enums.EventType.AnchorScroll
+      }).when(&#039;/work&#039;, {
+        event: enums.EventType.AnchorScroll
+      }).otherwise({
+        redirectTo: &#039;/&#039;
+      });
+      return $locationProvider.html5Mode(false).hashPrefix(&#039;!&#039;);
+    }
+  ]);
+
+  app.run([
+    &quot;utils&quot;, &quot;enums&quot;, &quot;$rootScope&quot;, &quot;$location&quot;, &quot;$routeParams&quot;, &quot;$route&quot;, &quot;log&quot;, &quot;$timeout&quot;, &quot;navigation&quot;, function(utils, enums, $rootScope, $location, $routeParams, $route, $log, $timeout, navigation) {
+      var $routePromise, lastRoutePath;
+      if (angular.isDefined($rootScope.logger) &amp;&amp; angular.isDefined(log4javascript)) {
+        if (angular.isDefined(window) &amp;&amp; angular.isDefined(window.__karma__)) {
+          $rootScope.logger.setLevel(log4javascript.Level.WARN);
+        }
+      }
+      $rootScope.utils = utils;
+      $routePromise = null;
+      lastRoutePath = &#039;&#039;;
+      $rootScope.$on(&#039;$routeChangeSuccess&#039;, function($currentRoute, $previousRoute) {
+        var event, id, path, _ref;
+        $log.info((&quot;$routeChangeSuccess $currentRoute: &quot; + $currentRoute + &quot; $location.path:&quot;) + $location.path() + &quot; lastRoutePath:&quot; + lastRoutePath);
+        path = $location.path();
+        event = (_ref = $route.current) != null ? _ref.event : void 0;
+        if (path === &#039;/&#039;) {
+          event = enums.EventType.AnchorScroll;
+          path = &#039;/home&#039;;
+          if (lastRoutePath === &#039;&#039;) {
+            event = void 0;
+          }
+        }
+        if (event === enums.EventType.AnchorScroll) {
+          $log.info(&quot;scrolling for path: &quot; + path);
+          if (path) {
+            id = path.substr(1, path.length - 1);
+            id = id.split(&#039;/&#039;)[0];
+            $log.info(&quot;id &quot; + id + &quot; path:&quot; + path);
+            $timeout.cancel($routePromise);
+            $routePromise = $timeout((function() {
+              return utils.scrollAnimateTo(&quot;#&quot; + id);
+            }), 1);
+          }
+        }
+        return $rootScope.$broadcast(enums.EventType.TrackPageview, path);
+      });
+      $rootScope.$on(enums.EventType.TrackPageview, function(scope, path) {
+        if (window.ga !== void 0 &amp;&amp; lastRoutePath !== path) {
+          window.ga(&#039;send&#039;, &#039;pageview&#039;, path);
+          return lastRoutePath = path;
+        }
+      });
+      return $rootScope.$on(enums.EventType.TrackEvent, function(scope, category, action, label, value) {
+        $log.info(&#039;caught track event category:&#039; + category + &quot; action:&quot; + action + &quot; label:&quot; + label + &quot; value:&quot; + value);
+        if (window.ga !== void 0) {
+          return window.ga(&#039;send&#039;, &#039;event&#039;, category, action, label, value);
+        }
+      });
+    }
+  ]);
+
+}).call(this);</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

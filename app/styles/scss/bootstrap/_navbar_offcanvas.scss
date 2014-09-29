@@ -1,0 +1,85 @@
+$flyoutnav_width:150px;
+
+
+header.flyout{
+
+  position: fixed;
+  max-width:$flyoutnav_width;
+  z-index:1;
+  visibility: hidden;
+  .navbar{
+    max-width:$flyoutnav_width;
+    .container{
+      padding:0;
+      margin:0 10px;
+    }
+  }
+  .navbar-inverse{
+    background-color:#000;
+  }
+  .navbar-nav{
+    display:block;
+    margin-top:0;
+    .navbar-header{
+      display:none;
+    }
+  }
+  .navbar-brand{
+    width:100%;
+  }
+  .navbar-header{
+    //display:none;
+  }
+  .navbar-toggle{
+    display:none;
+  }
+  .nav > li{
+    border-top:1px dashed #333;
+  }
+  .fa-lg{
+    min-width:20px;
+  }
+
+  .btn [class^="fa-"].fa-lg, .btn [class*=" fa-"].fa-lg, .nav [class^="fa-"].fa-lg, .nav [class*=" fa-"].fa-lg{
+    text-align:center;
+  }
+
+}
+
+body{
+  //-webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+}
+.flyout-cover{
+  display:block;
+  position:fixed;
+  top:0;
+  left:0;
+  //-webkit-transform: translate(0, 0);
+  //transform: translate(0, 0);
+  z-index:1;
+  background-color:rgba(0,0,0,0);
+
+  //-webkit-transition: opacity .3s linear;
+  //transition: opacity .3s linear;
+  cursor:pointer;
+}
+.flyout-active .flyout-cover{
+  z-index: 100;
+}
+
+@media only screen and (min-width: $screen-sm){
+  header.flyout{
+    display:none;
+  }
+  .flyout-open .flyout-cover{
+    opacity:0;
+  }
+}
+
+
+/*
+@media (max-width: $screen-sm) {
+
+}
+*/

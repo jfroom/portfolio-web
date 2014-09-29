@@ -1,0 +1,108 @@
+---
+title: The Kitchen Sink
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida adipiscing est sed interdum. Etiam id nisi ac erat commodo imperdiet. Maecenas sit amet adipiscing nibh, ut consequat mauris.
+layout: app/templates/blog/layouts/post.hbs
+date: 2013-07-04
+location: Chicago
+page-id: 3
+read-time: 9
+micro-image: http://placehold.it/240x135
+header-image: http://placehold.it/1182x665
+page-id: 1
+thumb-image:
+categories:
+- Life
+tags:
+- Travel
+- Inspiration
+published: true
+pathToRoot: '../..'
+---
+{{#markdown}}
+### Overview
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet tristique sem. Ut rutrum dapibus est, at sagittis libero porta ac. Fusce rutrum tellus quam, vitae dictum est aliquam posuere. Ut laoreet, purus quis gravida facilisis, arcu purus laoreet dui, ut lobortis nunc massa vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi vehicula arcu vel arcu egestas gravida. Phasellus quis velit iaculis, feugiat odio ut, semper dui. Vestibulum porta tellus lobortis ullamcorper gravida.
+
+Fusce volutpat dapibus libero, ac molestie odio aliquam faucibus. Fusce quis cursus dolor, nec varius libero. Donec vulputate et nisi vitae feugiat. Praesent magna nunc, mollis id erat ac, imperdiet interdum est. Nunc malesuada lectus id erat pellentesque imperdiet. Ut et eros volutpat, varius nisl sed, feugiat libero. Suspendisse at lectus non nisi vulputate pretium.
+
+- - -
+
+### Videos
+
+Youtube (todo: make responsive):
+<iframe width="420" height="315" src="//www.youtube.com/embed/pqeJFYwnkjE" frameborder="0" allowfullscreen></iframe>
+
+
+Vimeo (todo: make responsive):
+<iframe src="//player.vimeo.com/video/65156045" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+<a href="http://vimeo.com/65156045">Jon Hopkins 'Open Eye Signal'</a> from <a href="http://vimeo.com/aoifemcardle">AOIFE MCARDLE</a> on <a href="https://vimeo.com">Vimeo</a>.
+
+- - -
+
+### Code block
+
+For example, `<section></section>` should be wrapped as "inline".
+
+
+```
+//code block
+
+```
+
+```javascript
+grunt.initConfig({
+  assemble: {
+    options: {
+      assets: 'docs/assets',
+      data: 'src/data/*.{json,yml}',
+      helpers: 'src/custom-helpers.js',
+      partials: ['src/partials/**/*.{hbs,md}']
+    },
+    pages: {
+      options: {
+        layout: 'default.hbs'
+      },
+      files: {
+        './': ['src/templates/pages/index.hbs']
+      }
+    }
+  }
+};
+```
+
+    indented code
+
+
+- - -
+
+<blockquote>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+  <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+</blockquote>
+
+
+Praesent ullamcorper sed tellus quis feugiat. Maecenas placerat tincidunt felis. Fusce eu mollis massa. Phasellus ut urna vel nisi ultrices cursus. Ut ut sodales velit, ac consectetur dolor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse potenti. Morbi ut lacus turpis. In sagittis pharetra fermentum. Vivamus vitae lorem libero. Nunc commodo at erat at dapibus. Mauris commodo massa arcu, vel tristique nunc imperdiet ac. Vivamus vitae enim cursus, dictum risus nec, posuere elit. Vivamus vel laoreet magna, at congue nisl. Vivamus lobortis dui eleifend ornare varius.
+
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent metus nulla, posuere sed facilisis et, commodo vel justo. Etiam sed quam imperdiet, elementum nulla at, pharetra odio. Nulla ut pulvinar lacus. Nam dapibus scelerisque nulla, nec aliquam leo fermentum accumsan. Praesent convallis rutrum massa, et consectetur massa sagittis vel. Pellentesque accumsan lacus vel turpis egestas egestas. Curabitur interdum libero cursus augue dignissim, suscipit cursus dolor dignissim. Vestibulum quis quam molestie, egestas tortor eu, aliquet ligula. Integer sit amet tellus sed ipsum egestas consectetur.
+
+Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec in lacus diam. Cras nec arcu ornare orci tincidunt lacinia ac in leo. Nullam mollis ornare diam, sit amet consequat justo accumsan quis. Aliquam nec aliquam odio, ut eleifend risus. Vestibulum rutrum odio non consequat elementum. Etiam imperdiet ipsum lorem, sed volutpat libero ultrices et. Nulla sit amet urna nunc. Sed tempor scelerisque molestie. Quisque a dui sem.
+
+Morbi venenatis accumsan sem, vulputate ullamcorper augue pulvinar condimentum. Mauris a semper dolor. Vivamus bibendum, leo elementum rhoncus scelerisque, tortor elit ullamcorper ligula, dignissim rhoncus sem tortor eu nibh. Nulla dignissim bibendum magna quis lacinia. Duis sit amet turpis nec nisi venenatis malesuada vel ac urna. Nulla vel ipsum ullamcorper, cursus enim vel, imperdiet dui. Vestibulum ut gravida purus. Vivamus malesuada lectus eros, in vestibulum purus posuere vitae. Donec hendrerit, diam non interdum blandit, urna elit lobortis nisl, eu posuere tellus est sed purus. Mauris lacinia ligula id mauris ornare, at imperdiet magna lobortis. Nullam et tortor mi. Mauris fringilla lacinia arcu nec vulputate. Donec sem nunc, tristique tristique tincidunt in, fermentum a eros. Donec euismod a lectus at malesuada. Nullam consequat felis est.
+
+Mauris dui ligula, commodo nec suscipit vitae, condimentum at lacus. Quisque in urna tortor. Proin fringilla ante at sem ultrices, non viverra erat fermentum. Nulla facilisi. Donec sed fringilla nisl. Morbi adipiscing odio non varius mattis. Suspendisse viverra enim sed eros viverra, eu ultrices massa dignissim. Quisque ac condimentum nulla. Donec nulla ipsum, hendrerit vel bibendum et, dignissim ut ligula. Sed vulputate imperdiet orci, vel dignissim lorem elementum ac. In nibh risus, tincidunt in libero sed, hendrerit auctor leo. Curabitur tempus, est pulvinar dignissim gravida, dolor leo vulputate nisl, ac hendrerit nisi ante vitae metus. Nullam a suscipit urna. Integer posuere, dui ac tempor molestie, ipsum nisl eleifend purus, eget molestie diam lectus non magna.
+
+Maecenas aliquet mi vel blandit suscipit. Aenean gravida nibh quis magna placerat accumsan. Proin pulvinar pretium metus sit amet vestibulum. Sed eget ante turpis. Duis commodo tellus venenatis tincidunt varius. Aliquam scelerisque pulvinar mollis. Nulla pharetra ante dolor, ac mollis est elementum at. Integer imperdiet enim ac erat ornare sollicitudin. Nullam pharetra facilisis ligula eu ultricies. Phasellus vel pulvinar dolor. Fusce placerat fringilla augue vitae sollicitudin. In dictum bibendum tortor, a faucibus risus eleifend feugiat. In viverra a sem bibendum sagittis.
+
+Nunc gravida, sapien vitae cursus pulvinar, ligula justo laoreet enim, non placerat nisl erat et neque. Donec non dignissim velit. Pellentesque elementum fermentum mauris, non mattis nisi mollis nec. Donec vel lectus facilisis, ornare odio sed, dignissim nisl. Nulla convallis non nisi nec egestas. Donec vitae vestibulum erat, et hendrerit tellus. Cras id augue justo. Praesent sapien elit, dapibus interdum lacus vitae, molestie faucibus urna. Praesent ut elit adipiscing nibh rhoncus tristique. Nunc placerat aliquam condimentum. Duis ornare, ligula sed lobortis vehicula, velit velit dignissim mi, ut rhoncus augue purus at lacus. Phasellus rhoncus, nisl ut posuere bibendum, purus libero pharetra ligula, nec viverra diam elit in erat. Ut viverra at tortor a luctus. Aenean consectetur, neque non pretium ullamcorper, ligula eros rutrum augue, vitae lacinia odio ligula ac orci. Etiam et metus vel nisi tincidunt bibendum. Ut eu nibh at nisl congue scelerisque.
+
+In eget ligula adipiscing, porta est in, eleifend eros. Cras pretium ante ac augue iaculis luctus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec dolor lorem, mollis a aliquet non, vulputate at enim. Morbi posuere adipiscing massa, nec viverra mauris fringilla vel. Curabitur quis vestibulum tellus, at dapibus orci. Suspendisse adipiscing velit tellus, et sodales ligula pretium at. Fusce a lectus varius, euismod metus non, consequat dolor. Nulla porta in metus id porta. Donec euismod venenatis nisi, a viverra diam adipiscing eu. Praesent dignissim elementum iaculis. Vivamus urna tortor, semper eget nunc vel, porta venenatis nulla.
+
+Quisque sit amet lorem felis. Duis pretium molestie sapien non convallis. Nullam aliquam, odio vitae convallis varius, augue nisi mattis elit, eu laoreet justo dui nec turpis. Sed hendrerit vitae risus eu convallis. Curabitur interdum viverra quam nec sollicitudin. Nulla facilisi. Vestibulum vel cursus enim, vitae lobortis metus.
+
+Ut non augue facilisis, dignissim justo eu, eleifend turpis. Duis aliquam volutpat eros, et tincidunt nulla adipiscing vel. Praesent nec arcu auctor, tincidunt nisl rutrum, imperdiet lacus. Integer interdum pretium quam. Donec ultricies at elit vel interdum. Cras lorem justo, dapibus eu tincidunt ac, lobortis a velit. Quisque non fermentum sem, at dapibus libero. Sed imperdiet urna id turpis tincidunt, vel lobortis est pulvinar. Aliquam vel est sit amet sem tempus eleifend aliquam a felis.
+
+Suspendisse malesuada mi quis aliquam varius. Proin vehicula sit amet libero ac luctus. Pellentesque enim mi, iaculis a auctor in, accumsan non turpis. Duis ornare turpis a eros laoreet, dictum ullamcorper ligula pharetra. Vestibulum elementum dolor quam. Donec sed aliquet lorem, vel pellentesque lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur lorem velit, dictum a pretium ornare, venenatis non purus.
+
+Aenean viverra fermentum tellus, non consectetur nisl sodales in. Curabitur ac tempus orci. Praesent accumsan eleifend volutpat. Fusce eget lacus dui. Nam a sagittis dui, vel ultricies orci. Praesent quam odio, sagittis quis urna at, ultrices consectetur est. Donec ullamcorper, nibh nec consequat consectetur, nulla eros condimentum tellus, non condimentum libero metus id massa. Duis commodo orci sit amet dapibus venenatis.
+
+{{/markdown}}

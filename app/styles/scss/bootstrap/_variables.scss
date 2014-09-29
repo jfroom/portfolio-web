@@ -1,0 +1,56 @@
+
+$font-size-base:          12px !default;
+$font-family-sans-serif:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:       "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+
+$headings-font-family:    $font-family-serif !default;
+$headings-font-weight:    300 !default;
+$headings-line-height:    1.1 !default;
+
+
+// Basics of a navbar
+$navbar-height:                    40px !default;
+$navbar-margin-bottom:             0 !default;
+
+
+// Reset inverted navbar basics
+$navbar-inverse-color:                      #fff !default;
+$navbar-inverse-bg:                         rgba(51,51,51,1);
+$navbar-inverse-border:                     darken($navbar-inverse-bg, 10%) !default;
+
+// Inverted navbar links
+$navbar-inverse-link-color:                 #fff !default;
+$navbar-inverse-link-hover-color:           #fff !default;
+$navbar-inverse-link-hover-bg:              $green !default;
+$navbar-inverse-link-active-color:          $navbar-inverse-link-hover-color !default;
+$navbar-inverse-link-active-bg:             darken($navbar-inverse-link-hover-bg, 10%) !default;
+$navbar-inverse-link-disabled-color:        #444 !default;
+$navbar-inverse-link-disabled-bg:           transparent !default;
+
+// Inverted navbar brand label
+$navbar-inverse-brand-color:                $navbar-inverse-link-color !default;
+$navbar-inverse-brand-hover-color:          #fff !default;
+$navbar-inverse-brand-hover-bg:             $green !default;
+
+$color-green-visited: darken($green , 5);
+
+// Grid system
+// --------------------------------------------------
+
+// Padding, to be divided by two and applied to the left and right of all columns
+$grid-gutter-width:         20px !default;
+
+/*
+$font-family-sans-serif-active:  "Open Sans", $font-family-sans-serif;
+$font-family-serif-active:       "Roboto Slab", $font-family-serif;
+.wf-active{
+  body{
+    font-family: $font-family-sans-serif-active;
+  }
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: $font-family-serif-active;
+  }
+}
+*/

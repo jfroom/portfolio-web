@@ -1,0 +1,38 @@
+<!-- BEGIN WORK -->
+<hr class="accent"/>
+<article role="work" class="container" ng-controller="WorkCtrl" >
+
+  <a id="work" class="anchor"></a>
+
+  <!-- BEGIN WORK DETAIL -->
+  <div class="work-detail ng-cloak" ng-show="state == STATE_DETAIL" ng-hide="state == STATE_IDLE">
+    {{>work_detail}}
+  </div>
+
+  <!-- END WORK DETAIL -->
+  <div ng-show="state == STATE_DETAIL" class="ng-cloak">
+    <div class="work-btm" >
+      <div class="work-nav-btm "  >
+        <div class="btn-group work-nav-group">
+            <a href="" class="btn btn-sm btn-primary" ng-click="projectIncrement(-1)"><i class="fa fa-arrow-left"></i></a><a href="" class="btn btn-sm btn-primary" ng-click="utils.scrollAnimateTo('#work')"><i class="fa fa-arrow-up"></i></a><a href="" class="btn btn-sm btn-primary" ng-click="projectIncrement(1)"><i class="fa fa-arrow-right"></i> </a>
+        </div>
+
+      </div>
+
+    </div>
+    <hr/>
+  </div>
+
+  <!-- BEGIN WORK THUMBS-->
+  <div class="work-thumbs" >
+    <div class="work-ttl">
+      <h3 class="anchor title">Work</h3>
+    </div>
+    {{>work_thumbs}}
+  </div>
+  <!-- END WORK THUMBS-->
+
+
+</article>
+<!-- END WORK SECTION -->
+

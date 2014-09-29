@@ -1,0 +1,55 @@
+{
+  "SERVER_HOSTNAME": "127.0.0.1",
+  "DEV_HOSTNAME": "local.domain.com",
+  "PRODUCTION_HOSTNAME": "domain.com",
+  "SERVER_PORT": "9090",
+  "LIVERELOAD_PORT": "35739",
+  "SAUCE_USERNAME": "sauce_user",
+  "SAUCE_ACCESS_KEY": "sauce_key",
+  "USE_SAUCE": "false",
+
+  "BUILD": "2014.01.22.0",
+  "S3_PORTFOLIO_USER": "username",
+  "S3_PORTFOLIO_KEY": "key",
+  "S3_PORTFOLIO_SECRET": "secret",
+  "S3_PORTFOLIO_BUCKET": "bucket.id",
+  "S3_PORTFOLIO_PATH": "",
+
+  "PATH_BLOB": "http://domain.com/blob/site",
+
+
+  "PATH_PORTFOLIO_DATA": "app/assets/data/",
+  "PATH_PORTFOLIO_DATA_WORK": "app/assets/data/workData.json",
+  "PATH_PORTFOLIO_DATA_HUMANS": "app/assets/data/humansData.json",
+  "PATH_PORTFOLIO_DATA_ICONS": "app/assets/data/iconsData.json",
+
+  "PATH_PORTFOLIO_SPRITE_IMAGE_SRC": "app/assets/images/sprites/**/*",
+
+  "PATH_SITE_TEMPLATE_PARTIALS_PATH": "",
+  "PATH_BLOG_TEMPLATE_PARTIALS_PATH": "",
+  "PORTFOLIO_WORK_SHOW": "true",
+  "PORTFOLIO_SITE_TITLE": "Site Title",
+  "PORTFOLIO_SITE_OWNER": "Lorem Ipsum",
+  "PORTFOLIO_BLOG_COPYRIGHT": "All images &copy; the author of this website unless otherwise indicated.",
+  "TWITTER_USERNAME": "twitter",
+  "GA_ID": "UA-1000000-1",
+  "FIREBASE_BLOG_DOMAIN": "https://username.firebaseio.com/blog/",
+  "BLOG_BASE_URL": "http://domain.com/blog/",
+  "BLOG_TWITTER_WIDGET_ID": "511267630187962368",
+
+  "PATH_PORTFOLIO_DATA": "app/assets/data/",
+  "PATH_PORTFOLIO_DATA_WORK": "app/assets/data/workData.json",
+  "PATH_PORTFOLIO_DATA_HUMANS": "app/assets/data/humansData.json",
+  "PATH_PORTFOLIO_DATA_ICONS": "app/assets/data/iconsData.json",
+  "PORTFOLIO_LINKEDIN": "http://www.linkedin.com/",
+  "PORTFOLIO_PROFILE_IMAGE": "http://placehold.it/600",
+
+  "OFFCANVAS_NAV_X_MAX": "150",
+  "DISQUS_SHORTNAME": "disqus_shortname",
+  "DISQUS_SHORTNAME_DEV": "testblog",
+
+  "PATH_BLOG_POSTS_PATH": "app/templates/blog/posts/",
+  "PATH_BLOG_POSTS_PATH": "app/templates/blog/posts/",
+  "PATH_BLOG_FEED_PATH": "app/templates/blog/feed/"
+
+}

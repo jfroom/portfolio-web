@@ -1,0 +1,14 @@
+---
+title: <%= settings.PORTFOLIO_SITE_TITLE %>
+layout: app/templates/layouts/default.hbs
+pathToRoot: '.'
+activeTab: ''
+---
+<main role="main">
+    {{>intro}}
+    {{#is settings.PORTFOLIO_WORK_SHOW 'true'}}
+      {{>work }}
+    {{/is}}
+    {{>about}}
+    {{! >contact}}
+</main>

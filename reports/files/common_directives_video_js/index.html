@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>common/directives/video.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+      <p class="stat">69.22</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
+      <p class="stat">174</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
+      <p class="stat">19.51</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+      <p class="stat">0.78</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(function() {
+  angular.module(&#039;directives.youtubeEmbed&#039;, [&#039;app.enums&#039;]).directive(&quot;youtubeEmbed&quot;, [
+    &quot;$log&quot;, &quot;$timeout&quot;, &quot;$rootScope&quot;, &quot;enums&quot;, function($log, $timeout, $rootScope, enums) {
+      var compile;
+      return {
+        priority: 0,
+        template: &quot;&quot;,
+        replace: false,
+        transclude: false,
+        restrict: &quot;A&quot;,
+        scope: {
+          videoData: &#039;=youtubeEmbed&#039;
+        },
+        compile: compile = function(tElement, tAttrs, transclude) {
+          var postLink, preLink;
+          return {
+            pre: preLink = function(scope, iElement, iAttrs, controller) {
+              scope.hasStarted = false;
+              scope.loadAPI = function() {
+                var firstScriptTag, tag;
+                tag = document.createElement(&quot;script&quot;);
+                tag.src = &quot;//www.youtube.com/iframe_api&quot;;
+                firstScriptTag = document.getElementsByTagName(&quot;script&quot;)[0];
+                return firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+              };
+              return scope.onAPIReady = function() {
+                scope.player = new YT.Player(&quot;youtube-player&quot;, {
+                  width: &quot;1920&quot;,
+                  height: &quot;1080&quot;,
+                  videoId: scope.videoData.id,
+                  playerVars: {
+                    enablejsapi: 1,
+                    modestbranding: 1,
+                    origin: document.domain,
+                    showinfo: 0,
+                    theme: &quot;light&quot;,
+                    rel: 0,
+                    vq: &#039;hd720&#039;
+                  },
+                  onReady: function() {}
+                });
+                return scope.player.addEventListener(&#039;onStateChange&#039;, function(newState) {
+                  $log.info(&quot;onPlayerStateChange:&quot; + newState.data);
+                  if (!scope.hasStarted) {
+                    if (newState.data === YT.PlayerState.PLAYING) {
+                      $log.info(&#039;yt started&#039;);
+                      $rootScope.$broadcast(enums.EventType.VideoStart, scope.videoData);
+                      scope.hasStarted = true;
+                    }
+                  }
+                  if (scope.hasStarted &amp;&amp; newState.data === YT.PlayerState.ENDED) {
+                    return $rootScope.$broadcast(enums.EventType.VideoEnd, scope.videoData);
+                  }
+                });
+              };
+            },
+            post: postLink = function(scope, iElement, iAttrs, controller) {
+              var ytLoaded, _onYouTubeIframeAPIReady;
+              ytLoaded = window.YT !== void 0 &amp;&amp; window.YT.Player !== void 0;
+              if (!ytLoaded) {
+                _onYouTubeIframeAPIReady = window.onYouTubeIframeAPIReady;
+                window.onYouTubeIframeAPIReady = function() {
+                  if (_onYouTubeIframeAPIReady !== void 0) {
+                    _onYouTubeIframeAPIReady();
+                  }
+                  scope.onAPIReady();
+                  return delete window.onYouTubeIframeAPIReady;
+                };
+                return scope.loadAPI();
+              } else {
+                return scope.onAPIReady();
+              }
+            }
+          };
+        }
+      };
+    }
+  ]);
+
+  /*
+  angular.module(&#039;directives.videoJSEmbed&#039;, []).directive &quot;videoJSEmbed&quot;, [&quot;$log&quot;, &quot;$timeout&quot;, &quot;utils&quot;, ($log, $timeout, utils) -&gt;
+    priority: 0
+    template: &quot;&quot;
+    replace: false
+    transclude: false
+    restrict: &quot;A&quot;
+    scope: {videoData: &#039;=videoJS&#039;, videoId: &#039;=VideoJSId&#039;}
+    compile: compile = (tElement, tAttrs, transclude) -&gt;
+    pre: preLink = (scope, iElement, iAttrs, controller) -&gt;
+      #$log.info &quot;preLink compile&quot;
+    post: postLink = (scope, iElement, iAttrs, controller) -&gt;
+      #$log.info &quot;postLink compile&quot;
+      console.log &quot;video postlist&quot;, scope.videoData
+      if scope &amp;&amp; scope.videoData
+        console.dir scope.videoData
+        console.dir iAttrs
+        console.log &quot;scope.videoData.mp4:&quot;, scope.videoData.mp4
+        if scope.videoData.mp4
+          mp4src = scope.videoData.mp4.toString()
+          #alert &quot;Modernizr.highres &quot; + Modernizr.highres + &quot; Modernizr.video.h264:&quot; + Modernizr.video.h264 + &quot; touch: &quot; + Modernizr.touch + &quot; scope.videoData.mp4_low:&quot; + scope.videoData.mp4_low
+          #if Modernizr.touch &amp;&amp; !Modernizr.highres &amp;&amp; scope.videoData.mp4_low
+          #mp4src = scope.videoData.mp4_low.toString()
+          if Modernizr.video.h264 &amp;&amp; scope.videoData.mp4_low
+            mp4src = scope.videoData.mp4_low
+          s = &quot;&lt;source type=&#039;video/mp4&#039; src=&#039;&quot; + mp4src + &quot;&#039; /&gt;&quot;
+        if scope.videoData.webm
+          s += &quot;&lt;source type=&#039;video/webm&#039; src=&#039;&quot; + scope.videoData.webm.toString() + &quot;&#039; /&gt;&quot;
+        console.log s
+        iElement.append s
+        iElement.attr &quot;poster&quot;, scope.videoData.poster.toString()
+  
+        delay = (ms, func) -&gt;
+          $timeout func, ms
+        delay 0, -&gt;
+          if iAttrs
+            console.log &quot;video attr iAttrs&quot;
+            iElement.attr &quot;id&quot;, scope.videoId + (new Date()).getTime()
+            videoOptions = {&#039;preload&#039;: &#039;metadata&#039;, &#039;width&#039;: &#039;auto&#039;, &#039;height&#039;: &#039;auto&#039;, &#039;controls&#039;: true }
+            # poster&#039;:scope.videoData.poster.toString(),
+  
+  
+            videojs((iElement.attr &quot;id&quot;).toString(), videoOptions).ready -&gt;
+              console.log &#039;video ready&#039;
+  ]
+  
+  angular.module(&#039;directives.vimeoEmbed&#039;, []).directive &quot;vimeoEmbed&quot;, [&quot;$log&quot;, &quot;$timeout&quot;, ($log, $timeout) -&gt;
+    priority: 0
+    template: &quot;&quot;
+    # templateUrl: &quot;directive.html&quot;
+    replace: false
+    transclude: false
+    restrict: &quot;A&quot;
+    scope: {videoData: &#039;=vimeoEmbed&#039;}
+    compile: compile = (tElement, tAttrs, transclude) -&gt;
+    pre: preLink = (scope, iElement, iAttrs, controller) -&gt;
+      console.log &#039;prelink&#039;
+      parts = scope.videoData.src.split(&quot;/&quot;)
+      iElement.attr &quot;id&quot;, &quot;vimeo-&quot; + parts[parts.length - 1]
+      iElement.attr &quot;player-id&quot;, &quot;vimeo-&quot; + parts[parts.length - 1]
+      iElement.attr &quot;api&quot;, &quot;1&quot;
+  
+      player = $(&quot;#&quot; + iElement.attr(&quot;id&quot;))
+  
+      try
+        fPlayer = $f(player[0])
+        player.hide()
+        # When the player is ready, add listeners for pause, finish, and playProgress
+        fPlayer.addEvent &quot;ready&quot;, -&gt;
+          console.log &quot;ready&quot;
+          setTimeout -&gt;
+          player.delay(0).fadeIn(500)
+          fPlayer.addEvent &quot;play&quot;, -&gt;
+            console.log &quot;play&quot;
+          fPlayer.addEvent &quot;pause&quot;, -&gt;
+            console.log &#039;pause&#039;
+          fPlayer.addEvent &quot;finish&quot;, -&gt;
+            console.log &quot;finish&quot;
+      catch e
+        player.show()
+  
+  
+    post: postLink = (scope, iElement, iAttrs, controller) -&gt;
+      $log.info &quot;postLink compile&quot;
+      console.log &quot;vimeo postlist&quot;, iElement, iAttrs, scope.videoData
+      iElement.attr &quot;src&quot;, scope.videoData.src + &quot;?api=1&amp;player_id=&quot; + iElement.attr &quot;player-id&quot;
+      console.log &quot;width:&quot; + $(iElement).width()
+      $log.info &#039;postLink compile&#039;
+  
+  
+  ]
+  */
+
+
+}).call(this);</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

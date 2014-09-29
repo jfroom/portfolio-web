@@ -1,0 +1,9 @@
+{
+  "widthBreakPoint":10000,
+  "animationDuration": 0,
+  "xMax": 150,
+  "coverSelector": ".flyout-cover",
+  "slideTargetSelector": ".offcanvas-slide",
+  "toggleBtnSelector": ".navbar-toggle",
+  "offcanvasNavSelector": "header.flyout"
+}

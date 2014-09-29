@@ -1,0 +1,132 @@
+
+/* Side notes for calling out things
+-------------------------------------------------- */
+
+/* Base styles (regardless of theme) */
+.copy-callout {
+  @include clearfix();
+  margin: $grid-gutter-width 0;
+  padding: $grid-gutter-width;
+  border-left: 5px solid #eee;
+  clear:both;
+  &.pull-right{
+    width:50%;
+    &.percent50{
+      width:50%;
+    }
+  }
+}
+
+blockquote {
+  margin: $grid-gutter-width 0;
+  padding: $grid-gutter-width;
+  &.copy-base {
+    p, ul li, ol li{
+      font-size:$font-size-base;
+      font-style: normal;
+    }
+
+  }
+  p{
+    font-style:italic;
+  }
+  ul, ol {
+    margin-bottom:$grid-gutter-width;
+
+    li{
+      font-size:15px;
+    }
+  }
+  @include clearfix();
+  &.push-right{
+    width:100%;
+    float:none;
+    margin-top:0;
+  }
+  &.push-center {
+    width:100%;
+    margin-left:0%;
+  }
+  small {
+    display:table;
+    &:before {
+      display:table-cell;
+      vertical-align: top;
+    }
+    ul, ol {
+      font-size:10px;
+      padding-left:5px;
+      margin-bottom:0;
+    }
+    li {
+      margin-bottom:0 !important;
+      font-size:10px !important;
+
+    }
+  }
+  &.push-top {
+    margin-top:0;
+  }
+  span.group {
+    display:table-cell;
+    vertical-align: top;
+  }
+  .icon {
+    opacity:.15;
+    position: absolute;
+    right:17px;
+    margin-top:-13px;
+  }
+}
+@media (min-width: $screen-sm) {
+  blockquote
+  {
+    &.push-right{
+      margin-left:$grid-gutter-width;
+      float:right;
+      width:50%;
+
+    }
+    &.push-center{
+      width:60%;
+      margin-left:20%;
+      .icon{
+        margin-right:20%;
+        right:13px;
+      }
+    }
+  }
+}
+.copy-callout h4, .copy-callout h3 {
+  color: $gray;
+  margin-top: 0;
+}
+.copy-callout p:last-child {
+  margin-bottom: 0;
+}
+.copy-callout code,
+.copy-callout .highlight {
+  background-color: #fff;
+}
+
+/* Themes for different contexts */
+.copy-callout-danger {
+  background-color: #fcf2f2;
+  border-color: #dFb5b4;
+}
+.copy-callout-warning {
+  background-color: #fefbed;
+  border-color: #f1e7bc;
+}
+.copy-callout-question {
+  background-color: rgba($yellow , 0.025);
+  border-color: rgba($yellow, 0.1);
+}
+.copy-callout-info {
+  background-color: rgba($blue , 0.025);
+  border-color: rgba($blue , 0.1);
+}
+.copy-callout-quote {
+  background-color: rgba($violet , 0.025);
+  border-color: rgba($violet , 0.1);
+}

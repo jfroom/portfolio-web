@@ -1,0 +1,45 @@
+<div class="detail-title-wrap">
+  <div class="detail-title">
+    <h4 class="detail-breadcrumb"><a href="{{pathToRoot}}/blog">Blog</a> &raquo; {{first page.categories}}</h4>
+    <h1 class="title">{{title}}</h1>
+    <!-- {{#if description}} <p class="desc">{{description}}</p>{{/if}} -->
+    {{>post_meta}}
+  </div>
+
+
+</div>
+
+{{#if header-image }}
+  {{#isnt header-image-suppress true}}
+    <div class="detail-media">
+
+        <div class="detail-item">
+          <div class="item-img-outer item-media loading-ani lead-media">
+            <div class='img-wrap'><img class="item-img img-map" hidefocus='true' id="hero-img" usemap="#hero-img-map" src="{{header-image}}" alt="{{title}}"/></div>
+          </div>
+          {{#if header-image-caption}}
+            <div class="img-caption">
+              <span class='caption'>
+
+                {{#if header-image-caption-link}}
+                  <a href="{{{header-image-caption-link}}}" target="_blank">{{header-image-caption}}</a>
+                {{else}}
+                  {{{header-image-caption}}}
+                {{/if}}
+
+              </span>
+            </div>
+          {{/if}}
+        </div>
+    </div>
+  {{/isnt}}
+{{/if}}
+
+{{#if medium-url}}
+  <ul class="detail-links" ng-show="workCur.projectLinksArr.length > 0">
+    <li ><a href="{{medium-url}}" class="btn btn-default btn-sm" target="_blank"><i class="fa fa-lg fa-external-link"></i> Reposted on Medium</a></li>
+    {{!<li ><a href="" class="btn btn-default btn-sm" target="_blank">Comment on Hacker News</a></li>}}
+  </ul>
+{{/if}}
+
+

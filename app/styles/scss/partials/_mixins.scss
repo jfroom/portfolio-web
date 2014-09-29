@@ -1,0 +1,13 @@
+@mixin sectionSplitter(){
+    &:before{
+      width:20%;
+      display:block;
+      margin:$grid-gutter-width auto;
+      border-top: 1px solid $gray-lighter;
+      content: '';
+    }
+}
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html >
+  <!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+  <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+    <head>
+      <meta charset="utf-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+      <title>{{#is basename "index"}}{{title}}{{else}}{{title}} | {{settings.PORTFOLIO_SITE_TITLE}}{{/is}}</title>
+
+        {{#is basename "index"}}
+          <!-- build:css(.tmp) {{pathToRoot}}/styles/css/blog.min.css -->
+        {{else}}
+          {{! odd side effect of correctly linking is that this will produce compile folder on root }}
+          <!-- build:css(.tmp) ../../styles/css/blog.min.css -->
+        {{/is}}
+        <link rel="stylesheet" href="/styles/css/blog.css" />
+        <!-- endbuild -->
+
+      {{>head_meta}}
+      {{>head}}
+    </head>
+    <body class="blog" data-offcanvas-nav data-offcanvas-nav-xMax="{{settings.OFFCANVAS_NAV_X_MAX}}" >
+
+      {{>navbar_offcanvas}}
+
+      <div class="flyout-cover offcanvas-slide"></div>
+
+      <header class="navbar-top offcanvas-slide">
+        {{>navbar}}
+      </header>
+
+      <div class="page scrollable offcanvas-slide">
+        <!-- Upgrade browser. -->
+        {{>upgrade_browser}}
+
+        <!-- Page content -->
+        <main role="main">
+          <a id="top" class="anchor"></a>
+          {{#is basename "index"}}
+            <section role="index" class="container">
+              {{>post_index}}
+            </section>
+          {{else}}
+            <article role="blog" class="container">
+              <div class="wordcount blog-detail">
+
+                {{>post_head}}
+                <div class="detail-desc-wrap">
+                  <div class="detail-desc">
+
+
+                    <div class="description">
+                      {{#markdown}}
+                        {{>body}}
+                      {{/markdown}}
+                    </div>
+                    {{>post_comments}}
+                    {{>post_footer}}
+                  </div>
+                </div>
+              </div>
+
+            </article>
+          {{/is}}
+
+        </main>
+
+
+        <!-- Main docs footer -->
+        {{>footer}}
+      </div>
+
+
+    {{>inc_btm_data}}
+    {{>inc_btm_files}}
+    {{>inc_btm_tags}}
+
+    {{! defined on page level for things that have dependencies}}
+    {{#if pageBottomInclude}}
+      {{{pageBottomInclude}}}
+    {{/if}}
+
+
+    </body>
+  </html>
+

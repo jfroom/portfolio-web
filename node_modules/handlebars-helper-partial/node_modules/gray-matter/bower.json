@@ -1,0 +1,7 @@
+{
+  "name": "gray-matter",
+  "version": "0.2.7",
+  "main": [
+    "index.js"
+  ]
+}

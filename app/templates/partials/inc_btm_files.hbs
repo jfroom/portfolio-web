@@ -1,0 +1,72 @@
+<script>
+  {{{ globRaw 'app/scripts/vendor/css_browser_selector.min.js' }}}
+</script>
+
+{{#contains absolute "/blog/"}}
+
+  <!-- build:js(.tmp) /scripts/frontend_blog_libs.min.js -->
+  <!-- any files added here must be added to ./tasks/options/copy.js dev_bowerComponents -->
+  <script src="/bower_components/jquery/jquery.min.js"></script>
+
+  <script src="/bower_components/firebase/firebase.js"></script>
+  <script src="/bower_components/store-js/store.js"></script>
+  <script src="/bower_components/fastclick/lib/fastclick.js"></script>
+  <script src="/bower_components/lodash/dist/lodash.min.js"></script>
+  <script src="/scripts/vendor/bootstrap-scrollspy.2.3.min.js"></script>
+  <script src="/scripts/plugins/linkExternal.js"></script>
+  <!--<script src="/scripts/vendor/gplus-youtubeembed.js"></script>-->
+  <script src="/scripts/vendor/jquery.rwdImageMaps.js"></script>
+  <script src="/scripts/vendor/vendor-start.js"></script>
+
+  <!-- endbuild -->
+
+  <!-- build:js(.tmp) /scripts/frontend_blog_bottom_inc.min.js -->
+  <script src="/scripts/plugins/offcanvasNav.js"></script>
+  <script src="/scripts/blog/blog.js"></script>
+  <!-- endbuild -->
+
+
+{{else}}
+  <!-- build:js(.tmp) ./scripts/frontend_libs.min.js -->
+  <!-- any files added here must be added to ./tasks/options/copy.js dev_bowerComponents -->
+  <script src="/bower_components/jquery/jquery.min.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/fastclick/lib/fastclick.js"></script>
+  <script src="/bower_components/angular-route/angular-route.min.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+  <script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="/bower_components/moment/moment.js"></script>
+  <script src="/bower_components/angular-moment/angular-moment.js"></script>
+  <script src="/bower_components/showdown/compressed/showdown.js"></script>
+  <script src="/bower_components/lodash/dist/lodash.min.js"></script>
+  <script src="/bower_components/log4javascript/log4javascript.js"></script>
+  <script src="/scripts/vendor/bootstrap-scrollspy.2.3.min.js"></script>
+
+  <script src="/scripts/vendor/vendor-start.js"></script>
+  <!-- endbuild -->
+
+  <!--
+  <script src="bower_components/bootstrap-sass/js/scrollspy.js"></script>
+  <script src="bower_components/eventie/eventie.js"></script>
+  <script src="bower_components/eventEmitter/eventEmitter.js"></script>
+  <script src="bower_components/imagesloaded/imagesloaded.js"></script>
+  <script src="bower_components/bootstrap-sass/dist/js/bootstrap.min.js"></script>
+  -->
+
+  <!-- build:js(.tmp) ./scripts/frontend_bottom_inc.min.js -->
+  <script src="/scripts/common/services/utils.js"></script>
+  <script src="/scripts/common/services/navigation.js"></script>
+  <script src="/scripts/common/services/log.js"></script>
+  <script src="/scripts/common/filters/accessor.js"></script>
+  <script src="/scripts/common/filters/sanitize.js"></script>
+  <script src="/scripts/common/directives/utils.js"></script>
+  <script src="/scripts/common/directives/video.js"></script>
+  <script src="/scripts/common/directives/image.js"></script>
+  <script src="/scripts/common/directives/html.js"></script>
+  <script src="/scripts/plugins/offcanvasNav.js"></script>
+  <script src="/scripts/app/app.js"></script>
+  <script src="/scripts/app/enums/enums.js"></script>
+  <script src="/scripts/app/work/work.js"></script>
+  <!-- endbuild -->
+
+{{/contains}}

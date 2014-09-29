@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>plugins/offcanvasNav.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+      <p class="stat">61.23</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
+      <p class="stat">453</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
+      <p class="stat">75.54</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+      <p class="stat">6.07</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(function() {
+  (function(window, document, $) {
+    var $body, opts;
+    window.OffcanvasNav = function(options) {
+      var log, publicAPI, self, settings, startTime;
+      settings = {
+        debug: false,
+        coverSelector: &quot;.flyout-cover&quot;,
+        slideTargetSelector: &quot;.offcanvas-slide&quot;,
+        toggleBtnSelector: &quot;.navbar-toggle&quot;,
+        offcanvasNavSelector: &quot;header.flyout&quot;,
+        coverActiveClass: &quot;flyout-active&quot;,
+        coverOpenClass: &quot;flyout-open&quot;,
+        widthBreakPoint: 768,
+        xMax: 150,
+        xMin: 0,
+        xMoveThresholdForClick: 10,
+        coverActiveZindex: 100,
+        animationDuration: 400,
+        closeWhenInnerLinksClicked: true
+      };
+      settings = $.extend(settings, options);
+      startTime = new Date();
+      log = function(msg) {
+        var endTime, timeDiff;
+        endTime = new Date();
+        timeDiff = endTime - startTime;
+        if (settings.debug) {
+          return typeof console !== &quot;undefined&quot; &amp;&amp; console !== null ? console.log(&quot;[offcanvas &quot; + timeDiff + &quot;] &quot; + msg) : void 0;
+        }
+      };
+      self = {
+        touchStartX: 0,
+        isTouchDown: false,
+        xCur: 0,
+        $cover: null,
+        $toggleBtn: null,
+        $slideTargets: null,
+        isOpen: false,
+        hasDragged: false,
+        xCoverDragStart: 0,
+        offcanvasDelay_id: 0,
+        EVENT_OFFCANVASNAV_CLOSE: &quot;offcanvasnav-close&quot;,
+        EVENT_OFFCANVASNAV_TRANSITION_CLOSE_COMPLETE: &quot;offcanvasnav-transition-close-complete&quot;,
+        EVENT_OFFCANVASNAV_TRANSITION_OPEN_COMPLETE: &quot;offcanvasnav-transition-open-complete&quot;,
+        CLASS_OFFCANVAS_READY: &quot;offcanvasnav-ready&quot;,
+        init: function() {
+          var _;
+          _ = this;
+          return _.startup();
+        },
+        startup: function() {
+          var _;
+          _ = this;
+          _.$cover = $(settings.coverSelector);
+          _.$slideTargets = $(settings.slideTargetSelector);
+          _.$offcanvasNav = $(settings.offcanvasNavSelector);
+          _.$toggleBtn = $(settings.toggleBtnSelector);
+          _.$toggleBtn.data(&quot;offcanvas_isToggleBtn&quot;, true);
+          _.handleWindowResize();
+          _.offcanvasActivate(false);
+          _.bindToggleBtn(true);
+          if (settings.closeWhenInnerLinksClicked) {
+            _.bindInnerLinkEvents(true);
+          }
+          return $(&quot;html&quot;).addClass(_.CLASS_OFFCANVAS_READY);
+        },
+        close: function() {
+          var _;
+          _ = this;
+          log(&#039;close isOpen? _.isOpen:&#039; + _.isOpen);
+          if (_.isOpen) {
+            _.coverOpenToggle(false);
+            return _.coverActivate(false);
+          }
+        },
+        open: function() {
+          var _;
+          _ = this;
+          log(&#039;open isOpen? _.isOpen:&#039; + _.isOpen);
+          if (!_.isOpen) {
+            _.coverOpenToggle(true);
+            return _.coverActivate(true);
+          }
+        },
+        getIsOpen: function() {
+          return this.isOpen;
+        },
+        destroy: function() {
+          var publicAPI, _;
+          _ = this;
+          _.close();
+          _.bindToggleBtn(false);
+          $(&quot;html&quot;).removeClass(_.CLASS_OFFCANVAS_READY);
+          self = null;
+          return publicAPI = null;
+        },
+        bindToggleBtn: function(bol) {
+          var _;
+          _ = this;
+          _.$toggleBtn.unbind(&#039;click&#039;, $.proxy(_.handleToggleBtnClick, _));
+          if (bol) {
+            return _.$toggleBtn.bind(&quot;click&quot;, $.proxy(_.handleToggleBtnClick, _));
+          }
+        },
+        handleToggleBtnClick: function(e) {
+          var _;
+          _ = this;
+          log(&quot;handleToggleBtnClick &quot; + _.isOpen);
+          return _.toggleOffCanvasNav(!_.isOpen);
+        },
+        toggleOffCanvasNav: function(bol) {
+          var _;
+          _ = this;
+          if (_.isOpen &amp;&amp; !bol) {
+            return _.close();
+          } else if (!_.isOpen &amp;&amp; bol) {
+            return _.open();
+          }
+        },
+        offcanvasActivate: function(bol) {
+          var _;
+          _ = this;
+          if (bol) {
+            _.$offcanvasNav.css({
+              &quot;visibility&quot;: &quot;visible&quot;
+            });
+          } else {
+            _.$offcanvasNav.css({
+              &quot;visibility&quot;: &quot;hidden&quot;
+            });
+          }
+          return _.bindToggleBtn(!bol);
+        },
+        coverActivate: function(bol) {
+          var _;
+          _ = this;
+          log(&#039;coverActivate &#039; + bol);
+          _.hasDragged = false;
+          if (bol) {
+            _.bindGeneralEvents(true);
+            _.bindEvents(_.$cover, true);
+            _.$cover.css({
+              &quot;z-index&quot;: settings.coverActiveZindex
+            });
+            return _.handleWindowResize();
+          } else {
+            _.bindEvents(_.$cover, false);
+            _.$cover.css({
+              &quot;z-index&quot;: &quot;&quot;
+            });
+            return _.bindGeneralEvents(false);
+          }
+        },
+        coverOpenToggle: function(bol, aniTime, delay) {
+          var targetX, _;
+          if (aniTime == null) {
+            aniTime = -1;
+          }
+          if (delay == null) {
+            delay = 0;
+          }
+          log(&#039;coverOpenToggle &#039; + bol);
+          _ = this;
+          targetX = bol ? settings.xMax : settings.xMin;
+          if (aniTime === -1) {
+            aniTime = settings.animationDuration;
+          }
+          _.isOpen = bol;
+          if (bol) {
+            _.xCur = _.xCoverDragStart = settings.xMax;
+            _.offcanvasActivate(true);
+          } else {
+            _.xCur = _.xCoverDragStart = settings.xMin;
+            clearTimeout(_.offcanvasDelay_id);
+            _.offcanvasDelay_id = setTimeout(function() {
+              return _.offcanvasActivate(false);
+            }, delay + aniTime + 50);
+            _.coverActivate(false);
+          }
+          return _.targetsTransition(targetX, aniTime, delay);
+        },
+        coverDeltaX: function(deltaX) {
+          var newX, _;
+          _ = this;
+          newX = settings.xMax + deltaX;
+          if (newX &lt; settings.xMin) {
+            newX = settings.xMin;
+          } else if (newX &gt; settings.xMax) {
+            newX = settings.xMax;
+          }
+          return newX;
+        },
+        coverPlaceDeltaX: function(deltaX) {
+          var hasChanged, newX, per, val, _;
+          _ = this;
+          hasChanged = false;
+          newX = _.xCoverDragStart + deltaX;
+          if (newX &lt; settings.xMin) {
+            newX = settings.xMin;
+          } else if (newX &gt; settings.xMax) {
+            newX = settings.xMax;
+          }
+          val = &quot;translate(&quot; + newX + &quot;px, 0)&quot;;
+          hasChanged = _.xCur !== newX;
+          _.xCur = newX;
+          _.targetsTransition(newX);
+          per = newX / (settings.xMax - settings.xMin);
+          return hasChanged;
+        },
+        targetsTransition: function(x, time, delay) {
+          var ob, transform, transition, transitionDelay, transitionEndEvents, _;
+          _ = this;
+          transition = transitionDelay = transform = &quot;&quot;;
+          if (x !== void 0) {
+            transform = &quot;translate(&quot; + x + &quot;px, 0)&quot;;
+            if (time !== void 0) {
+              transition = &quot;transform &quot; + time + &quot;ms ease&quot;;
+              if (delay !== void 0 &amp;&amp; delay &gt; 0) {
+                transitionDelay = delay + &quot;ms&quot;;
+              }
+            }
+            log(&quot;targetsTrans x:&quot; + x + &quot; time:&quot; + time + &quot;delay:&quot; + delay + &quot; transform:&quot; + transform + &quot; transitionDelay:&quot; + transitionDelay + &quot; transition:&quot; + transition);
+            if (!Modernizr.cssanimations) {
+              ob = {
+                &quot;left&quot;: targetX + &quot;px&quot;
+              };
+              _.$slideTargets.css(ob);
+              return _.handleTargetsTransitionEnd();
+            } else {
+              if (delay &gt; 0 &amp;&amp; time === 0) {
+                time = 1;
+              }
+              transitionEndEvents = &#039;transitionend MSTransitionEnd webkitTransitionEnd oTransitionEnd&#039;;
+              _.$slideTargets.eq(0).unbind(transitionEndEvents, $.proxy(_.handleTargetsTransitionEnd, _)).bind(transitionEndEvents, $.proxy(_.handleTargetsTransitionEnd, _));
+              _.$slideTargets.css({
+                &quot;-webkit-transform&quot;: transform,
+                &quot;-ie-transform&quot;: transform,
+                &quot;transform&quot;: transform,
+                &quot;-webkit-transition&quot;: &quot;-webkit-&quot; + transition,
+                &quot;-ie-transition&quot;: &quot;-webkit-&quot; + transition,
+                &quot;transition&quot;: transition,
+                &quot;-ie-transition-delay&quot;: transitionDelay,
+                &quot;-webkit-transition-delay&quot;: transitionDelay,
+                &quot;transition-delay&quot;: transitionDelay
+              });
+              if (time === 0 &amp;&amp; delay === 0) {
+                return _.handleTargetsTransitionEnd();
+              }
+            }
+          }
+        },
+        handleTargetsTransitionEnd: function(e) {
+          var _;
+          _ = this;
+          log(&#039;\
+handleTargetsTransitionEnd isOpen:&#039; + _.isOpen + &#039; _.xCur:&#039; + _.xCur);
+          if (_.isOpen &amp;&amp; _.xCur === settings.xMax) {
+            log(&#039;&quot;handleTargetsTransitionEnd EVENT_OFFCANVASNAV_TRANSITION_OPEN_COMPLETE&#039;);
+            return $(_).trigger(_.EVENT_OFFCANVASNAV_TRANSITION_OPEN_COMPLETE);
+          } else if (!_.isOpen &amp;&amp; _.xCur === settings.xMin) {
+            log(&#039;&quot;handleTargetsTransitionEnd EVENT_OFFCANVASNAV_TRANSITION_CLOSE_COMPLETE&#039;);
+            return $(_).trigger(_.EVENT_OFFCANVASNAV_TRANSITION_CLOSE_COMPLETE);
+          }
+        },
+        bindGeneralEvents: function(bol) {
+          var _;
+          _ = this;
+          $(window).unbind(&#039;resize&#039;, $.proxy(_.handleWindowResize, _)).unbind(&#039;orientationchange&#039;, $.proxy(_.handleOrientationChange, _)).unbind(&#039;touchmove mousemove&#039;, $.proxy(_.handleCoverTouchMove, _)).unbind(&#039;touchend mouseup&#039;, $.proxy(_.handleCoverTouchUp, _));
+          $(document).unbind(&#039;touchmove&#039;, $.proxy(_.handleEventPrevent, _));
+          if (bol) {
+            $(window).bind(&#039;resize&#039;, $.proxy(_.handleWindowResize, _)).bind(&#039;orientationchange&#039;, $.proxy(_.handleOrientationChange, _)).bind(&#039;touchmove mousemove&#039;, $.proxy(_.handleCoverTouchMove, _)).bind(&#039;touchend mouseup&#039;, $.proxy(_.handleCoverTouchUp, _));
+            return $(document).bind(&#039;touchmove&#039;, $.proxy(_.handleEventPrevent, _));
+          }
+        },
+        bindEvents: function($target, bol) {
+          var _;
+          _ = this;
+          $target.unbind(&#039;touchstart mousedown&#039;, $.proxy(_.handleCoverTouchDown, _)).unbind(&#039;touchmove mousemove&#039;, $.proxy(_.handleCoverTouchMove, _)).unbind(&#039;touchend mouseup&#039;, $.proxy(_.handleCoverTouchUp, _)).unbind(&#039;click&#039;, $.proxy(_.handleCoverTouchUp, _));
+          if (bol) {
+            return $target.bind(&#039;touchstart mousedown&#039;, $.proxy(_.handleCoverTouchDown, _)).bind(&#039;touchcancel&#039;, $.proxy(_.handleCoverTouchCancel, _)).bind(&#039;touchend mouseup&#039;, $.proxy(_.handleCoverTouchUp, _)).bind(&#039;click&#039;, $.proxy(_.handleCoverTouchUp, _));
+          }
+        },
+        bindInnerLinkEvents: function(bol) {
+          var $links, _;
+          _ = this;
+          $links = _.$offcanvasNav.find(&#039;a&#039;);
+          $links.unbind(&#039;click tap&#039;, $.proxy(_.handleInnerLinkClick, _));
+          if (bol) {
+            return $links.bind(&#039;click tap&#039;, $.proxy(_.handleInnerLinkClick, _));
+          }
+        },
+        handleCoverClick: function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+          return log(&#039;click&#039;);
+        },
+        handleCoverTouchDown: function(e) {
+          var _;
+          _ = this;
+          e.preventDefault();
+          _.hasDragged = false;
+          _.isTouchDown = true;
+          _.touchStartX = _.getTouchX(e);
+          _.touchLastX = _.touchStartX;
+          if (!_.isOpen) {
+            _.coverActivate(true);
+            _.handleCoverTouchMove(e);
+          }
+          return log(&quot;touch start &quot; + _.touchStartX + &quot; toggleBtn? &quot; + $(e.target).data(&quot;offcanvas_isToggleBtn&quot;));
+        },
+        handleCoverTouchMove: function(e) {
+          var deltaX, deltaX2, touchX, _;
+          _ = this;
+          e.preventDefault();
+          if (_.isTouchDown) {
+            touchX = _.getTouchX(e);
+            _.touchLastX = touchX;
+            deltaX = touchX - _.touchStartX;
+            deltaX2 = deltaX;
+            return _.hasDragged = _.coverPlaceDeltaX(deltaX);
+          }
+        },
+        handleCoverTouchUp: function(e) {
+          var bolDoClose, midX, touchDeltaX, touchX, _;
+          _ = this;
+          log(&quot;!!cover touch end _.isTouchDown:&quot; + _.isTouchDown + &quot; _.xCoverDragStart:&quot; + _.xCoverDragStart + &quot; isOpen:&quot; + _.isOpen + &quot; hasDragged:&quot; + _.hasDragged + &quot; xcur:&quot; + _.xCur + &quot; e.type:&quot; + e.type);
+          if (e.type === &#039;click&#039;) {
+            _.isTouchDown = true;
+            _.touchStartX = _.touchLastX = _.getTouchX(e);
+          }
+          if (_.isTouchDown) {
+            _.isTouchDown = false;
+            touchX = _.touchLastX;
+            touchDeltaX = Math.abs(touchX - _.touchStartX);
+            log(&quot;touchDeltaX:&quot; + touchDeltaX + &quot; _touchStartX:&quot; + _.touchStartX + &quot; touchX:&quot; + touchX);
+            if (_.xCur &gt;= settings.xMax) {
+              if (touchDeltaX &lt; settings.xMoveThresholdForClick || isNaN(touchDeltaX)) {
+                log(&#039;handleCoverTouchUp going for closed from full open&#039;);
+                return _.coverOpenToggle(false);
+              }
+            } else {
+              midX = .75 * (settings.xMax + settings.xMin);
+              bolDoClose = _.xCur &lt;= midX;
+              log(&quot;midX:&quot; + midX + &quot; xCur:&quot; + _.xCur + &quot;touchDeltaX:&quot; + touchDeltaX + &quot; xMax&quot; + settings.xMax + &quot; bolDoOpen:&quot; + &quot; bolDoClose:&quot; + bolDoClose + &quot; isOpen:&quot; + _.isOpen + &quot; _.xCoverDragStart:&quot; + _.xCoverDragStart);
+              if (bolDoClose) {
+                log(&#039;handleCoverTouchUp going for closed&#039;);
+                return _.coverOpenToggle(false);
+              } else {
+                log(&#039;handleCoverTouchUpgoing for open&#039;);
+                return _.coverOpenToggle(true);
+              }
+            }
+          }
+        },
+        handleCoverTouchCancel: function() {
+          var _;
+          _ = this;
+          log(&quot;handleCoverTouchCancel&quot;);
+          return _.isTouchDown = false;
+        },
+        handleEventPrevent: function(e) {
+          return e.preventDefault();
+        },
+        handleOrientationChange: function(e) {
+          var _;
+          _ = this;
+          return _.close();
+        },
+        handleWindowResize: function() {
+          var $doc, _;
+          _ = this;
+          $doc = $(document);
+          _.$cover.width($doc.width()).height($doc.height());
+          $(&#039;header.flyout .nav&#039;).height($doc.height() + 100);
+          log(&#039;handleWindowResize _.isOpen:&#039; + _.isOpen + &quot; doc.width:&quot; + $doc.width() + &quot; breakpoint:&quot; + settings.widthBreakPoint);
+          if (_.isOpen) {
+            if ($doc.width() &gt;= settings.widthBreakPoint) {
+              log(&#039;handleWindowResize gong for closed&#039;);
+              return _.coverOpenToggle(false);
+            }
+          }
+        },
+        setWidthBreakPoint: function(w) {
+          var _;
+          _ = this;
+          settings.widthBreakPoint = w;
+          return _.handleWindowResize();
+        },
+        getWidthBreakPoint: function() {
+          return settings.widthBreakPoint;
+        },
+        bindAPIEvent: function(eventType, cb) {
+          var _;
+          _ = this;
+          return $(_).bind(eventType, cb);
+        },
+        unbindAPIEvent: function(eventType, cb) {
+          var _;
+          _ = this;
+          return $(_).unbind(eventType, cb);
+        },
+        handleInnerLinkClick: function(e) {
+          var _;
+          _ = this;
+          return _.close();
+        },
+        getTouchX: function(e) {
+          var ee, err, x;
+          ee = e;
+          if (e.originalEvent) {
+            ee = e.originalEvent;
+          }
+          x = ee.pageX;
+          if (Modernizr.touch) {
+            try {
+              x = ee.touches[0].pageX;
+            } catch (_error) {
+              err = _error;
+              x = ee.pageX;
+            }
+          }
+          return x;
+        }
+      };
+      self.init();
+      publicAPI = {
+        settings: self.settings,
+        open: $.proxy(self.open, self),
+        close: $.proxy(self.close, self),
+        destroy: $.proxy(self.destroy, self),
+        getIsOpen: $.proxy(self.getIsOpen, self),
+        setWidthBreakPoint: $.proxy(self.setWidthBreakPoint, self),
+        getWidthBreakPoint: $.proxy(self.getWidthBreakPoint, self),
+        bind: $.proxy(self.bindAPIEvent, self),
+        unbind: $.proxy(self.unbindAPIEvent, self),
+        EVENT_OFFCANVASNAV_TRANSITION_CLOSE_COMPLETE: self.EVENT_OFFCANVASNAV_TRANSITION_CLOSE_COMPLETE,
+        EVENT_OFFCANVASNAV_TRANSITION_OPEN_COMPLETE: self.EVENT_OFFCANVASNAV_TRANSITION_OPEN_COMPLETE
+      };
+      return publicAPI;
+    };
+    $body = $(&quot;html body&quot;);
+    if ($body.attr(&quot;data-offcanvas-nav&quot;) !== void 0) {
+      opts = {};
+      if ($body.attr(&quot;data-offcanvas-nav-xMax&quot;) !== void 0) {
+        opts.xMax = parseInt($body.attr(&quot;data-offcanvas-nav-xMax&quot;), 10);
+      }
+      return window.offcanvasNav = new window.OffcanvasNav(opts);
+    }
+  })(window, document, $);
+
+}).call(this);</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

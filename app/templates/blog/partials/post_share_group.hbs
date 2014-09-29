@@ -1,0 +1,23 @@
+ <div class="share-group">
+
+    <span class="detail-views"><i class="fa fa-eye"></i> <span class='count'>&hellip;</span> views</span>
+
+    <!-- FB -->
+    <div class="fb-like" data-href="http://{{settings.PRODUCTION_HOSTNAME}}/blog/{{basename}}/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+
+    <!-- TWITTER -->
+    <a href="https://twitter.com/share" class="twitter-share-button" data-counturl="http://{{settings.PRODUCTION_HOSTNAME}}/blog/{{basename}}/" data-text='"{{title}}" by @{{settings.TWITTER_USERNAME}}' xdata-via="{{settings.TWITTER_USERNAME}}">Tweet</a>
+
+    <!-- GOOGLE PLUS -->
+
+    <span class="g-plusone-wrap">
+      <div class="g-plusone" data-size="medium" data-annotation="none"  data-href="http://{{settings.PRODUCTION_HOSTNAME}}/blog/{{basename}}/"></div>
+    </span>
+
+    <span class="g-plus-wrap">
+      <div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://{{settings.PRODUCTION_HOSTNAME}}/blog/{{basename}}/"></div>
+    </span>
+
+
+
+  </div>

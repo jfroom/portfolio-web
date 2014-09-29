@@ -1,0 +1,236 @@
+/*.mobile body{
+  font-size:14px;
+}*/
+
+body{
+  overflow-x:hidden;
+  overflow-y:auto;
+  background-color:#fff;
+}
+.android body{
+  padding-top:0;
+}
+
+@media only screen and (orientation : landscape) {
+  .touch body{
+    padding-top:0;
+  }
+}
+
+//
+// BOOTSTRAP CONTAINER TWEAKS
+.container{
+  padding-left: $grid-gutter-width;
+  padding-right: $grid-gutter-width;
+  width:100%;
+}
+p{
+  margin:0 0 $grid-gutter-width;
+}
+
+@media (min-width: $screen-xs) {
+  .container{
+    max-width:none;
+  }
+}
+@media (min-width: $screen-lg-desktop) {
+  .container{
+    max-width:$container-large-desktop;
+  }
+}
+
+.page{
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+.scrollable{
+  padding-top:$navbar-height;
+  background-color:#fff;
+  position:relative;
+  z-index:2;
+}
+
+// only ios has docked - see navbar.scss for pared cases
+.touch{
+  body{
+    //following code kills touch status bar to scroll to top
+    //-webkit-overflow-scrolling:touch;
+    overflow-scrolling:touch;
+  }
+  .scrollable{
+    padding-top:0;
+  }
+  &.ios .scrollable{
+    padding-top:$navbar-height;
+    &.ios5{
+      padding-top:0;
+    }
+  }
+}
+
+@media only screen and (orientation : landscape) {
+  .touch.ios{
+    padding-top:0;
+  }
+}
+//
+// TYPOGRAPHY
+h1,h2,h3,h4,h5,h6{
+  line-height: 1.42857;
+  color: $gray;
+  margin: $grid-gutter-width 0;
+}
+h1, h2, h3 {
+  color: $green;
+}
+
+a{
+  text-decoration: underline;
+}
+a.btn, nav a, .logo-list a{
+  text-decoration: none;
+}
+
+a:visited, a:focus{
+  color:$link-hover-color;
+}
+a:visited, a:focus{
+  &.btn{
+    color:#fff;
+  }
+  &.btn-default{
+    color:#000;
+  }
+}
+a.anchor {
+  position:relative;
+  top: -$navbar-height;
+  display:block;
+  visibility: hidden;
+  line-height:0;
+  font-size:0;
+}
+
+article[role="blog"]{
+  a.anchor {
+    top: -( strip-unit($navbar-height) + $grid-gutter-width);
+    visibility: visible;
+    line-height:10px;
+    font-size:10px;
+  }
+}
+
+@media only screen {
+  .touch.android, .touch.ios5{
+    top:0;
+  }
+  .touch a.anchor.top{
+    top: -$navbar-height;
+  }
+}
+
+hr.accent {
+  padding: 0;
+  border: none;
+  border-top: 1px dashed $gray-light;
+  color: $gray-light;
+  text-align: center;
+}
+
+.sectionSplitter{
+  @include sectionSplitter();
+  border-top:0;
+  margin-top:$grid-gutter-width;
+  overflow:hidden; // force wrap
+}
+
+
+span.sprite {
+  display: inline-block;
+}
+.logo-list{
+  text-align:center;
+  > a{
+    line-height:0;
+  }
+  > a:hover, > a:focus{
+    text-decoration: none
+
+  }
+
+}
+div[role=social-group] {
+  width:100%;
+
+  text-align: center;
+  ul {
+    padding-left: 0;
+    li {
+      display: inline-block;
+      list-style: none;
+      margin: 2px;
+    }
+  }
+  .email{
+    margin-left:2px;
+  }
+}
+div.indent{
+  padding-left: $padding-base-horizontal;
+}
+.well .title{
+  margin-top:0px;
+}
+.content-section{
+  @include make-row();
+  .content{
+    @include make-xs-column(12);
+  }
+}
+// DISABLE IE LONG TAPS
+a, input, button, .btn {
+  -ms-touch-action: none !important;
+}
+img.img-map, .img-map-area, .img-map{
+  outline:none;
+}
+.browser-upgrade-alert{
+  margin:20px;
+  z-index:11;
+  position:fixed;
+}
+
+.loading-ani{
+  background-color:#eee;
+  background: $gray-lighter url('../../assets/images/util/loader.ani.F666.BEEE.24x24.gif') no-repeat center center;
+}
+
+.clearboth{
+  clear:both;
+}
+.btn-link-top{
+  font-style:italic;
+  color: $gray-light;
+  width:100%;
+  text-align:right;
+  font-size:smaller;
+  text-transform: uppercase;
+  margin:5px 0;
+  .icon {
+    //color: $gray-lighter;
+  }
+  a{
+    color: $gray-light;
+    text-decoration: none;
+  }
+}
+.clearfix{
+  @include clearfix();
+}
+*{
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing: border-box;
+  white-space:normal;
+}

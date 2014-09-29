@@ -1,0 +1,35 @@
+<hr/>
+
+<h4><i class="fa fa-wrench"></i> Brand Experience</h4>
+
+<p>
+    Provided services ranging from small projects to long term relationships for global brands.
+</p>
+
+<div class="logo-list">
+    {{#each iconsData.brand}}
+    <a href="{{url}}" target="_blank" util-hover="pulse animated" alt="{{name}}">
+        <span class="sprite brand-{{id}} js-hover-target"></span>
+    </a>
+    {{/each}}
+
+</div>
+
+
+<hr/>
+
+
+<h4><i class="fa fa-fire"></i> Recognition</h4>
+
+<p>
+    Key technical member on dozens of projects celebrated by industry tastemakers. <a href="{{settings.PORTFOLIO_LINKEDIN}}" target="_blank">Learn more</a>.
+</p>
+
+<div class="logo-list">
+    {{#each iconsData.recognition}}
+    <a href="{{url}}" target="_blank" util-hover="pulse animated" alt="{{name}}">
+        <span class="sprite recog-{{id}} js-hover-target"></span>
+    </a>
+    {{/each}}
+
+</div>

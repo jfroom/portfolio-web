@@ -1,0 +1,53 @@
+
+<script type="text/javascript">
+  {{{ globRaw 'app/scripts/vendor/modernizr.2.6.2.custom.js'}}}
+  //https://raw.github.com/matthewlein/Modernizr/master/feature-detects/pixel-density.js
+  Modernizr.addTest('highres', function() {
+    // for opera
+    var ratio = '2.99/2';
+    // for webkit
+    var num = '1.499';
+    var mqs = [
+      'only screen and (-o-min-device-pixel-ratio:' + ratio + ')',
+      'only screen and (min--moz-device-pixel-ratio:' + ratio + ')',
+      'only screen and (-webkit-min-device-pixel-ratio:' + num + ')',
+      'only screen and (min-device-pixel-ratio:' + num + ')'
+    ];
+    var isHighRes = false;
+
+    // loop through vendors, checking non-prefixed first
+    for (var i = mqs.length - 1; i >= 0; i--) {
+      isHighRes = Modernizr.mq( mqs[i] );
+      // if found one, return early
+      if ( isHighRes ) {
+        return isHighRes;
+      }
+    }
+    // not highres
+    return isHighRes;
+
+  });
+</script>
+
+<!-- GOOGLE FONTS
+http://www.google.com/fonts/#UsePlace:use/Collection:Open+Sans:400italic,700italic,400,700|Roboto+Slab:400,300
+-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700|Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
+
+{{!
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Open+Sans:400italic,700italic,400,700:latin', 'Roboto+Slab:300,400:latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    //s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+}}
+

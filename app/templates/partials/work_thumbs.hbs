@@ -1,0 +1,21 @@
+<div class="work-thumb-container">
+  <div class="work-thumb-list small-block-grid-2 large-block-grid-4">
+  {{#each workData.projects}}
+      <div class="work-thumb-item">
+        <a href="#!/work/{{id}}" util-change-path="/work/{{id}}" class="item-link">
+          <div class="item-img-outer loading-ani" ><div class="item-img-inner"><img src="{{thumbImage}}" alt="{{client}} › {{title}}" src="" class="item-img"></div></div>
+
+          <div class="item-title-outer">
+            <div class="item-title">
+              <div class="item-title-txt-outer">
+                <div class="item-title-txt">{{title}}</div>
+              </div>
+            </div>
+          </div>
+
+
+        </a>
+      </div>
+  {{/each}}
+  </div>
+</div>

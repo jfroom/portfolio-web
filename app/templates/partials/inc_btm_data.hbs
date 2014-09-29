@@ -1,0 +1,20 @@
+<script>
+  window.appData = {
+    "build": "{{settings.BUILD}}"
+    ,"productionHostname": "{{settings.PRODUCTION_HOSTNAME}}"
+    ,"devHostname": "{{settings.DEV_HOSTNAME}}"
+    ,"firebaseBlogDomain": "{{settings.FIREBASE_BLOG_DOMAIN}}"
+
+    {{#contains absolute "/blog/"}}
+      ,"page_id": "{{#if page_id}}{{page_id}}{{else}}{{basename}}{{/if}}"
+
+    {{else}}
+      {{#is settings.PORTFOLIO_WORK_SHOW 'true'}}
+        ,"work": {{{globRaw '.tmp/assets/data/workData.json'}}}
+        ,"humans": {{{globRaw '.tmp/assets/data/humansData.json'}}}
+        ,"icons": {{{globRaw '.tmp/assets/data/iconsData.json'}}}
+      {{/is}}
+
+    {{/contains}}
+  };
+</script>

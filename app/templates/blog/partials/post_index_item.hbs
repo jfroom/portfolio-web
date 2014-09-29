@@ -1,0 +1,35 @@
+
+<li class=" category-{{#withFirst data.categories}}{{hyphenate this}}{{/withFirst}}">
+  <a href ="{{this.basename}}" class="info-wrap">
+    <span class="info">
+
+      <span class="title h2">{{data.title}}</span>
+      <span class="categories">
+        <span >
+          {{#commalist data.categories}}<span class="category-type category-type-{{hyphenate this}}"><i class="fa fa-book"></i> {{capitalizeEach this}}</span>{{/commalist}}
+        </span>
+      </span>
+      <span class="read-time"><i class="fa fa-bookmark"></i> {{data.read-time}} min read</span>
+      <span class="date">
+        <i class="fa fa-calendar"></i> {{moment data.date format = "YYYY MMMM Do " }}
+      </span>
+
+
+      <span class="description">
+        {{data.description}}
+
+      </span>
+
+
+
+
+      <!--
+      <span class="tags">
+        <i class="fa fa-tags"></i>
+        {{#commalist data.tags}}<span>{{this}}</span>{{/commalist}}
+      </span>
+      -->
+    </span>
+    <span class="thumb loading-ani"><img src="{{data.micro-image}}" class="thumb-img" alt="{{data.title}}" /></span>
+  </a >
+</li>

@@ -1,0 +1,45 @@
+
+.btn-xs {
+  font-size: 10px;
+}
+
+.btn{
+  //border-color:transparent;
+}
+.btn-default{
+  border-color:#ccc;
+}
+.btn-primary{
+  background-color:$blue;
+}
+.btn-success{
+  background-color:$green;
+  border-color:darken($green, 5%);
+  &:hover{
+    border-color:darken($green, 10%);
+    background-color: darken($green, 5%);
+  }
+}
+.touch {
+
+  /*.btn-primary{
+    &:hover, &:focus, &:active{
+      background-color:$btn-primary-bg;
+      border-color: $btn-primary-border;
+    }
+  }
+  .btn-default{
+    &:hover, &:focus, &:active{
+      background-color:$btn-default-bg;
+      border-color: $btn-default-border;
+    }
+  }*/
+
+  .btn{
+    &:hover, &:focus, &:active{
+      box-shadow:none;
+      -webkit-box-shadow:none;
+    }
+  }
+
+}

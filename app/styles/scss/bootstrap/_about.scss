@@ -1,0 +1,42 @@
+section[role=about] {
+
+  .bio {
+    @include make-row();
+    .header{
+      @include make-xs-column(12);
+      margin-bottom: $grid-gutter-width;
+    }
+    .subheader{
+      margin-top:$grid-gutter-width;
+      margin-bottom:$grid-gutter-width *.5;
+
+      i.fa{
+        min-width:15px;
+      }
+    }
+    p {
+      margin-bottom: $grid-gutter-width * .5;
+    }
+    .subheader:nth-child(1){
+      margin-top:0;
+    }
+
+    .content {
+      @include make-xs-column(12);
+      @include make-sm-column(5);
+    }
+    .subcontent{
+      margin-left:19px;
+    }
+    // Generate the small column offsets
+    @mixin make-xs-column-offset($columns) {
+      margin-left: percentage(($columns / $grid-columns));
+
+    }
+    .content:nth-child(3){
+      //@include make-xs-column-offset(0);
+      @include make-sm-column-offset(1);
+
+    }
+  }
+}

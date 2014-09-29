@@ -1,0 +1,54 @@
+
+<style>
+  body{
+    margin:0;
+    padding:0;
+    background-color:#000;
+    font-family:Arial;
+  }
+  .nav{
+    background-color:#5a6600;
+    position:absolute;
+    z-index:1;
+    padding:10px;
+    min-width:130px;
+
+  }
+  .nav-toggle{
+
+  }
+  .flyout-cover{
+    display:block;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color:rgba(0,0,0,0);
+    cursor:pointer;
+  }
+  .page{
+    background-color:#0088cc;
+    position:relative;
+    z-index:10;
+    min-height:500px;
+    min-width:500px;
+    padding:10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+</style>
+<header role="flyout" class="flyout">
+  <div class="nav">
+
+    <ul class="nav-links">
+      <li><a href="#link1">Link 1</a></li>
+      <li><a href="#link2">Link 2</a></li>
+      <li><a href="#link3">Link 3</a></li>
+    </ul>
+  </div>
+</header>
+<div class="flyout-cover offcanvas-slide"></div>
+<div class='page scrollable offcanvas-slide'>
+  <button class="navbar-toggle">Slide Link</button>
+  <p>body of page</p>
+</div>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>app/work/work.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+      <p class="stat">65.38</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
+      <p class="stat">189</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
+      <p class="stat">41.00</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+      <p class="stat">2.12</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(function() {
+  angular.module(&quot;app.work&quot;, [&quot;app&quot;, &quot;app.enums&quot;, &quot;services.utils&quot;, &quot;services.log&quot;, &quot;filters.accessor&quot;, &quot;filters.sanitize&quot;, &quot;directives.youtubeEmbed&quot;]).controller(&#039;WorkCtrl&#039;, [
+    &#039;$scope&#039;, &#039;$http&#039;, &#039;log&#039;, &#039;$route&#039;, &#039;enums&#039;, &#039;utils&#039;, &#039;$timeout&#039;, &#039;$location&#039;, &#039;$filter&#039;, &#039;$rootScope&#039;, function($scope, $http, $log, $route, enums, utils, $timeout, $location, $filter, $rootScope) {
+      var adjustWorkData, getDescProcessed, getProject, getProjectLink, getTeamProcessedArr, getTechProcessedArr, humansData, markdownConverter, render, startup, techData, workData;
+      $log.info(&#039;work controller init.&#039;);
+      markdownConverter = new Showdown.converter();
+      techData = appData.icons.tech;
+      workData = appData.work.projects;
+      humansData = appData.humans;
+      angular.extend($scope, {
+        STATE_DETAIL: &#039;detail&#039;,
+        STATE_IDLE: &#039;idle&#039;,
+        state: &#039;idle&#039;,
+        workCur: void 0,
+        curPath: &#039;&#039;
+      });
+      startup = function() {
+        adjustWorkData();
+        return render();
+      };
+      adjustWorkData = function() {
+        var i;
+        i = 0;
+        return angular.forEach(workData, function(value, key) {
+          var desc;
+          value[&quot;_index&quot;] = i;
+          i++;
+          desc = value[&quot;desc&quot;];
+          if ($.isArray(desc)) {
+            desc = desc.join(&#039;\n&#039;);
+          }
+          if (desc !== void 0) {
+            desc = markdownConverter.makeHtml(desc);
+          }
+          return value[&quot;desc&quot;] = desc;
+        });
+      };
+      $scope.$on(&#039;$routeChangeSuccess&#039;, function($currentRoute, $previousRoute) {
+        var _ref;
+        if ($scope.curPath !== $location.path()) {
+          $scope.curPath = $location.path();
+          $scope.state = $scope.STATE_IDLE;
+          if (((_ref = $route.current) != null ? _ref.event : void 0) === enums.EventType.WorkLoad) {
+            $scope.state = $scope.STATE_DETAIL;
+          }
+          $log.info(&#039;work state:&#039; + $scope.state);
+          return render();
+        }
+      });
+      render = function() {
+        var _ref, _ref1, _ref2, _ref3;
+        $scope.workCur = void 0;
+        $log.info(&#039;render &#039; + ((_ref = $route.current) != null ? (_ref1 = _ref.params) != null ? _ref1.project : void 0 : void 0));
+        if ((_ref2 = $route.current) != null ? (_ref3 = _ref2.params) != null ? _ref3.project : void 0 : void 0) {
+          $scope.workCur = getProject($route.current.params.project);
+          $log.info(&quot;$scope.projectCur: &quot; + $scope.workCur + &quot; &quot; + $route.current.params.project + &quot; &quot; + $route.current.params.project);
+          return utils.scrollAnimateTo(&quot;#work&quot;);
+        }
+      };
+      getProject = function(id) {
+        var work;
+        $log.info(&#039;getProject&#039; + id);
+        work = {};
+        work = $filter(&#039;getById&#039;)(workData, id);
+        work.teamProcessedArr = getTeamProcessedArr(work);
+        work.techProcessedArr = getTechProcessedArr(work);
+        work.descProcessed = getDescProcessed(work);
+        return work;
+      };
+      getTeamProcessedArr = function(work) {
+        var outArr,
+          _this = this;
+        outArr = [];
+        angular.forEach(work.teamArr, function(value, key) {
+          var humansArr, rolesArr;
+          rolesArr = value[0];
+          humansArr = value[1];
+          angular.forEach(rolesArr, function(value, key) {
+            var item;
+            item = $filter(&quot;getById&quot;)(humansData.roles, value);
+            if (item) {
+              return rolesArr[key] = item.name;
+            }
+          });
+          angular.forEach(humansArr, function(value, key) {
+            var item;
+            item = $filter(&quot;getById&quot;)(humansData.humans, value);
+            if (item) {
+              if (item.url) {
+                return humansArr[key] = &quot;&lt;a href=&#039;&quot; + item.url + &quot;&#039; target=&#039;_blank&#039;&gt;&quot; + item.name + &quot;&lt;/a&gt;&quot;;
+              } else {
+                return humansArr[key] = item.name;
+              }
+            }
+          });
+          return outArr.push({
+            role: rolesArr.join(&quot;, &quot;),
+            humans: humansArr.join(&quot;, &quot;)
+          });
+        });
+        return outArr;
+      };
+      getTechProcessedArr = function(work) {
+        var outArr,
+          _this = this;
+        outArr = [];
+        angular.forEach(work.techArr, function(value, key) {
+          var item;
+          item = $filter(&quot;getById&quot;)(techData, value);
+          if (item) {
+            return outArr.push(item);
+          }
+        });
+        return outArr;
+      };
+      getDescProcessed = function(work) {
+        var $desc, desc;
+        desc = work.desc;
+        if ($.isArray(desc)) {
+          desc = desc.join(&#039;\n&#039;);
+        }
+        if (desc !== void 0) {
+          desc = markdownConverter.makeHtml(desc);
+          $desc = $(desc);
+          /*
+          desc = $desc.map( () -&gt;
+            return $(this)[0].outerHTML
+          ).get().join(&quot;&quot;)
+          */
+
+        }
+        return desc;
+      };
+      $scope.projectIncrement = function(delta) {
+        var link, nextIndex;
+        if (delta == null) {
+          delta = 1;
+        }
+        link = &#039;&#039;;
+        if ($scope.workCur === void 0) {
+          link = getProjectLink(workData[0].id);
+        } else {
+          nextIndex = $scope.workCur._index + delta;
+          if (nextIndex &gt;= workData.length) {
+            nextIndex -= workData.length;
+          } else if (nextIndex &lt; 0) {
+            nextIndex += workData.length;
+          }
+          link = getProjectLink(workData[nextIndex].id);
+        }
+        return $location.path(link);
+      };
+      $rootScope.$on(enums.EventType.VideoStart, function(scope, videoData) {
+        var vidId;
+        $log.info(&quot;VideoStart caught&quot; + videoData.id);
+        vidId = videoData.id;
+        if (videoData.id = $scope.workCur.id) {
+          utils.scrollAnimateTo(&#039;#work&#039;);
+          return $rootScope.$broadcast(enums.EventType.TrackEvent, &#039;video&#039;, &#039;start&#039;, $scope.workCur.id + &quot; : &quot; + vidId);
+        }
+      });
+      $rootScope.$on(enums.EventType.VideoEnd, function(scope, videoData) {
+        var vidId;
+        vidId = videoData.id;
+        return $rootScope.$broadcast(enums.EventType.TrackEvent, &#039;video&#039;, &#039;end&#039;, $scope.workCur.id + &quot; : &quot; + vidId);
+      });
+      getProjectLink = function(id) {
+        return &quot;/work/&quot; + id;
+      };
+      return startup();
+    }
+  ]);
+
+  /*
+   transformTeamRoles = (rolesArr) -&gt;
+     angualar.forEach rolesArr, (value, key) =&gt;
+       outArr.push value.label
+     return outArr.join(&quot;, &quot;)
+   transformTeamHumans = (humansArr) -&gt;
+     angualar.forEach humansArr, (value, key) =&gt;
+       if value.url
+           outArr[key] = &quot;&lt;a href=&#039;&quot; + value.url + &quot;&#039; target=&#039;_blank&#039;&gt;&quot; + value.label + &quot;&lt;/a&gt;&quot;
+         else
+           outArr[key] = value.label
+     return outArr.join(&quot;, &quot;)
+  */
+
+
+}).call(this);</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

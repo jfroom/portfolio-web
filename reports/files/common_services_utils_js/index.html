@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>common/services/utils.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+      <p class="stat">68.14</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
+      <p class="stat">116</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
+      <p class="stat">29.83</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+      <p class="stat">1.16</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(function() {
+  angular.module(&quot;services.utils&quot;, [&quot;services.log&quot;]).factory(&#039;utils&#039;, [
+    &quot;$timeout&quot;, &quot;$rootScope&quot;, &quot;$location&quot;, &quot;log&quot;, function($timeout, $rootScope, $location, $log) {
+      var isDebug, log, self;
+      isDebug = false;
+      log = function(s) {
+        if (isDebug) {
+          return $log.info(s);
+        }
+      };
+      return self = {
+        assignBtnHover: function(_scope) {
+          if (_scope == null) {
+            _scope = $(document);
+          }
+          return _scope.find(&#039;.js-hover&#039;).each(function(index, value) {
+            var $animateItem, $item;
+            $item = $(value);
+            $animateItem = $item;
+            if ($item.find(&quot;.js-hover-target&quot;).length &gt; 0) {
+              $animateItem = $item.find(&quot;.js-hover-target&quot;).eq(0);
+            }
+            return $item.hover(function() {
+              return $animateItem.addClass($(value).attr(&quot;data-hover&quot;));
+            }, function() {
+              return $animateItem.removeClass($(value).attr(&quot;data-hover&quot;));
+            });
+          });
+        },
+        _lastScrollAnimateTo: -1,
+        _scrollAnimateTo_promise: null,
+        EVENT_SCROLL_ANIMATE_COMPLETE: &quot;scrollAnimateTo-complete&quot;,
+        scrollAnimateTo: function(val, duration, delay, easing, complete) {
+          var fn;
+          if (duration == null) {
+            duration = 500;
+          }
+          if (delay == null) {
+            delay = 0;
+          }
+          if (easing == null) {
+            easing = &quot;swing&quot;;
+          }
+          if (complete == null) {
+            complete = function() {
+              return $(document).trigger(self.EVENT_SCROLL_ANIMATE_COMPLETE);
+            };
+          }
+          log(&quot;scrollAnimateTo &quot; + val + &quot; duration:&quot; + duration + &quot; delay:&quot; + delay);
+          fn = function() {
+            var fnComplete, offset, scrollAnimateToCompleted, target, type, _lastScrollAnimateTo, _ref;
+            type = $.type(val);
+            offset = val;
+            if (type === &quot;string&quot;) {
+              offset = (_ref = $(val).offset()) != null ? _ref.top : void 0;
+              log(&#039;offset 1:&#039; + offset);
+              offset -= parseInt($(&#039;html&#039;).css(&quot;padding-top&quot;), 10);
+            }
+            if (_lastScrollAnimateTo !== offset) {
+              log(&quot;scrollTo &quot; + offset + &quot; delay: &quot; + delay + &quot; duration:&quot; + duration);
+              scrollAnimateToCompleted = false;
+              target = $(&#039;body, html&#039;);
+              if (self.isMobileBrowser()) {
+                target = $(&#039;body&#039;);
+              }
+              fnComplete = function() {
+                if (!scrollAnimateToCompleted) {
+                  log(&#039;complete body height:&#039; + $(&#039;body&#039;).height() + &#039; self.getScrollTop():&#039; + self.getScrollTop());
+                  scrollAnimateToCompleted = true;
+                  complete();
+                }
+                return target.clearQueue();
+              };
+              if (duration === 0) {
+                target.scrollTop(offset);
+                fnComplete();
+              } else {
+                target.stop().delay(delay).animate({
+                  scrollTop: offset
+                }, duration, easing, fnComplete);
+              }
+              return _lastScrollAnimateTo = offset;
+            }
+          };
+          if (self._scrollAnimateTo_promise) {
+            $timeout.cancel(self._scrollAnimateTo_promise);
+          }
+          return self._scrollAnimateTo_promise = $timeout(fn, 1);
+        },
+        htmlHasClass: function(c) {
+          return $(&quot;html&quot;).hasClass(c);
+        },
+        isPhantomBrowser: function() {
+          var phantom;
+          return phantom = /phantom/i.test(navigator.userAgent);
+        },
+        isMobileBrowser: function() {
+          var isMobile;
+          return isMobile = /(iPod|iPhone|iPad|Android)/i.test(navigator.userAgent);
+        },
+        getScrollTop: function() {
+          var B, D;
+          if (!(typeof pageYOffset === &quot;undefined&quot; || self.isMobileBrowser())) {
+            return pageYOffset;
+          } else {
+            B = document.body;
+            D = document.documentElement;
+            D = (D.clientHeight ? D : B);
+            return D.scrollTop;
+          }
+        }
+      };
+    }
+  ]);
+
+}).call(this);</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

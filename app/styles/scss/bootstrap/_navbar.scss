@@ -1,0 +1,131 @@
+nav[role=navigation] {
+  font-size: 12px;
+  h1 {
+    margin: 0;
+  }
+  .navbar-brand {
+    font-size: 13px;
+    font-weight: 400;
+  }
+  a [class^="fa-"] {
+    opacity: .66;
+  }
+  .fa{
+    margin-right:2px;
+  }
+}
+
+header.navbar-top{
+  top:0;
+  left:0;
+
+  width:100%;
+  position:fixed;
+  z-index:20;
+  .navbar-toggle{
+    float:left;
+    outline:0;
+    margin-left:-70px;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+
+  }
+  .navbar-nav{
+    display:none;
+  }
+}
+.offcanvasnav-ready header.navbar-top .navbar-toggle{
+  margin-left:0px;
+}
+
+@media (min-width: $screen-sm) {
+  header.navbar-top{
+    .navbar-nav{
+      display:block;
+    }
+  }
+}
+
+@media only screen and (min-width: $screen-sm){
+  .navbar-nav{
+    display:block;
+  }
+}
+.navbar-inverse .navbar-nav{
+
+  > .active-persist {
+    background-color:$navbar-inverse-link-hover-bg;
+    > a:hover, > a:focus, > a:active{
+      background-color:$navbar-inverse-link-active-bg;
+    }
+  }
+  > .active {
+    > a:hover, > a:focus, > a:active{
+      background-color:$navbar-inverse-link-hover-bg;
+    }
+  }
+
+}
+
+
+.touch {
+  .navbar-inverse {
+    .navbar-nav {
+      > .active{
+        > a:active, > a:hover, > a:focus{
+          background-color:$navbar-inverse-link-active-bg;
+        }
+      }
+      /*
+      > .active-persist{
+        background-color:$navbar-inverse-link-hover-bg;
+        > a:hover, > a:focus, > a:active{
+          background-color:$navbar-inverse-link-hover-bg;
+        }
+      }*/
+    }
+    .navbar-brand{
+      &:hover, &:focus{
+        background-color: transparent;
+      }
+    }
+  }
+
+}
+
+//
+// FIXED NAV BAR VARIATIONS FOR MOBILE -- SEE _BASE_ELEMENTS.SCSS FOR PAIRED CASES
+//
+@mixin toggleFixedNavbar($pos) {
+  header.navbar-top {
+    position:$pos;
+
+    .navbar-fixed-top{
+      position:$pos;
+    }
+  }
+}
+
+.touch {
+  @include toggleFixedNavbar(relative);
+  &.ios{
+    @include toggleFixedNavbar(fixed);
+    &.ios5{
+      @include toggleFixedNavbar(relative);
+    }
+  }
+
+}
+
+@media only screen and (orientation : landscape) {
+  .touch.ios{
+    @include toggleFixedNavbar(relative);
+  }
+}
+
+//android landscape fix
+@media screen and (min-aspect-ratio: 13/9) {
+  .touch.android{
+    @include toggleFixedNavbar(relative);
+  }
+}

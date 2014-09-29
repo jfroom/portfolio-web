@@ -1,0 +1,51 @@
+{{#markdown}}
+
+<!--{{#categories}}{{category}}{{/categories}}-->
+
+{{/markdown}}
+{{!
+<div class="link-group-wrap">
+  <div class="link-group">
+
+    <ul class="link-list"> }}
+    {{!#each_dateSorted pages}}
+      {{!#isnt this.basename "index"}}
+        {{!#inArray data.categories "Coding"}}
+          {{!>post_index_item}}
+        {{!/inArray}}
+      {{!/isnt}}
+    {{!/each_dateSorted}}
+    {{!
+    </ul >
+  </div>
+</div>
+}}
+<h4 class="detail-breadcrumb"><a href="{{pathToRoot}}/blog">Blog</a> &raquo; Work &amp; Life</h4>
+<div class="link-group-wrap">
+  <div class="link-group">
+  <ul class="link-list">
+    {{#each_dateSorted pages}}
+      {{#isnt this.basename "index"}}
+        {{!#inArray data.categories "Coding"}}
+        {{!else}}
+          {{#inArray data.categories "omit"}}
+            {{else}}
+              {{>post_index_item}}
+            {{/inArray}}
+        {{!/inArray}}
+      {{/isnt}}
+    {{/each_dateSorted}}
+    </ul >
+  </div>
+</div>
+
+
+
+<div class="content-twitter-wrap sectionSplitter">
+
+  <div class="content-twitter">
+    <a class="twitter-timeline" href="https://twitter.com/{{settings.TWITTER_USERNAME}}" data-widget-id="{{settings.BLOG_TWITTER_WIDGET_ID}}">Tweets by @{{settings.TWITTER_USERNAME}}</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  </div>
+</div>
+

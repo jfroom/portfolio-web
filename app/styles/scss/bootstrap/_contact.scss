@@ -1,0 +1,17 @@
+section[role=contact] {
+  .info {
+    @include make-row();
+
+    .info-content {
+      @include make-xs-column(12);
+      @include make-md-column(12);
+      //@include make-md-column-offset(3);
+      //@include make-sm-column-offset(2);
+    }
+
+  }
+
+  div[role=social-group]{
+    text-align: left;
+  }
+}

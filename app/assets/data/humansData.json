@@ -1,0 +1,29 @@
+{
+  "humans": [
+    {
+      "id": "jane",
+      "name": "Jane Doe",
+      "url": "https://www.google.com/search?q=jane+doe"
+    },
+    {
+      "id": "john",
+      "name": "John Doe",
+      "url": "https://www.google.com/search?q=john+doe"
+    }
+
+  ],
+  "roles": [
+    {
+      "id": "fed",
+      "name": "Front End Developers"
+    },
+    {
+      "id": "dev",
+      "name": "Developers"
+    },
+    {
+      "id": "design",
+      "name": "Designer Test"
+    }
+  ]
+}
