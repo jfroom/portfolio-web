@@ -5,6 +5,7 @@
 /.idea
 /.grunt
 /.tmp-spritesheet
+/styles
 *.com
 *.class
 *.dll
