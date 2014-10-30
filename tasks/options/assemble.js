@@ -46,7 +46,7 @@ module.exports = {
     blog_development: {
         options: {
             data: assembleData,
-            partials: [partialsBlogCustom, partialsBlogBase, partialsCustom, partialsBase],
+            partials: [partialsBase, partialsCustom, partialsBlogBase, partialsBlogCustom],
             production: false,
             permalinks: {
                 structure: ':basename/index:ext'
@@ -67,7 +67,7 @@ module.exports = {
     blog_production: {
         options: {
             data: assembleData,
-            partials: [partialsBlogCustom, partialsBlogBase, partialsCustom, partialsBase],
+            partials: [partialsBase, partialsCustom, partialsBlogBase, partialsBlogCustom],
             production: true,
             permalinks: {
                 structure: ':basename/index:ext'
