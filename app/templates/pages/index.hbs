@@ -3,12 +3,15 @@ title: <%= settings.PORTFOLIO_SITE_TITLE %>
 layout: app/templates/layouts/default.hbs
 pathToRoot: '.'
 activeTab: ''
+showFooterConnectSection: settings.PORTFOLIO_FOOTER_CONNECT_SHOW
 ---
 <main role="main">
     {{>intro}}
     {{#is settings.PORTFOLIO_WORK_SHOW 'true'}}
       {{>work }}
     {{/is}}
-    {{>about}}
+    {{#is settings.PORTFOLIO_ABOUT_SHOW 'true'}}
+      {{>about}}
+     {{/is}}
     {{! >contact}}
 </main>

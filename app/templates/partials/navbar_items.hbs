@@ -4,7 +4,9 @@
     {{#is settings.PORTFOLIO_WORK_SHOW 'true'}}
       <li><a href="{{pathToRoot}}/#work" util-change-path="/work" ><i class="fa fa-flask fa-lg"></i>Work</a></li>
     {{/is}}
-    <li><a href="{{pathToRoot}}/#about" util-change-path="/about" ><i class="fa fa-male fa-lg"></i>About</a></li>
+    {{#is settings.PORTFOLIO_ABOUT_SHOW 'true'}}
+      <li><a href="{{pathToRoot}}/#about" util-change-path="/about" ><i class="fa fa-male fa-lg"></i>About</a></li>
+    {{/is}}
     <li class="{{#is "blog" page.activeTab }} active {{/is}}"><a href="{{pathToRoot}}/blog"><i class="fa fa-book fa-lg"></i>Blog</a></li>
   </ul>
 </div>
