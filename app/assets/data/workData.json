@@ -2,7 +2,7 @@
     "projects": [{
         "id": "test-1",
         "thumbImage": "http://placehold.it/400x533&text=thumb-1",
-        "thumbIcon": "http://placehold.it/150x150&text=AB",
+        "thumbIcon": "http://placehold.it/150x150/E8117F/FFFFFF/&text=LOGO",
         "client": "Client Name",
         "title": "Title of Project 1",
         "date": "2013",
@@ -22,8 +22,6 @@
             "<img img-caption data-caption-hide src='http://placehold.it/1000x562&text=inset+photo+1' alt='Test' >",
 
             "\n### Amet",
-            "Dolor sit amet, consectetur adipiscing elit. Proin molestie lacus ac neque tempus, et iaculis mi volutpat.",
-
             "<img img-caption data-caption-link='http://placehold.it/' src='http://placehold.it/1000x562&text=inset+photo+2' alt='Image: Placehold.it' >",
             "\n### Amet2",
             "Dolor sit amet, consectetur adipiscing elit. Proin molestie lacus ac neque tempus, et iaculis mi volutpat.",
@@ -65,7 +63,7 @@
     }, {
         "id": "test-2",
         "thumbImage": "http://placehold.it/400x533&text=thumb-2",
-        "thumbIcon": "http://placehold.it/150x150&text=CD",
+        "thumbIcon": "http://placehold.it/150x150/E8117F/FFFFFF/&text=LOGO",
         "client": "Client Name",
         "title": "Title of Project 2",
         "date": "2013",
@@ -107,7 +105,7 @@
     }, {
         "id": "test-3",
         "thumbImage": "http://placehold.it/400x533&text=thumb-3",
-        "thumbIcon": "http://placehold.it/150x150&text=EF",
+        "thumbIcon": "http://placehold.it/150x150/E8117F/FFFFFF/&text=LOGO",
         "client": "Client Name",
         "title": "Title of Project 3",
         "date": "2013",
@@ -163,7 +161,7 @@
     }, {
         "id": "test-4",
         "thumbImage": "http://placehold.it/400x533&text=thumb-4",
-        "thumbIcon": "http://placehold.it/150x150&text=GH",
+        "thumbIcon": "http://placehold.it/150x150/E8117F/FFFFFF/&text=LOGO",
         "client": "Client Name",
         "title": "Title of Project 4",
         "date": "2013",
