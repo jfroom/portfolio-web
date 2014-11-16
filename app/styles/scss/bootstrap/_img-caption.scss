@@ -37,6 +37,7 @@
   &.full-width{
     width:100%;
     display:block;
+    margin-top: $grid-gutter-width;
   }
 
   &.sectionSplitter{
