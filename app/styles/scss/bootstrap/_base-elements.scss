@@ -49,6 +49,7 @@ p{
   background-color:#fff;
   position:relative;
   z-index:2;
+  min-height: 100vh;
 }
 
 // only ios has docked - see navbar.scss for pared cases

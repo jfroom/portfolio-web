@@ -62,10 +62,10 @@ body{
 
   //-webkit-transition: opacity .3s linear;
   //transition: opacity .3s linear;
-  cursor:pointer;
-}
-.flyout-active .flyout-cover{
-  z-index: 100;
+  &.active {
+    z-index: 100;
+    cursor:pointer;  
+  }  
 }
 
 @media only screen and (min-width: $screen-sm){

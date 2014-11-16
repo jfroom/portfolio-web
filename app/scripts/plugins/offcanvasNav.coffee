@@ -7,13 +7,11 @@
       slideTargetSelector: ".offcanvas-slide"
       toggleBtnSelector: ".navbar-toggle"
       offcanvasNavSelector: "header.flyout"
-      coverActiveClass: "flyout-active"
-      coverOpenClass: "flyout-open"
+      coverActiveClass: "active"
       widthBreakPoint: 768
       xMax: 150
       xMin: 0
       xMoveThresholdForClick:10
-      coverActiveZindex: 100
       animationDuration: 400
       closeWhenInnerLinksClicked: true
 
@@ -121,19 +119,18 @@
         #
         coverActivate: (bol) ->
           _ = this
-          log 'coverActivate ' + bol
           _.hasDragged = false
 
           if bol
             _.bindGeneralEvents(true)
             _.bindEvents(_.$cover, true)
-            _.$cover.css({ "z-index": settings.coverActiveZindex});
             _.handleWindowResize()
-          else
+            _.$cover.addClass(settings.coverActiveClass)
 
+          else
             _.bindEvents(_.$cover, false)
-            _.$cover.css({ "z-index": ""});
             _.bindGeneralEvents(false)
+            _.$cover.removeClass(settings.coverActiveClass)
 
         coverOpenToggle: (bol, aniTime = -1, delay = 0) ->
 
