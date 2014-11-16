@@ -6358,7 +6358,8 @@ p {
   padding-top: 40px;
   background-color: #fff;
   position: relative;
-  z-index: 2; }
+  z-index: 2;
+  min-height: 100vh; }
 
 .touch body {
   overflow-scrolling: touch; }
@@ -6788,11 +6789,10 @@ body {
   top: 0;
   left: 0;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0);
-  cursor: pointer; }
-
-.flyout-active .flyout-cover {
-  z-index: 100; }
+  background-color: rgba(0, 0, 0, 0); }
+  .flyout-cover.active {
+    z-index: 100;
+    cursor: pointer; }
 
 @media only screen and (min-width: 768px) {
   header.flyout {
@@ -6842,7 +6842,8 @@ body {
     display: none; }
   .img-caption.full-width {
     width: 100%;
-    display: block; }
+    display: block;
+    margin-top: 20px; }
   .img-caption.sectionSplitter {
     margin-top: 20px; }
     .img-caption.sectionSplitter:before {
