@@ -1,6 +1,6 @@
 {
-  "SERVER_HOSTNAME": "127.0.0.1",
-  "DEV_HOSTNAME": "local.domain.com",
+  "SERVER_HOSTNAME": "jfmk-kepler.local",
+  "DEV_HOSTNAME": "localhost",
   "PRODUCTION_HOSTNAME": "domain.com",
   "SERVER_PORT": "9090",
   "LIVERELOAD_PORT": "35739",
@@ -35,6 +35,7 @@
   "PORTFOLIO_SITE_OWNER": "Lorem Ipsum",
   "PORTFOLIO_BLOG_COPYRIGHT": "All images &copy; the author of this website unless otherwise indicated.",
   "TWITTER_USERNAME": "twitter",
+  "BLOG_HAS_TWITTER_EMBED": "true",
   "GA_ID": "UA-1000000-1",
   "FIREBASE_BLOG_DOMAIN": "https://username.firebaseio.com/blog/",
   "BLOG_BASE_URL": "http://domain.com/blog/",
