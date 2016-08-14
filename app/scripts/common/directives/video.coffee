@@ -71,52 +71,37 @@ angular.module('directives.youtubeEmbed', ['app.enums']).directive "youtubeEmbed
         scope.onAPIReady()
 ]
 
-###
-angular.module('directives.videoJSEmbed', []).directive "videoJSEmbed", ["$log", "$timeout", "utils", ($log, $timeout, utils) ->
+angular.module('directives.videoJsEmbed', ['app.enums']).directive "videoJsEmbed", ["$log", "$timeout", "$rootScope", "enums", ($log, $timeout, $rootScope, enums) ->
   priority: 0
   template: ""
   replace: false
   transclude: false
   restrict: "A"
-  scope: {videoData: '=videoJS', videoId: '=VideoJSId'}
+  scope: {videoData: '=videoJsEmbed', videoId: '=VideoJsId'}
   compile: compile = (tElement, tAttrs, transclude) ->
-  pre: preLink = (scope, iElement, iAttrs, controller) ->
-    #$log.info "preLink compile"
-  post: postLink = (scope, iElement, iAttrs, controller) ->
-    #$log.info "postLink compile"
-    console.log "video postlist", scope.videoData
-    if scope && scope.videoData
-      console.dir scope.videoData
-      console.dir iAttrs
-      console.log "scope.videoData.mp4:", scope.videoData.mp4
-      if scope.videoData.mp4
-        mp4src = scope.videoData.mp4.toString()
-        #alert "Modernizr.highres " + Modernizr.highres + " Modernizr.video.h264:" + Modernizr.video.h264 + " touch: " + Modernizr.touch + " scope.videoData.mp4_low:" + scope.videoData.mp4_low
-        #if Modernizr.touch && !Modernizr.highres && scope.videoData.mp4_low
-        #mp4src = scope.videoData.mp4_low.toString()
-        if Modernizr.video.h264 && scope.videoData.mp4_low
-          mp4src = scope.videoData.mp4_low
-        s = "<source type='video/mp4' src='" + mp4src + "' />"
-      if scope.videoData.webm
-        s += "<source type='video/webm' src='" + scope.videoData.webm.toString() + "' />"
-      console.log s
-      iElement.append s
-      iElement.attr "poster", scope.videoData.poster.toString()
+    pre: preLink = (scope, iElement, iAttrs, controller) ->
+      #$log.info "preLink compile"
+    post: postLink = (scope, iElement, iAttrs, controller) ->
+      if scope && scope.videoData
+        if scope.videoData.mp4
+          mp4src = scope.videoData.mp4.toString()
+          if Modernizr.video.h264 and scope.videoData.mp4_low
+            mp4src = scope.videoData.mp4_low
+        player = videojs iElement.attr("id"), {}, ->
+          player.poster scope.videoData.poster #.toString()
+          player.src(
+            {type: "video/mp4", src: mp4src},
+            {type: "video/webm", src: scope.videoData.webm}
+          )
+          player.addChild('BigPlayButton');
+          player.one 'play', ->
+            $rootScope.$broadcast enums.EventType.VideoStart, scope.videoData
+          player.one 'ended', ->
+            $rootScope.$broadcast enums.EventType.VideoEnd, scope.videoData
 
-      delay = (ms, func) ->
-        $timeout func, ms
-      delay 0, ->
-        if iAttrs
-          console.log "video attr iAttrs"
-          iElement.attr "id", scope.videoId + (new Date()).getTime()
-          videoOptions = {'preload': 'metadata', 'width': 'auto', 'height': 'auto', 'controls': true }
-          # poster':scope.videoData.poster.toString(),
-
-
-          videojs((iElement.attr "id").toString(), videoOptions).ready ->
-            console.log 'video ready'
 ]
 
+###
 angular.module('directives.vimeoEmbed', []).directive "vimeoEmbed", ["$log", "$timeout", ($log, $timeout) ->
   priority: 0
   template: ""
@@ -162,5 +147,4 @@ angular.module('directives.vimeoEmbed', []).directive "vimeoEmbed", ["$log", "$t
 
 
 ]
-
 ###

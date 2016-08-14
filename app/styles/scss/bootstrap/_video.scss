@@ -1,3 +1,4 @@
+$videoHeightAspectRatio: 56.25%;
 
 .mobile .video-container.youtube{
   padding-top: 0px;
@@ -7,23 +8,18 @@
 }
 .video-container {
   position: relative;
-  padding-bottom: 56.25%; // 56.25%;
-  padding-top: 30px; // youtube player util row
+  padding-bottom: $videoHeightAspectRatio;
+  padding-top: 30px;
 
   height: 0;
   overflow: hidden;
   max-width: 100%;
-
-  &.youtube{
-    //padding-top:30px;
-  }
 
   // black with white spinner
   background: #000 url(data:image/gif;base64,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) no-repeat center center;
 
   height: auto;
   outline: 0;
-  //1px solid #ccc;
   iframe, object, embed {
     position: absolute;
     top: 0;
@@ -33,82 +29,142 @@
   }
 }
 
+//
+// VIDEO JS
+//
 
-.vjs-jf-skin.video-js {
-  /*line-height: 0;
-  background-color: transparent;
-  width: auto !important;
-  height: auto !important;
-  max-width: 100%;
-  * {
-    max-width: 100%
-  }
-  */
-  padding-top:56.25%;
-  .vjs-fullscreen{
+.video-js.vjs-my-skin {
+  // The color of icons, text, and the big play button border.
+  $primary-foreground-color: #fff; // #fff default
+
+  // The default color of control backgrounds is mostly black but with a little
+  // bit of blue so it can still be seen on all-black video frames, which are common.
+  $primary-background-color: #333;  // #2B333F default
+
+  $center-big-play-button: true;
+
+  /* The base font size controls the size of everything, not just text.
+     All dimensions use em-based sizes so that the scale along with the font size.
+     Try increasing it to 15px and see what happens. */
+  font-size: 10px;
+
+  /* The main font color changes the ICON COLORS as well as the text */
+  color: $primary-foreground-color;
+
+  // Stretch to fit container
+  width: 100%;
+  height: 100%;
+  padding-top: $videoHeightAspectRatio;
+  .vjs-fullscreen {
     padding-top:0;
   }
-  video {
-
-    //width:auto;
-    //height:auto;
-
-  }
-  /* The video should expand to force the height of the containing div.
-  One in-flow element is good. As long as everything else in the container
-  div stays `position: absolute` we're okay */
 
   .vjs-big-play-button {
-    left: 50%;
-    top: 50%;
-    width: 100px;
-    height: 100px;
-    border-radius: 0;
-    opacity: .5;
-    display: none;
-  }
-  /*
-  .vjs-slider-handle:before{
-    text-shadow:none;
-    font-family:FontAwesome;
-    content:"\f111";
-    font-size:16px;
-    color:#eee;
-  }
-  .vjs-seek-handle{
-    top:-10%;
-    font-size:20px;
-  }
-  */
-  .vjs-time-controls {
-    -webkit-text-stroke: .35px;
-  }
+    /* The font size is what makes the big play button...big.
+       All width/height values use ems, which are a multiple of the font size.
+       If the .video-js font-size is 10px, then 3em equals 30px.*/
+    font-size: 3em;
 
-  .vjs-control-bar {
-    display: block;
-    background-color: rgba(0, 0, 16, .6);
-    //border-radius: 0 0 1em 1em;
-    //bottom:1.25em;
-    //margin:0 1.25em;
-  }
-  .vjs-control:before {
-    text-shadow: none;
-    color: #fff;
-  }
+    /* We're using SCSS vars here because the values are used in multiple places.
+       Now that font size is set, the following em values will be a multiple of the
+       new font size. If the font-size is 3em (30px), then setting any of
+       the following values to 3em would equal 30px. 3 * font-size. */
+    $big-play-width: 3em;
+    /* 1.5em = 45px default */
+    $big-play-height: 3em;
 
-  /*.vjs-fullscreen-control, .vjs-volume-control{
-    display:none;
-  }
+    line-height: $big-play-height;
+    height: $big-play-height;
+    width: $big-play-width;
+    font-size: 3em;
 
-  &.vjs-has-started{
-    .vjs-fullscreen-control, .vjs-volume-control{
-      display:inline-block;
+    /* 0.06666em = 2px default */
+    border: 0.06666em solid $primary-foreground-color;
+    /* 0.3em = 9px default */
+    border-radius: 0.3em;
+
+    &::before {
+      font-size: 2em;
     }
 
-  }*/
+    @if $center-big-play-button {
+      /* Align center */
+      left: 50%;
+      top: 50%;
+      margin-left: -($big-play-width / 2);
+      margin-top: -($big-play-height / 2);
+    } @else {
+      /* Align top left. 0.5em = 15px default */
+      left: 0.5em;
+      top: 0.5em;
+    }
+  }
 
+  /* The default color of control backgrounds is mostly black but with a little
+   bit of blue so it can still be seen on all-black video frames, which are common. */
+  .vjs-control-bar, .vjs-big-play-button, .vjs-menu-button .vjs-menu-content {
+    /* IE8 - has no alpha support */
+    background-color: $primary-background-color;
+    /* Opacity: 1.0 = 100%, 0.0 = 0% */
+    background-color: rgba($primary-background-color, 0.7);
+  }
+
+  // Make a slightly lighter version of the main background
+  // for the slider background.
+  $slider-bg-color: lighten($primary-background-color, 33%);
+
+  /* Slider - used for Volume bar and Progress bar */
+  .vjs-slider {
+    background-color: $slider-bg-color;
+    background-color: rgba($slider-bg-color, 0.5);
+  }
+
+  /* The slider bar color is used for the progress bar and the volume bar
+     (the first two can be removed after a fix that's coming) */
+  .vjs-volume-level, .vjs-play-progress, .vjs-slider-bar {
+    background: $primary-foreground-color;
+  }
+
+  /* The main progress bar also has a bar that shows how much has been loaded. */
+  .vjs-load-progress {
+    /* For IE8 we'll lighten the color */
+    background: lighten($slider-bg-color, 25%);
+    /* Otherwise we'll rely on stacked opacities */
+    background: rgba($slider-bg-color, 0.5);
+  }
+
+  /* The load progress bar also has internal divs that represent
+     smaller disconnected loaded time ranges */
+  .vjs-load-progress div {
+    /* For IE8 we'll lighten the color */
+    background: lighten($slider-bg-color, 50%);
+    /* Otherwise we'll rely on stacked opacities */
+    background: rgba($slider-bg-color, 0.75);
+  }
+
+  .vjs-control {
+    &:focus:before, &:hover:before, &:focus {
+      opacity: .8;
+      text-shadow: none;
+    }
+  }
+  &:hover .vjs-big-play-button {
+    //background-color: rgba($primary-background-color, .5);
+  }
+  .vjs-volume-control {
+    display: none;
+  }
+
+  .vjs-mouse-display, .vjs-play-progress, .vjs-control-text  {
+    font-family: Arial;
+  }
+  .vjs-play-progress::before {
+    font-family: VideoJS;
+  }
 
 }
+
+
 .fpo-play-btn{
   z-index:2;
 }

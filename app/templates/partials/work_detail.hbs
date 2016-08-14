@@ -24,11 +24,18 @@
 
       <!-- VIDEO EMBED -->
       <video  ng-switch-when="video"
-              jf-video="item" jf-video-id="'video-work-' + $index"
-              id="video-id-fpo"
-              class="item-video item-media video-js vjs-default-skin vjs-jf-skin"
+              video-js-embed="item"
+              id="video-id-{[$index]}"
+              class="item-video item-media video-js vjs-default-skin vjs-my-skin"
+              controls
               >
+
+              <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a web browser
+    that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+  </p>
       </video>
+
      </div>
   </div>
 

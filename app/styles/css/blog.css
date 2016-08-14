@@ -7693,61 +7693,80 @@ nav[role=footer] {
     width: 100%;
     height: 100%; }
 
-.vjs-jf-skin.video-js {
-  /*line-height: 0;
-  background-color: transparent;
-  width: auto !important;
-  height: auto !important;
-  max-width: 100%;
-  * {
-    max-width: 100%
-  }
-  */
+.video-js.vjs-my-skin {
+  /* The base font size controls the size of everything, not just text.
+     All dimensions use em-based sizes so that the scale along with the font size.
+     Try increasing it to 15px and see what happens. */
+  font-size: 10px;
+  /* The main font color changes the ICON COLORS as well as the text */
+  color: #fff;
+  width: 100%;
+  height: 100%;
   padding-top: 56.25%;
-  /* The video should expand to force the height of the containing div.
-  One in-flow element is good. As long as everything else in the container
-  div stays `position: absolute` we're okay */
-  /*
-  .vjs-slider-handle:before{
-    text-shadow:none;
-    font-family:FontAwesome;
-    content:"\f111";
-    font-size:16px;
-    color:#eee;
-  }
-  .vjs-seek-handle{
-    top:-10%;
-    font-size:20px;
-  }
-  */
-  /*.vjs-fullscreen-control, .vjs-volume-control{
-    display:none;
-  }
-
-  &.vjs-has-started{
-    .vjs-fullscreen-control, .vjs-volume-control{
-      display:inline-block;
-    }
-
-  }*/ }
-  .vjs-jf-skin.video-js .vjs-fullscreen {
+  /* The default color of control backgrounds is mostly black but with a little
+   bit of blue so it can still be seen on all-black video frames, which are common. */
+  /* Slider - used for Volume bar and Progress bar */
+  /* The slider bar color is used for the progress bar and the volume bar
+     (the first two can be removed after a fix that's coming) */
+  /* The main progress bar also has a bar that shows how much has been loaded. */
+  /* The load progress bar also has internal divs that represent
+     smaller disconnected loaded time ranges */ }
+  .video-js.vjs-my-skin .vjs-fullscreen {
     padding-top: 0; }
-  .vjs-jf-skin.video-js .vjs-big-play-button {
+  .video-js.vjs-my-skin .vjs-big-play-button {
+    /* The font size is what makes the big play button...big.
+       All width/height values use ems, which are a multiple of the font size.
+       If the .video-js font-size is 10px, then 3em equals 30px.*/
+    font-size: 3em;
+    /* We're using SCSS vars here because the values are used in multiple places.
+       Now that font size is set, the following em values will be a multiple of the
+       new font size. If the font-size is 3em (30px), then setting any of
+       the following values to 3em would equal 30px. 3 * font-size. */
+    /* 1.5em = 45px default */
+    line-height: 3em;
+    height: 3em;
+    width: 3em;
+    font-size: 3em;
+    /* 0.06666em = 2px default */
+    border: 0.06666em solid #fff;
+    /* 0.3em = 9px default */
+    border-radius: 0.3em;
+    /* Align center */
     left: 50%;
     top: 50%;
-    width: 100px;
-    height: 100px;
-    border-radius: 0;
-    opacity: 0.5;
+    margin-left: -1.5em;
+    margin-top: -1.5em; }
+    .video-js.vjs-my-skin .vjs-big-play-button::before {
+      font-size: 2em; }
+  .video-js.vjs-my-skin .vjs-control-bar, .video-js.vjs-my-skin .vjs-big-play-button, .video-js.vjs-my-skin .vjs-menu-button .vjs-menu-content {
+    /* IE8 - has no alpha support */
+    background-color: #333;
+    /* Opacity: 1.0 = 100%, 0.0 = 0% */
+    background-color: rgba(51, 51, 51, 0.7); }
+  .video-js.vjs-my-skin .vjs-slider {
+    background-color: #878787;
+    background-color: rgba(135, 135, 135, 0.5); }
+  .video-js.vjs-my-skin .vjs-volume-level, .video-js.vjs-my-skin .vjs-play-progress, .video-js.vjs-my-skin .vjs-slider-bar {
+    background: #fff; }
+  .video-js.vjs-my-skin .vjs-load-progress {
+    /* For IE8 we'll lighten the color */
+    background: #c7c7c7;
+    /* Otherwise we'll rely on stacked opacities */
+    background: rgba(135, 135, 135, 0.5); }
+  .video-js.vjs-my-skin .vjs-load-progress div {
+    /* For IE8 we'll lighten the color */
+    background: white;
+    /* Otherwise we'll rely on stacked opacities */
+    background: rgba(135, 135, 135, 0.75); }
+  .video-js.vjs-my-skin .vjs-control:focus:before, .video-js.vjs-my-skin .vjs-control:hover:before, .video-js.vjs-my-skin .vjs-control:focus {
+    opacity: 0.8;
+    text-shadow: none; }
+  .video-js.vjs-my-skin .vjs-volume-control {
     display: none; }
-  .vjs-jf-skin.video-js .vjs-time-controls {
-    -webkit-text-stroke: 0.35px; }
-  .vjs-jf-skin.video-js .vjs-control-bar {
-    display: block;
-    background-color: rgba(0, 0, 16, 0.6); }
-  .vjs-jf-skin.video-js .vjs-control:before {
-    text-shadow: none;
-    color: #fff; }
+  .video-js.vjs-my-skin .vjs-mouse-display, .video-js.vjs-my-skin .vjs-play-progress, .video-js.vjs-my-skin .vjs-control-text {
+    font-family: Arial; }
+  .video-js.vjs-my-skin .vjs-play-progress::before {
+    font-family: VideoJS; }
 
 .fpo-play-btn {
   z-index: 2; }

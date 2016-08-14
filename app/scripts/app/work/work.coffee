@@ -1,5 +1,5 @@
 angular
-  .module("app.work", ["app", "app.enums", "services.utils", "services.log", "filters.accessor", "filters.sanitize", "directives.youtubeEmbed"])
+  .module("app.work", ["app", "app.enums", "services.utils", "services.log", "filters.accessor", "filters.sanitize", "directives.videoJsEmbed", "directives.youtubeEmbed"])
   .controller 'WorkCtrl', ['$scope', '$http', 'log', '$route', 'enums', 'utils', '$timeout', '$location', '$filter', '$rootScope'
 , ($scope, $http, $log, $route, enums, utils, $timeout, $location, $filter, $rootScope) ->
 
