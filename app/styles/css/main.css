@@ -4389,612 +4389,382 @@ th.hidden-lg, td.hidden-lg {
 
 .sprite {
   background: url('../../assets/spritesheet/icon-sprite.png') no-repeat;
-  background-size: 810px 756px; }
-
-.sprite.tech-aws {
-  width: 90px;
-  height: 54px;
-  background-position: 0px 0px; }
-
-.sprite.brand-aol {
-  width: 90px;
-  height: 54px;
-  background-position: -90px 0px; }
-
-.sprite.brand-elicit {
-  width: 90px;
-  height: 54px;
-  background-position: 0px -54px; }
-
-.sprite.brand-harrisbank {
-  width: 90px;
-  height: 54px;
-  background-position: -90px -54px; }
-
-.sprite.brand-karamann {
-  width: 90px;
-  height: 54px;
-  background-position: 0px -108px; }
-
-.sprite.brand-legalzoom {
-  width: 90px;
-  height: 54px;
-  background-position: -90px -108px; }
-
-.sprite.brand-mcd {
-  width: 90px;
-  height: 54px;
-  background-position: -180px 0px; }
-
-.sprite.brand-panasonic {
-  width: 90px;
-  height: 54px;
-  background-position: -180px -54px; }
-
-.sprite.brand-randallreilly {
-  width: 90px;
-  height: 54px;
-  background-position: -180px -108px; }
-
-.sprite.brand-rca {
-  width: 90px;
-  height: 54px;
-  background-position: 0px -162px; }
-
-.sprite.brand-truevalue {
-  width: 90px;
-  height: 54px;
-  background-position: -90px -162px; }
-
-.sprite.brand-allstate {
-  width: 90px;
-  height: 54px;
-  background-position: -180px -162px; }
-
-.sprite.brand-atlantic {
-  width: 90px;
-  height: 54px;
-  background-position: 0px -216px; }
-
-.sprite.brand-blackberry {
-  width: 90px;
-  height: 54px;
-  background-position: -90px -216px; }
-
-.sprite.brand-cadillac {
-  width: 90px;
-  height: 54px;
-  background-position: -180px -216px; }
-
-.sprite.brand-cmegroup {
-  width: 90px;
-  height: 54px;
-  background-position: -270px 0px; }
-
-.sprite.brand-discoverboating {
-  width: 90px;
-  height: 54px;
-  background-position: -270px -54px; }
-
-.sprite.brand-endurance {
-  width: 90px;
-  height: 54px;
-  background-position: -270px -108px; }
-
-.sprite.brand-energizer {
-  width: 90px;
-  height: 54px;
-  background-position: -270px -162px; }
-
-.sprite.brand-espn {
-  width: 90px;
-  height: 54px;
-  background-position: -270px -216px; }
-
-.sprite.brand-ggp {
-  width: 90px;
-  height: 54px;
-  background-position: 0px -270px; }
-
-.sprite.brand-goodyear {
-  width: 90px;
-  height: 54px;
-  background-position: -90px -270px; }
-
-.sprite.brand-h2o {
-  width: 90px;
-  height: 54px;
-  background-position: -180px -270px; }
-
-.sprite.brand-hallmark {
-  width: 90px;
-  height: 54px;
-  background-position: -270px -270px; }
-
-.sprite.brand-harley {
-  width: 90px;
-  height: 54px;
-  background-position: -360px 0px; }
-
-.sprite.brand-hostway {
-  width: 90px;
-  height: 54px;
-  background-position: -360px -54px; }
-
-.sprite.brand-huggies {
-  width: 90px;
-  height: 54px;
-  background-position: -360px -108px; }
-
-.sprite.brand-kelloggs {
-  width: 90px;
-  height: 54px;
-  background-position: -360px -162px; }
-
-.sprite.brand-maytag {
-  width: 90px;
-  height: 54px;
-  background-position: -360px -216px; }
-
-.sprite.brand-mms {
-  width: 90px;
-  height: 54px;
-  background-position: -360px -270px; }
-
-.sprite.brand-motorola {
-  width: 90px;
-  height: 54px;
-  background-position: 0px -324px; }
-
-.sprite.brand-oldsmobile {
-  width: 90px;
-  height: 54px;
-  background-position: -90px -324px; }
-
-.sprite.brand-orbitz {
-  width: 90px;
-  height: 54px;
-  background-position: -180px -324px; }
-
-.sprite.brand-pella {
-  width: 90px;
-  height: 54px;
-  background-position: -270px -324px; }
-
-.sprite.brand-pillsbury {
-  width: 90px;
-  height: 54px;
-  background-position: -360px -324px; }
-
-.sprite.brand-princess {
-  width: 90px;
-  height: 54px;
-  background-position: 0px -378px; }
-
-.sprite.brand-purina {
-  width: 90px;
-  height: 54px;
-  background-position: -90px -378px; }
-
-.sprite.brand-slimjim {
-  width: 90px;
-  height: 54px;
-  background-position: -180px -378px; }
-
-.sprite.brand-trx {
-  width: 90px;
-  height: 54px;
-  background-position: -270px -378px; }
-
-.sprite.brand-united {
-  width: 90px;
-  height: 54px;
-  background-position: -360px -378px; }
-
-.sprite.brand-xerox {
-  width: 90px;
-  height: 54px;
-  background-position: -450px 0px; }
-
-.sprite.recog-adtech {
-  width: 90px;
-  height: 54px;
-  background-position: -450px -54px; }
-
-.sprite.recog-bma {
-  width: 90px;
-  height: 54px;
-  background-position: -450px -108px; }
-
-.sprite.recog-creativity-intl {
-  width: 90px;
-  height: 54px;
-  background-position: -450px -162px; }
-
-.sprite.recog-creativity {
-  width: 90px;
-  height: 54px;
-  background-position: -450px -216px; }
-
-.sprite.recog-davey {
-  width: 90px;
-  height: 54px;
-  background-position: -450px -270px; }
-
-.sprite.recog-flashforward {
-  width: 90px;
-  height: 54px;
-  background-position: -450px -324px; }
-
-.sprite.recog-fwa {
-  width: 90px;
-  height: 54px;
-  background-position: -450px -378px; }
-
-.sprite.recog-how {
-  width: 90px;
-  height: 54px;
-  background-position: 0px -432px; }
-
-.sprite.recog-iac {
-  width: 90px;
-  height: 54px;
-  background-position: -90px -432px; }
-
-.sprite.recog-iava {
-  width: 90px;
-  height: 54px;
-  background-position: -180px -432px; }
-
-.sprite.recog-id {
-  width: 90px;
-  height: 54px;
-  background-position: -270px -432px; }
-
-.sprite.recog-marcom {
-  width: 90px;
-  height: 54px;
-  background-position: -360px -432px; }
-
-.sprite.recog-taschen {
-  width: 90px;
-  height: 54px;
-  background-position: -450px -432px; }
-
-.sprite.recog-w3 {
-  width: 90px;
-  height: 54px;
-  background-position: 0px -486px; }
-
-.sprite.recog-webaward {
-  width: 90px;
-  height: 54px;
-  background-position: -90px -486px; }
-
-.sprite.recog-webby {
-  width: 90px;
-  height: 54px;
-  background-position: -180px -486px; }
-
-.sprite.tech-analytics {
-  width: 90px;
-  height: 54px;
-  background-position: -270px -486px; }
-
-.sprite.tech-angular {
-  width: 90px;
-  height: 54px;
-  background-position: -360px -486px; }
-
-.sprite.tech-assemble {
-  width: 90px;
-  height: 54px;
-  background-position: -450px -486px; }
-
-.sprite.brand-dentsply {
-  width: 90px;
-  height: 54px;
-  background-position: -540px 0px; }
-
-.sprite.tech-backbone {
-  width: 90px;
-  height: 54px;
-  background-position: -540px -54px; }
-
-.sprite.tech-basecamp {
-  width: 90px;
-  height: 54px;
-  background-position: -540px -108px; }
-
-.sprite.tech-bootstrap {
-  width: 90px;
-  height: 54px;
-  background-position: -540px -162px; }
-
-.sprite.tech-bower {
-  width: 90px;
-  height: 54px;
-  background-position: -540px -216px; }
-
-.sprite.tech-browserstack {
-  width: 90px;
-  height: 54px;
-  background-position: -540px -270px; }
-
-.sprite.tech-coffeescript {
-  width: 90px;
-  height: 54px;
-  background-position: -540px -324px; }
-
-.sprite.tech-css3 {
-  width: 90px;
-  height: 54px;
-  background-position: -540px -378px; }
-
-.sprite.tech-docker {
-  width: 90px;
-  height: 54px;
-  background-position: -540px -432px; }
-
-.sprite.tech-flash {
-  width: 90px;
-  height: 54px;
-  background-position: -540px -486px; }
-
-.sprite.tech-gaia {
-  width: 90px;
-  height: 54px;
-  background-position: 0px -540px; }
-
-.sprite.tech-git {
-  width: 90px;
-  height: 54px;
-  background-position: -90px -540px; }
-
-.sprite.tech-github {
-  width: 90px;
-  height: 54px;
-  background-position: -180px -540px; }
-
-.sprite.tech-grunt {
-  width: 90px;
-  height: 54px;
-  background-position: -270px -540px; }
-
-.sprite.tech-heroku {
-  width: 90px;
-  height: 54px;
-  background-position: -360px -540px; }
-
-.sprite.tech-html5 {
-  width: 90px;
-  height: 54px;
-  background-position: -450px -540px; }
-
-.sprite.tech-intellij {
-  width: 90px;
-  height: 54px;
-  background-position: -540px -540px; }
-
-.sprite.tech-ios {
-  width: 90px;
-  height: 54px;
-  background-position: -630px 0px; }
+  background-size: 630px 594px; }
 
 .sprite.tech-jasmine {
   width: 90px;
   height: 54px;
-  background-position: -630px -54px; }
+  background-position: 0px 0px; }
+
+.sprite.brand-fpo-0 {
+  width: 90px;
+  height: 54px;
+  background-position: -90px 0px; }
+
+.sprite.brand-fpo-2 {
+  width: 90px;
+  height: 54px;
+  background-position: 0px -54px; }
+
+.sprite.brand-fpo-3 {
+  width: 90px;
+  height: 54px;
+  background-position: -90px -54px; }
+
+.sprite.brand-fpo-4 {
+  width: 90px;
+  height: 54px;
+  background-position: 0px -108px; }
+
+.sprite.brand-fpo-5 {
+  width: 90px;
+  height: 54px;
+  background-position: -90px -108px; }
+
+.sprite.brand-fpo-6 {
+  width: 90px;
+  height: 54px;
+  background-position: -180px 0px; }
+
+.sprite.brand-fpo-7 {
+  width: 90px;
+  height: 54px;
+  background-position: -180px -54px; }
+
+.sprite.brand-fpo-8 {
+  width: 90px;
+  height: 54px;
+  background-position: -180px -108px; }
+
+.sprite.brand-fpo-9 {
+  width: 90px;
+  height: 54px;
+  background-position: 0px -162px; }
+
+.sprite.recog-fpo-0 {
+  width: 90px;
+  height: 54px;
+  background-position: -90px -162px; }
+
+.sprite.recog-fpo-1 {
+  width: 90px;
+  height: 54px;
+  background-position: -180px -162px; }
+
+.sprite.recog-fpo-2 {
+  width: 90px;
+  height: 54px;
+  background-position: 0px -216px; }
+
+.sprite.recog-fpo-3 {
+  width: 90px;
+  height: 54px;
+  background-position: -90px -216px; }
+
+.sprite.recog-fpo-4 {
+  width: 90px;
+  height: 54px;
+  background-position: -180px -216px; }
+
+.sprite.recog-fpo-5 {
+  width: 90px;
+  height: 54px;
+  background-position: -270px 0px; }
+
+.sprite.recog-fpo-6 {
+  width: 90px;
+  height: 54px;
+  background-position: -270px -54px; }
+
+.sprite.recog-fpo-7 {
+  width: 90px;
+  height: 54px;
+  background-position: -270px -108px; }
+
+.sprite.recog-fpo-8 {
+  width: 90px;
+  height: 54px;
+  background-position: -270px -162px; }
+
+.sprite.recog-fpo-9 {
+  width: 90px;
+  height: 54px;
+  background-position: -270px -216px; }
+
+.sprite.tech-analytics {
+  width: 90px;
+  height: 54px;
+  background-position: 0px -270px; }
+
+.sprite.tech-angular {
+  width: 90px;
+  height: 54px;
+  background-position: -90px -270px; }
+
+.sprite.tech-assemble {
+  width: 90px;
+  height: 54px;
+  background-position: -180px -270px; }
+
+.sprite.tech-backbone {
+  width: 90px;
+  height: 54px;
+  background-position: -270px -270px; }
+
+.sprite.tech-bootstrap {
+  width: 90px;
+  height: 54px;
+  background-position: -360px 0px; }
+
+.sprite.tech-bower {
+  width: 90px;
+  height: 54px;
+  background-position: -360px -54px; }
+
+.sprite.tech-browserstack {
+  width: 90px;
+  height: 54px;
+  background-position: -360px -108px; }
+
+.sprite.tech-coffeescript {
+  width: 90px;
+  height: 54px;
+  background-position: -360px -162px; }
+
+.sprite.tech-css3 {
+  width: 90px;
+  height: 54px;
+  background-position: -360px -216px; }
+
+.sprite.tech-flash {
+  width: 90px;
+  height: 54px;
+  background-position: -360px -270px; }
+
+.sprite.tech-gaia {
+  width: 90px;
+  height: 54px;
+  background-position: 0px -324px; }
+
+.sprite.tech-git {
+  width: 90px;
+  height: 54px;
+  background-position: -90px -324px; }
+
+.sprite.tech-github {
+  width: 90px;
+  height: 54px;
+  background-position: -180px -324px; }
+
+.sprite.tech-grunt {
+  width: 90px;
+  height: 54px;
+  background-position: -270px -324px; }
+
+.sprite.tech-html5 {
+  width: 90px;
+  height: 54px;
+  background-position: -360px -324px; }
+
+.sprite.tech-intellij {
+  width: 90px;
+  height: 54px;
+  background-position: 0px -378px; }
+
+.sprite.tech-ios {
+  width: 90px;
+  height: 54px;
+  background-position: -90px -378px; }
+
+.sprite.brand-fpo-1 {
+  width: 90px;
+  height: 54px;
+  background-position: -180px -378px; }
 
 .sprite.tech-jenkins {
   width: 90px;
   height: 54px;
-  background-position: -630px -108px; }
+  background-position: -270px -378px; }
 
 .sprite.tech-jquery-ui {
   width: 90px;
   height: 54px;
-  background-position: -630px -162px; }
+  background-position: -360px -378px; }
 
 .sprite.tech-jquery {
   width: 90px;
   height: 54px;
-  background-position: -630px -216px; }
+  background-position: -450px 0px; }
 
 .sprite.tech-js {
   width: 90px;
   height: 54px;
-  background-position: -630px -270px; }
+  background-position: -450px -54px; }
 
 .sprite.tech-jshint {
   width: 90px;
   height: 54px;
-  background-position: -630px -324px; }
+  background-position: -450px -108px; }
 
 .sprite.tech-karma {
   width: 90px;
   height: 54px;
-  background-position: -630px -378px; }
+  background-position: -450px -162px; }
 
 .sprite.tech-modernizr {
   width: 90px;
   height: 54px;
-  background-position: -630px -432px; }
+  background-position: -450px -216px; }
 
 .sprite.tech-ms-azure {
   width: 90px;
   height: 54px;
-  background-position: -630px -486px; }
+  background-position: -450px -270px; }
 
 .sprite.tech-mssql {
   width: 90px;
   height: 54px;
-  background-position: -630px -540px; }
+  background-position: -450px -324px; }
 
 .sprite.tech-net {
   width: 90px;
   height: 54px;
-  background-position: 0px -594px; }
+  background-position: -450px -378px; }
 
 .sprite.tech-nodejs {
   width: 90px;
   height: 54px;
-  background-position: -90px -594px; }
+  background-position: 0px -432px; }
 
 .sprite.tech-npm {
   width: 90px;
   height: 54px;
-  background-position: -180px -594px; }
+  background-position: -90px -432px; }
 
 .sprite.tech-photoshop {
   width: 90px;
   height: 54px;
-  background-position: -270px -594px; }
+  background-position: -180px -432px; }
 
 .sprite.tech-php {
   width: 90px;
   height: 54px;
-  background-position: -360px -594px; }
+  background-position: -270px -432px; }
 
 .sprite.tech-pingdom {
   width: 90px;
   height: 54px;
-  background-position: -450px -594px; }
-
-.sprite.tech-pivotaltracker {
-  width: 90px;
-  height: 54px;
-  background-position: -540px -594px; }
-
-.sprite.tech-postgresql {
-  width: 90px;
-  height: 54px;
-  background-position: -630px -594px; }
+  background-position: -360px -432px; }
 
 .sprite.tech-protractor {
   width: 90px;
   height: 54px;
-  background-position: 0px -648px; }
+  background-position: -450px -432px; }
 
 .sprite.tech-raphael {
   width: 90px;
   height: 54px;
-  background-position: -90px -648px; }
+  background-position: 0px -486px; }
 
 .sprite.tech-require {
   width: 90px;
   height: 54px;
-  background-position: -180px -648px; }
+  background-position: -90px -486px; }
 
 .sprite.tech-responsive {
   width: 90px;
   height: 54px;
-  background-position: -270px -648px; }
+  background-position: -180px -486px; }
 
 .sprite.tech-ror {
   width: 90px;
   height: 54px;
-  background-position: -360px -648px; }
-
-.sprite.tech-rspec {
-  width: 90px;
-  height: 54px;
-  background-position: -450px -648px; }
+  background-position: -270px -486px; }
 
 .sprite.tech-ruby {
   width: 90px;
   height: 54px;
-  background-position: -540px -648px; }
+  background-position: -360px -486px; }
 
 .sprite.tech-sass {
   width: 90px;
   height: 54px;
-  background-position: -630px -648px; }
+  background-position: -450px -486px; }
 
 .sprite.tech-saucelabs {
   width: 90px;
   height: 54px;
-  background-position: -720px 0px; }
+  background-position: -540px 0px; }
 
 .sprite.tech-screenflow {
   width: 90px;
   height: 54px;
-  background-position: -720px -54px; }
+  background-position: -540px -54px; }
 
 .sprite.tech-selenium {
   width: 90px;
   height: 54px;
-  background-position: -720px -108px; }
-
-.sprite.tech-spinejs {
-  width: 90px;
-  height: 54px;
-  background-position: -720px -162px; }
+  background-position: -540px -108px; }
 
 .sprite.tech-sublime {
   width: 90px;
   height: 54px;
-  background-position: -720px -216px; }
+  background-position: -540px -162px; }
 
 .sprite.tech-svn {
   width: 90px;
   height: 54px;
-  background-position: -720px -270px; }
+  background-position: -540px -216px; }
 
 .sprite.tech-teamwork {
   width: 90px;
   height: 54px;
-  background-position: -720px -324px; }
-
-.sprite.tech-teaspoon {
-  width: 90px;
-  height: 54px;
-  background-position: -720px -378px; }
+  background-position: -540px -270px; }
 
 .sprite.tech-testacular {
   width: 90px;
   height: 54px;
-  background-position: -720px -432px; }
+  background-position: -540px -324px; }
 
 .sprite.tech-tomcat {
   width: 90px;
   height: 54px;
-  background-position: -720px -486px; }
+  background-position: -540px -378px; }
 
 .sprite.tech-travis {
   width: 90px;
   height: 54px;
-  background-position: -720px -540px; }
+  background-position: -540px -432px; }
 
 .sprite.tech-typekit {
   width: 90px;
   height: 54px;
-  background-position: -720px -594px; }
+  background-position: -540px -486px; }
 
 .sprite.tech-visualstudio {
   width: 90px;
   height: 54px;
-  background-position: -720px -648px; }
+  background-position: 0px -540px; }
 
 .sprite.tech-webstorm {
   width: 90px;
   height: 54px;
-  background-position: 0px -702px; }
+  background-position: -90px -540px; }
 
 .sprite.tech-wp {
   width: 90px;
   height: 54px;
-  background-position: -90px -702px; }
+  background-position: -180px -540px; }
 
 .sprite.tech-yeoman {
   width: 90px;
   height: 54px;
-  background-position: -180px -702px; }
+  background-position: -270px -540px; }
 
 @media (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
   .sprite {
     background: url('../../assets/spritesheet/icon-sprite__2x.png') no-repeat;
-    background-size: 810px 756px; } }
+    background-size: 630px 594px; } }
 
 /*
 Animate.css - http://daneden.me/animate
