@@ -132,7 +132,7 @@ This repository contains vanilla demo data for the projects section. The `PATH_P
 
 
 ##License
-Copyright (c) 2013-2014 JFMK, LLC.
+Copyright (c) 2013-2016 JFMK, LLC.
 Released under the [MIT License][^license].
 [^license]: https://github.com/jfroom/portfolio-web/blob/master/LICENSE
 
