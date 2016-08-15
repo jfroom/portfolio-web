@@ -20,12 +20,12 @@
       <div ng-switch-when="youtube" class='video-container youtube item-media loading-ani' youtube-embed="item"><div id="youtube-player"></div></div>
 
       <!-- IMAGE EMBED -->
-      <div class="item-img-outer item-media loading-ani lead-media" ng-switch-when="image"><img class="item-img"  ng-src="{[item.src]}" alt="" src="" /></div>
+      <div class="item-img-outer item-media loading-ani lead-media" ng-switch-when="image"><img class="item-img" ng-src="{[item.src]}" alt="" src="" /></div>
 
       <!-- VIDEO EMBED -->
       <video  ng-switch-when="video"
               video-js-embed="item"
-              id="video-id-{[$index]}"
+              id="video-player"
               class="item-video item-media video-js vjs-default-skin vjs-my-skin"
               controls
               >

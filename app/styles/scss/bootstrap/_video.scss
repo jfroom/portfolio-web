@@ -149,7 +149,7 @@ $videoHeightAspectRatio: 56.25%;
     }
   }
   &:hover .vjs-big-play-button {
-    //background-color: rgba($primary-background-color, .5);
+    background-color: darken($red, .5);
   }
   .vjs-volume-control {
     display: none;

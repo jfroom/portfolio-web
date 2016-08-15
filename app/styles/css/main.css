@@ -1,3 +1,4 @@
+@import url(../../../bower_components/video.js/dist/video-js.min.css);
 div.msg a {
   color: #cb4b16; }
 
@@ -7892,6 +7893,8 @@ nav[role=footer] {
   .video-js.vjs-my-skin .vjs-control:focus:before, .video-js.vjs-my-skin .vjs-control:hover:before, .video-js.vjs-my-skin .vjs-control:focus {
     opacity: 0.8;
     text-shadow: none; }
+  .video-js.vjs-my-skin:hover .vjs-big-play-button {
+    background-color: #dc302d; }
   .video-js.vjs-my-skin .vjs-volume-control {
     display: none; }
   .video-js.vjs-my-skin .vjs-mouse-display, .video-js.vjs-my-skin .vjs-play-progress, .video-js.vjs-my-skin .vjs-control-text {
