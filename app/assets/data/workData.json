@@ -56,10 +56,12 @@
             "browserstack",
             "git"
         ],
-        "detailMedia": [{
+        "detailMedia": [
+          {
             "type": "youtube",
             "id": "P4boyXQuUIw"
-        }]
+          }
+        ]
     }, {
         "id": "test-2",
         "thumbImage": "http://placehold.it/400x533&text=thumb-2",
@@ -98,10 +100,15 @@
             "browserstack",
             "git"
         ],
-        "detailMedia": [{
-            "type": "image",
-            "src": "http://placehold.it/1540x866&text=detail-img-2"
-        }]
+        "detailMedia": [
+          {
+            "type": "video",
+            "mp4": "http://vjs.zencdn.net/v/oceans.mp4",
+            "webm": "http://vjs.zencdn.net/v/oceans.webm",
+            "ogg": "http://vjs.zencdn.net/v/oceans.ogg",
+            "poster": "http://vjs.zencdn.net/v/oceans.png"
+          }
+        ]
     }, {
         "id": "test-3",
         "thumbImage": "http://placehold.it/400x533&text=thumb-3",

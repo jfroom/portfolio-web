@@ -1,5 +1,5 @@
 {
-  "SERVER_HOSTNAME": "jfmk-kepler.local",
+  "SERVER_HOSTNAME": "localhost",
   "DEV_HOSTNAME": "localhost",
   "PRODUCTION_HOSTNAME": "domain.com",
   "SERVER_PORT": "9090",
@@ -8,7 +8,7 @@
   "SAUCE_ACCESS_KEY": "sauce_key",
   "USE_SAUCE": "false",
 
-  "BUILD": "2014.01.22.0",
+  "BUILD": "2016.08.15",
   "S3_PORTFOLIO_USER": "username",
   "S3_PORTFOLIO_KEY": "key",
   "S3_PORTFOLIO_SECRET": "secret",

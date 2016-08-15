@@ -50,4 +50,10 @@ Gemfile.lock
 /.tmp
 /dist
 /selenium
+/bower_components/video.js
+!/bower_components/video.js/dist
+/bower_components/video.js/dist/alt
+/bower_components/video.js/dist/lang
+/bower_components/video.js/dist/examples
+/bower_components/video.js/dist/*.zip
 

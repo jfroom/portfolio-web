@@ -3,13 +3,14 @@
 @import 'partials/mixins';
 
 @import 'bootstrap/variables';
-@import '../../../bower_components/bootstrap-sass/lib/bootstrap.scss';
+@import '../../../bower_components/bootstrap-sass/lib/bootstrap';
+@import '../../../bower_components/video.js/dist/video-js.min.css';
 
 @import 'icon-sprite'; // see includePath
 @import 'partials/animate-custom';
 
 $fa-font-path: '../../bower_components/font-awesome/fonts';
-@import '../../../bower_components/font-awesome/scss/font-awesome.scss';
+@import '../../../bower_components/font-awesome/scss/font-awesome';
 
 @import 'bootstrap/base-elements';
 @import 'bootstrap/callouts';

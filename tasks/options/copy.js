@@ -30,7 +30,8 @@ module.exports = {
       {'./.tmp/': 'bower_components/lodash/dist/lodash.min{.js,.map}'},
       {'./.tmp/': 'bower_components/log4javascript/log4javascript{.js,.map}'},
       {'./.tmp/': 'bower_components/moment/*{.js,.map}'},
-      {'./.tmp/': 'bower_components/angular-moment/*{.js,.map}'}
+      {'./.tmp/': 'bower_components/angular-moment/*{.js,.map}'},
+      {'./.tmp/': 'bower_components/video.js/dist/*{.js,.map,.css,.swf,font/*,ie8/*}'}
 
     ]
   },
@@ -38,7 +39,8 @@ module.exports = {
     files:[
       {'./dist/': 'bower_components/font-awesome/fonts/*'},
       {'./dist/': 'bower_components/bootstrap-sass/assets/js/html5shiv.js'},
-      {'./dist/': 'bower_components/bootstrap-sass/assets/js/respond.min.js'}
+      {'./dist/': 'bower_components/bootstrap-sass/assets/js/respond.min.js'},
+      {'./dist/': 'bower_components/video.js/dist/*{.js,.swf,font/*,ie8/*}'}
     ]
   },
   jsApp: {
