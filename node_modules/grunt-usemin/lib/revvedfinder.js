@@ -1,6 +1,7 @@
 'use strict';
 var debug = require('debug')('revvedfinder');
 var path = require('path');
+var _ = require('lodash');
 
 // Allow to find, on disk, the revved version of a furnished file
 //
@@ -9,7 +10,7 @@ var path = require('path');
 //    - a function that will return a list of file matching a given pattern (for example grunt.file.expand)
 //
 var RevvedFinder = module.exports = function (locator) {
-  if (typeof(locator) === 'function') {
+  if (_.isFunction(locator)) {
     debug('using function locator');
     this.expandfn = locator;
   } else {
@@ -22,14 +23,15 @@ var regexpQuote = function (str) {
   return (str + '').replace(/([.?*+\^$\[\]\\(){}|\-])/g, '\\$1');
 };
 
-RevvedFinder.prototype.getCandidatesFromMapping = function(file, searchPaths) {
+RevvedFinder.prototype.getCandidatesFromMapping = function (file, searchPaths) {
   var dirname = path.dirname(file);
+  var filepath = dirname === '.' ? '' : dirname + '/';
   var candidates = [];
   var self = this;
 
-  searchPaths.forEach(function(sp) {
+  searchPaths.forEach(function (sp) {
     var key = path.normalize(path.join(sp, file));
-    debug('Looking at mapping for %s (from %s/%s)',key, sp, file);
+    debug('Looking at mapping for %s (from %s/%s)', key, sp, file);
 
     if (self.mapping[key]) {
       // We need to transform the actual file to a form that matches the one we received
@@ -38,26 +40,26 @@ RevvedFinder.prototype.getCandidatesFromMapping = function(file, searchPaths) {
       // 'dist/foo/images/test.1234.png' by grunt-rev, then we need to return
       // 'foo/images/test.1234.png'
       var cfile = path.basename(self.mapping[key]);
-      candidates.push(dirname + '/' + cfile);
-      debug('Found a candidate: %s/%s',dirname, cfile);
+      candidates.push(filepath + cfile);
+      debug('Found a candidate: %s/%s', dirname, cfile);
     }
   });
 
   return candidates;
-}
-;
-RevvedFinder.prototype.getCandidatesFromFS = function(file, searchPaths) {
+};
+
+RevvedFinder.prototype.getCandidatesFromFS = function (file, searchPaths) {
   var extname = path.extname(file);
   var basename = path.basename(file, extname);
   var dirname = path.dirname(file);
   var hex = '[0-9a-fA-F]+';
   var regPrefix = '(' + hex + '\\.' + regexpQuote(basename) + ')';
-  var regSuffix = '('+ regexpQuote(basename) + '\\.' + hex + regexpQuote(extname) + ')';
+  var regSuffix = '(' + regexpQuote(basename) + '\\.' + hex + regexpQuote(extname) + ')';
   var revvedRx = new RegExp(regPrefix + '|' + regSuffix);
   var candidates = [];
   var self = this;
 
-  searchPaths.forEach(function(sp) {
+  searchPaths.forEach(function (sp) {
     var searchString = path.join(sp, dirname, basename + '.*' + extname);
     var prefixSearchString = path.join(sp, dirname, '*.' + basename + extname);
 
@@ -73,12 +75,14 @@ RevvedFinder.prototype.getCandidatesFromFS = function(file, searchPaths) {
 
     debug('Found ', files);
 
-    // Keep only files that looks like revved file
-    var goodFiles = files.filter(function(f) { return f.match(revvedRx); });
+    // Keep only files that look like a revved file
+    var goodFiles = files.filter(function (f) {
+      return f.match(revvedRx);
+    });
 
-    // We now must remove the search path from the beginning, and add them to the
+    // We must now remove the search path from the beginning, and add them to the
     // list of candidates
-    goodFiles.forEach(function(gf) {
+    goodFiles.forEach(function (gf) {
       var goodFileName = path.basename(gf);
       if (!file.match(/\//)) {
         // We only get a file (i.e. no dirs), so let's send back
@@ -92,7 +96,7 @@ RevvedFinder.prototype.getCandidatesFromFS = function(file, searchPaths) {
     });
   });
 
-  return(candidates);
+  return candidates;
 };
 
 
@@ -102,7 +106,7 @@ RevvedFinder.prototype.getCandidatesFromFS = function(file, searchPaths) {
 // For example, when given file 'images/test.png', and searchPaths of ['dist']
 // the returned array should be something like ['images/test.1234.png']
 //
-RevvedFinder.prototype.getRevvedCandidates = function(file, searchPaths) {
+RevvedFinder.prototype.getRevvedCandidates = function (file, searchPaths) {
   var candidates;
 
   // Our strategy depends on what we get at creation time: either a mapping, and we "just"
@@ -113,7 +117,7 @@ RevvedFinder.prototype.getRevvedCandidates = function(file, searchPaths) {
   if (this.mapping) {
     debug('Looking at mapping');
     candidates = this.getCandidatesFromMapping(file, searchPaths);
-  }  else {
+  } else {
     debug('Looking on disk');
     candidates = this.getCandidatesFromFS(file, searchPaths);
   }
@@ -141,7 +145,7 @@ RevvedFinder.prototype.getRevvedCandidates = function(file, searchPaths) {
 // '../../images/pic.2123.png'
 //
 // Note that +ofile+ should be a relative path to the looked for file
-// (i.e. if it's an absolue path -- starting with / -- or an external one -- containing :// -- then
+// (i.e. if it's an absolute path -- starting with / -- or an external one -- containing :// -- then
 //  the original file is returned)
 //
 // It returns an object with 2 attributes:
@@ -149,50 +153,53 @@ RevvedFinder.prototype.getRevvedCandidates = function(file, searchPaths) {
 //  base: which is the directory from searchDirs where we found the file
 //
 RevvedFinder.prototype.find = function find(ofile, searchDirs) {
-    var file = ofile;
-    var searchPaths = searchDirs;
-    var absolute;
-    var prefix;
+  var file = ofile;
+  var searchPaths = searchDirs;
+  var absolute;
+  var prefix;
 
-    if (typeof searchDirs  === 'string' || searchDirs instanceof String) {
-      searchPaths = [searchDirs];
-    }
+  if (_.isString(searchDirs)) {
+    searchPaths = [searchDirs];
+  }
 
-    debug('Looking for revved version of %s in ', ofile, searchPaths);
+  debug('Looking for revved version of %s in ', ofile, searchPaths);
 
-    //do not touch external files or the root
-    // FIXME: Should get only relative files
-    if (ofile.match(/:\/\//) || ofile === '') {
-      return ofile;
-    }
+  // do not touch external files or the root
+  // FIXME: Should get only relative files
+  if (ofile.match(/:\/\//) || ofile === '') {
+    return ofile;
+  }
 
-    if (file[0] === '/') {
-      // We need to remember this is an absolute file, but transform it
-      // to a relative one
-      absolute = true;
-      file = file.replace(/^(\/+)/, function(match, header) { prefix = header; return '';});
-    }
+  if (file[0] === '/') {
+    // We need to remember this is an absolute file, but transform it
+    // to a relative one
+    absolute = true;
+    file = file.replace(/^(\/+)/, function (match, header) {
+      prefix = header;
+      return '';
+    });
+  }
 
-    var filepaths = this.getRevvedCandidates(file, searchPaths);
+  var filepaths = this.getRevvedCandidates(file, searchPaths);
 
-    var filepath = filepaths[0];
-    debug('filepath is now ', filepath);
+  var filepath = filepaths[0];
+  debug('filepath is now ', filepath);
 
-    // not a file in temp, skip it
-    if (!filepath) {
-      return ofile;
-    }
+  // not a file in temp, skip it
+  if (!filepath) {
+    return ofile;
+  }
 
-    // var filename = path.basename(filepath);
-    // handle the relative prefix (with always unix like path even on win32)
-    // if (dirname !== '.') {
-    //   filename = [dirname, filename].join('/');
-    // }
+  // var filename = path.basename(filepath);
+  // handle the relative prefix (with always unix like path even on win32)
+  // if (dirname !== '.') {
+  //   filename = [dirname, filename].join('/');
+  // }
 
-    if (absolute) {
-      filepath = prefix + filepath;
-    }
+  if (absolute) {
+    filepath = prefix + filepath;
+  }
 
-    debug('Let\'s return %s', filepath);
-    return filepath;
-  };
+  debug('Let\'s return %s', filepath);
+  return filepath;
+};

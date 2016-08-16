@@ -45,23 +45,16 @@ function loadConfig(path) {
 module.exports = function (grunt) {
 
   // Load all grunt tasks
-  require('load-grunt-tasks')(grunt);
+  //require('load-grunt-tasks')(grunt, {pattern: ['*', 'grunt-*', '!grunt-assemble-*']});
+  require('load-grunt-tasks')(grunt, {pattern: ['grunt-*', '@*/grunt-*', '!grunt-assemble-*']});
 
   //require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  grunt.loadNpmTasks('assemble');
+  //grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('node-spritesheet');
 
-  var helpers = require('handlebars-helpers');
+  require('handlebars-helpers');
 
   // configurable paths
-  var path = require('path');
-  var yeomanConfig = {
-    app: 'app',
-    dist: 'dist',
-    tmp: '.tmp',
-    //hostname: 'localhost'
-    hostname: nconf.get('SERVER_HOSTNAME')
-  };
   var config = {
     pkg: grunt.file.readJSON('package.json'),
     env: process.env
@@ -69,7 +62,8 @@ module.exports = function (grunt) {
 
   grunt.util._.extend(config, loadConfig('./tasks/options/'));
   //grunt.util._.extend(config, config_manual);
-  grunt.initConfig(config);
+  //console.log(config);
+  grunt.config.init(config);
 
   ///////////////////////////////////////////
   // TASKS

@@ -7,10 +7,12 @@ exports.name = 'cssmin';
 // Output a config for the furnished block
 // The context variable is used both to take the files to be treated
 // (inFiles) and to output the one(s) created (outFiles).
-// It aslo conveys whether or not the current process is the last of the pipe
+// It also conveys whether or not the current process is the last of the pipe
 //
-exports.createConfig = function(context, block) {
-  var cfg = {files: []};
+exports.createConfig = function (context, block) {
+  var cfg = {
+    files: []
+  };
   // FIXME: check context has all the needed info
   var outfile = path.join(context.outDir, block.dest);
 
@@ -18,7 +20,9 @@ exports.createConfig = function(context, block) {
   var files = {};
   files.dest = outfile;
   files.src = [];
-  context.inFiles.forEach(function(f) { files.src.push(path.join(context.inDir, f));} );
+  context.inFiles.forEach(function (f) {
+    files.src.push(path.join(context.inDir, f));
+  });
   cfg.files.push(files);
   context.outFiles = [block.dest];
   return cfg;

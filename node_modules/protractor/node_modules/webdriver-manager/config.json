@@ -1,0 +1,15 @@
+{
+  "webdriverVersions": {
+    "selenium": "2.53.1",
+    "chromedriver": "2.22",
+    "iedriver": "2.53.1",
+    "androidsdk": "24.4.1",
+    "appium": "1.5.3"
+  },
+  "cdnUrls": {
+    "selenium": "https://selenium-release.storage.googleapis.com/",
+    "chromedriver": "https://chromedriver.storage.googleapis.com/",
+    "iedriver": "https://selenium-release.storage.googleapis.com/",
+    "androidsdk": "http://dl.google.com/android/"
+  }
+}

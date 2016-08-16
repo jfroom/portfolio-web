@@ -1,5 +1,5 @@
 /**
- * Copyright 2013 Tim Down.
+ * Copyright 2014 Tim Down.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,9 +24,9 @@
  * stored in the same directory as the main log4javascript.js file.
  *
  * Author: Tim Down <tim@log4javascript.org>
- * Version: 1.4.5
+ * Version: 1.4.9
  * Edition: log4javascript
- * Build date: 20 February 2013
+ * Build date: 12 May 2014
  * Website: http://log4javascript.org
  */
 
@@ -151,7 +151,7 @@ var log4javascript = (function() {
 	Log4JavaScript.prototype = new EventSupport();
 
 	log4javascript = new Log4JavaScript();
-	log4javascript.version = "1.4.5";
+	log4javascript.version = "1.4.9";
 	log4javascript.edition = "log4javascript";
 
 	/* -------------------------------------------------------------------------- */
@@ -682,7 +682,7 @@ var log4javascript = (function() {
 			}
 		};
 
-		this.groupEnd = function(name) {
+		this.groupEnd = function() {
 			if (enabled) {
 				var effectiveAppenders = this.getEffectiveAppenders();
 				for (var i = 0, len = effectiveAppenders.length; i < len; i++) {
@@ -1022,6 +1022,14 @@ var log4javascript = (function() {
 			return (this.customFields.length > 0);
 		},
 
+		formatWithException: function(loggingEvent) {
+			var formatted = this.format(loggingEvent);
+			if (loggingEvent.exception && this.ignoresThrowable()) {
+				formatted += loggingEvent.getThrowableStrRep();
+			}
+			return formatted;
+		},
+
 		toString: function() {
 			handleError("Layout.toString: all layouts must override this method");
 		}
@@ -1130,6 +1138,11 @@ var log4javascript = (function() {
 
 	NullLayout.prototype.ignoresThrowable = function() {
 	    return true;
+	};
+
+	NullLayout.prototype.formatWithException = function(loggingEvent) {
+		var messages = loggingEvent.messages, ex = loggingEvent.exception;
+		return ex ? messages.concat([ex]) : messages;
 	};
 
 	NullLayout.prototype.toString = function() {
@@ -1880,11 +1893,7 @@ var log4javascript = (function() {
 	AlertAppender.prototype.layout = new SimpleLayout();
 
 	AlertAppender.prototype.append = function(loggingEvent) {
-		var formattedMessage = this.getLayout().format(loggingEvent);
-		if (this.getLayout().ignoresThrowable()) {
-			formattedMessage += loggingEvent.getThrowableStrRep();
-		}
-		alert(formattedMessage);
+		alert( this.getLayout().formatWithException(loggingEvent) );
 	};
 
 	AlertAppender.prototype.toString = function() {
@@ -1906,31 +1915,38 @@ var log4javascript = (function() {
 		var appender = this;
 
 		var getFormattedMessage = function() {
-			var layout = appender.getLayout();
-			var formattedMessage = layout.format(loggingEvent);
-			if (layout.ignoresThrowable() && loggingEvent.exception) {
-				formattedMessage += loggingEvent.getThrowableStrRep();
-			}
-			return formattedMessage;
+			var formattedMessage = appender.getLayout().formatWithException(loggingEvent);
+			return (typeof formattedMessage == "string") ? [formattedMessage] : formattedMessage;
 		};
 
-		if ((typeof opera != "undefined") && opera.postError) { // Opera
-			opera.postError(getFormattedMessage());
-		} else if (window.console && window.console.log) { // Safari and Firebug
-			var formattedMesage = getFormattedMessage();
-			// Log to Firebug using its logging methods or revert to the console.log
-			// method in Safari
-			if (window.console.debug && Level.DEBUG.isGreaterOrEqual(loggingEvent.level)) {
-				window.console.debug(formattedMesage);
-			} else if (window.console.info && Level.INFO.equals(loggingEvent.level)) {
-				window.console.info(formattedMesage);
-			} else if (window.console.warn && Level.WARN.equals(loggingEvent.level)) {
-				window.console.warn(formattedMesage);
-			} else if (window.console.error && loggingEvent.level.isGreaterOrEqual(Level.ERROR)) {
-				window.console.error(formattedMesage);
+		var console;
+
+		if ( (console = window.console) && console.log) { // Safari and Firebug
+			var formattedMessage = getFormattedMessage();
+
+			// Log to Firebug or the browser console using specific logging
+			// methods or revert to console.log otherwise 
+			var consoleMethodName;
+
+			if (console.debug && Level.DEBUG.isGreaterOrEqual(loggingEvent.level)) {
+				consoleMethodName = "debug";
+			} else if (console.info && Level.INFO.equals(loggingEvent.level)) {
+				consoleMethodName = "info";
+			} else if (console.warn && Level.WARN.equals(loggingEvent.level)) {
+				consoleMethodName = "warn";
+			} else if (console.error && loggingEvent.level.isGreaterOrEqual(Level.ERROR)) {
+				consoleMethodName = "error";
 			} else {
-				window.console.log(formattedMesage);
+				consoleMethodName = "log";
 			}
+
+			if (console[consoleMethodName].apply) {
+				console[consoleMethodName].apply(console, formattedMessage);
+			} else {
+				console[consoleMethodName](formattedMessage);
+			}
+		} else if ((typeof opera != "undefined") && opera.postError) { // Opera
+			opera.postError(getFormattedMessage());
 		}
 	};
 
@@ -1954,12 +1970,14 @@ var log4javascript = (function() {
 	/* ---------------------------------------------------------------------- */
 	// AjaxAppender related
 
+	var xhrFactory = function() { return new XMLHttpRequest(); };
 	var xmlHttpFactories = [
-		function() { return new XMLHttpRequest(); },
+		xhrFactory,
 		function() { return new ActiveXObject("Msxml2.XMLHTTP"); },
 		function() { return new ActiveXObject("Microsoft.XMLHTTP"); }
 	];
 
+	var withCredentialsSupported = false;
 	var getXmlHttp = function(errorHandler) {
 		// This is only run the first time; the value of getXmlHttp gets
 		// replaced with the factory that succeeds on the first run
@@ -1968,6 +1986,7 @@ var log4javascript = (function() {
 			factory = xmlHttpFactories[i];
 			try {
 				xmlHttp = factory();
+				withCredentialsSupported = (factory == xhrFactory && ("withCredentials" in xmlHttp));
 				getXmlHttp = factory;
 				return xmlHttp;
 			} catch (e) {
@@ -1982,14 +2001,15 @@ var log4javascript = (function() {
 	};
 
 	function isHttpRequestSuccessful(xmlHttp) {
-		return (isUndefined(xmlHttp.status) || xmlHttp.status === 0 ||
-			(xmlHttp.status >= 200 && xmlHttp.status < 300));
+		return isUndefined(xmlHttp.status) || xmlHttp.status === 0 ||
+			(xmlHttp.status >= 200 && xmlHttp.status < 300) ||
+			xmlHttp.status == 1223 /* Fix for IE */;
 	}
 
 	/* ---------------------------------------------------------------------- */
 	// AjaxAppender
 
-	function AjaxAppender(url) {
+	function AjaxAppender(url, withCredentials) {
 		var appender = this;
 		var isSupported = true;
 		if (!url) {
@@ -2171,11 +2191,7 @@ var log4javascript = (function() {
 			var currentLoggingEvent;
 			var postData = "";
 			while ((currentLoggingEvent = batchedLoggingEvents.shift())) {
-				var currentFormattedMessage = appender.getLayout().format(currentLoggingEvent);
-				if (appender.getLayout().ignoresThrowable()) {
-					currentFormattedMessage += currentLoggingEvent.getThrowableStrRep();
-				}
-				formattedMessages.push(currentFormattedMessage);
+				formattedMessages.push( appender.getLayout().formatWithException(currentLoggingEvent) );
 			}
 			// Create the post data string
 			if (batchedLoggingEvents.length == 1) {
@@ -2214,8 +2230,9 @@ var log4javascript = (function() {
 			try {
 				var xmlHttp = getXmlHttp(xmlHttpErrorHandler);
 				if (isSupported) {
-					if (xmlHttp.overrideMimeType) {
-						xmlHttp.overrideMimeType(appender.getLayout().getContentType());
+					// Add withCredentials to facilitate CORS requests with cookies
+					if (withCredentials && withCredentialsSupported) {
+						xmlHttp.withCredentials = true;
 					}
 					xmlHttp.onreadystatechange = function() {
 						if (xmlHttp.readyState == 4) {
@@ -4859,10 +4876,7 @@ var log4javascript = (function() {
 			this.append = function(loggingEvent) {
 				if (isSupported) {
 					// Format the message
-					var formattedMessage = appender.getLayout().format(loggingEvent);
-					if (this.getLayout().ignoresThrowable()) {
-						formattedMessage += loggingEvent.getThrowableStrRep();
-					}
+					var formattedMessage = appender.getLayout().formatWithException(loggingEvent);
 					queuedLoggingEvents.push(new QueuedLoggingEvent(loggingEvent, formattedMessage));
 					checkAndAppend();
 				}

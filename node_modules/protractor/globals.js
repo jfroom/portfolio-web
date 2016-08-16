@@ -1,0 +1,10 @@
+"use strict";
+exports.protractor = global['protractor'];
+exports.browser = exports.protractor.browser;
+exports.$ = exports.protractor.$;
+exports.$$ = exports.protractor.$$;
+exports.element = exports.protractor.element;
+exports.By = exports.protractor.By;
+exports.by = exports.protractor.by;
+exports.wrapDriver = exports.protractor.wrapDriver;
+exports.ExpectedConditions = exports.protractor.ExpectedConditions;

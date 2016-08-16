@@ -8,9 +8,9 @@ exports.name = 'requirejs';
 // Output a config for the furnished block
 // The context variable is used both to take the files to be treated
 // (inFiles) and to output the one(s) created (outFiles).
-// It aslo conveys whether or not the current process is the last of the pipe
+// It also conveys whether or not the current process is the last of the pipe
 //
-exports.createConfig = function(context, block) {
+exports.createConfig = function (context, block) {
   var cfg = {};
   var options = {};
   var requirejs = context.options || {};
@@ -24,7 +24,7 @@ exports.createConfig = function(context, block) {
   var out = path.join(context.outDir, block.requirejs.dest);
   var cfgFile = path.join(context.inDir, block.requirejs.baseUrl, block.requirejs.name);
   if (!cfgFile.match(/\.js/)) {
-    cfgFile = cfgFile + '.js';
+    cfgFile += '.js';
   }
 
   options.name = block.requirejs.name;
@@ -50,7 +50,9 @@ exports.createConfig = function(context, block) {
   }
 
   if (!hasTasks) {
-    cfg['default'] = {options: options};
+    cfg['default'] = {
+      options: options
+    };
   }
 
   return cfg;

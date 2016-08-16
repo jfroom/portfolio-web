@@ -9,15 +9,9 @@ describe 'Unit: Testing OffcanvasNav', ->
 
     beforeEach ->
       jQuery.fx.off = true
-
-      #$body = $('html body')
-      #$body.attr("data-offcanvas-nav", "test")
-      #$body.attr("data-offcanvas-nav-xMax", "150")
-
       setFixtures(window.__html__['test/fixtures/html/offcanvasNav.spec.html'])
 
       jasmine.getJSONFixtures().fixturesPath = testDataPath
-      #jasmine.getFixtures().fixturesPath = testDataPath
       settings = getJSONFixture('offcanvasNavSettings.spec.json')
 
       offcanvasNav = new OffcanvasNav(settings)
@@ -29,104 +23,47 @@ describe 'Unit: Testing OffcanvasNav', ->
     it 'should initialize', ->
       expect(offcanvasNav).toBeDefined()
 
-
-    #it 'should initialize off body data attributes', ->
-      #todo: add test for instaciation off body data attributes
-      #window.offcanvasNav = undefined
-     #expect(window.offcanvasNav).toBeDefined()
-
-
     it 'should have a toggle button, slide targets, and a cover', ->
       expect($btnToggle.length > 0).toBe(true)
       expect($slideTarget.length > 0).toBe(true)
       expect($cover.length > 0).toBe(true)
 
-    it 'should slide open when calling .open()', ->
-      isComplete = false
+    it 'should slide open when calling .open()', (done) ->
       offcanvasNav.bind offcanvasNav.EVENT_OFFCANVASNAV_TRANSITION_OPEN_COMPLETE, ->
-        #console.log "OPEN"
-        isComplete = true
-
-      offcanvasNav.open()
-      waitsFor ->
-        isComplete
-      , "open to complete transitioning", 5000
-      runs ->
-        expect(isComplete).toBe(true)
         expect(offcanvasNav.getIsOpen()).toBe(true)
-
-
-    it 'should slide closed when calling .close()', ->
-      isComplete = false
+        done()
       offcanvasNav.open()
-      offcanvasNav.bind offcanvasNav.EVENT_OFFCANVASNAV_TRANSITION_CLOSE_COMPLETE, ->
-        #console.log "OPEN"
-        isComplete = true
-      waitsFor ->
-        isComplete
-      , "close to complete transitioning", 100
 
-      offcanvasNav.close()
-      runs ->
-        expect(isComplete).toBe(true)
-        expect(offcanvasNav.getIsOpen()).toBe(false)
-
-    it 'should slide open when clicking toggle button (when closed)', ->
-      isComplete = false
+    it 'should slide closed when calling .close()', (done) ->
       offcanvasNav.bind offcanvasNav.EVENT_OFFCANVASNAV_TRANSITION_OPEN_COMPLETE, ->
-        isComplete = true
-      waitsFor ->
-        isComplete
-      , "open to complete transitioning", 100
-      $btnToggle.trigger('click')
-      runs ->
-        expect(isComplete).toBe(true)
-
-    ### this is now disabled, there's a div that covers this button to catch close clicks
-    it 'should slide closed when clicking toggle button (when open)', ->
-      isComplete = false
-      offcanvasNav.open()
-      offcanvasNav.bind offcanvasNav.EVENT_OFFCANVASNAV_TRANSITION_CLOSE_COMPLETE, ->
-        isComplete = true
-      waitsFor ->
-        isComplete
-      , "close to complete transitioning", 100
-
-      $btnToggle.trigger('click')
-      runs ->
-        expect(isComplete).toBe(true)
-    ###
-
-    it 'should slide closed when clicking content cover (when open)', ->
-      isComplete = false
-      offcanvasNav.open()
-      offcanvasNav.bind offcanvasNav.EVENT_OFFCANVASNAV_TRANSITION_CLOSE_COMPLETE, ->
-        #console.log("CLOSE")
-        isComplete = true
-      waitsFor ->
-        isComplete
-      , "close to complete transitioning", 1000
-      $cover.click();
-      runs ->
-        expect(isComplete).toBe(true)
-
-    it 'should slide closed when clicking inner link in nav (when open)', ->
-      isComplete = false
-      offcanvasNav.open()
-      runs ->
         offcanvasNav.bind offcanvasNav.EVENT_OFFCANVASNAV_TRANSITION_CLOSE_COMPLETE, ->
-          #console.log("CLOSE")
-          isComplete = true
-        waitsFor ->
-          isComplete
-        , "close to complete transitioning", 1000
+          expect(offcanvasNav.getIsOpen()).toBe(false)
+          done()
+        offcanvasNav.close()
+      offcanvasNav.open()
 
+    it 'should slide open when clicking toggle button (when closed)', (done) ->
+      offcanvasNav.bind offcanvasNav.EVENT_OFFCANVASNAV_TRANSITION_OPEN_COMPLETE, ->
+        expect(offcanvasNav.getIsOpen()).toBe(true)
+        done()
+      $btnToggle.trigger('click')
+
+    it 'should slide closed when clicking content cover (when open)', (done) ->
+      offcanvasNav.bind offcanvasNav.EVENT_OFFCANVASNAV_TRANSITION_OPEN_COMPLETE, ->
+        setTimeout (-> $cover.click()), 0 # give DOM a cycle to register changes
+      offcanvasNav.bind offcanvasNav.EVENT_OFFCANVASNAV_TRANSITION_CLOSE_COMPLETE, ->
+        expect(offcanvasNav.getIsOpen()).toBe(false)
+        done()
+      offcanvasNav.open()
+
+    it 'should slide closed when clicking inner link in nav (when open)', (done) ->
+      offcanvasNav.bind offcanvasNav.EVENT_OFFCANVASNAV_TRANSITION_OPEN_COMPLETE, ->
+        offcanvasNav.bind offcanvasNav.EVENT_OFFCANVASNAV_TRANSITION_CLOSE_COMPLETE, ->
+          expect(offcanvasNav.getIsOpen()).toBe(false)
+          done()
         $links = $offcanvasNav.find("a")
         $links.eq(0).click()
-
-        runs ->
-
-          expect(isComplete).toBe(true)
+      offcanvasNav.open()
 
     it 'should reflect state via getIsOpen', ->
       offcanvasNav.open()

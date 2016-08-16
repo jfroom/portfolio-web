@@ -2,8 +2,8 @@
 module.exports = {
   options: {
     port: process.env["SERVER_PORT"],
-    hostname: process.env["SERVER_HOSTNAME"] // change this to '0.0.0.0' to access the server from outside
-    ,livereload: process.env["LIVERELOAD_PORT"]
+    hostname: process.env["SERVER_HOSTNAME"], // change this to '0.0.0.0' to access the server from outside
+    livereload: process.env["LIVERELOAD_PORT"]
   },
 
   livereload: {

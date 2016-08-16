@@ -11,7 +11,7 @@ var shared = function(config) {
 
     // use dots reporter, as travis terminal does not support escaping sequences
     // possible values: 'dots' || 'progress'
-    reporters: ['progress'],//, 'coverage'],
+    reporters: ['progress', 'html'],
 
     // Start these browsers, currently available:
     // - Chrome
@@ -26,21 +26,24 @@ var shared = function(config) {
 
     // these are default values anyway
     singleRun: false,
-    colors: true
-    ,preprocessors:{
+    colors: true,
+    preprocessors:{
       '**/*.coffee': 'coffee',
       '**/*.html': 'html2js'//[]
       //,'../.tmp/scripts/**/*.js': 'coverage'
-    }
-    ,coffeePreprocessor: {
-      options: { sourceMap: true }
+    },
+    coffeePreprocessor: {
+      options: { sourceMap: true },
       // transforming the filenames
-      ,transformPath: function ( path ) { return path.replace( /.js$/, '.coffee' ); }
+      transformPath: function ( path ) { return path.replace( /.js$/, '.coffee' ); }
     },
     // optionally, configure the reporter
     coverageReporter: {
       type : 'html',
       dir : 'coverage/'
+    },
+    htmlReporter: {
+      outputFile: 'test/results/units.html'
     }
   });
 };

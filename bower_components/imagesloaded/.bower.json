@@ -18,7 +18,7 @@
     "tag": "v3.0.4",
     "commit": "51efecb73f8b0cd839024bfa7985339dec6bc729"
   },
-  "_source": "git://github.com/desandro/imagesloaded.git",
+  "_source": "https://github.com/desandro/imagesloaded.git",
   "_target": "~3.0.4",
   "_originalSource": "imagesloaded"
 }

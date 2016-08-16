@@ -1,7 +1,7 @@
 {
   "name": "eventEmitter",
   "description": "Event based JavaScript for the browser",
-  "version": "4.2.4",
+  "version": "4.3.0",
   "main": [
     "./EventEmitter.js"
   ],
@@ -9,24 +9,26 @@
     "name": "Oliver Caldwell",
     "web": "http://oli.me.uk/"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/Wolfy87/EventEmitter#license-mit"
-    }
-  ],
+  "license": "Unlicense",
   "keywords": [
     "events",
     "structure"
   ],
-  "homepage": "https://github.com/Wolfy87/EventEmitter",
-  "_release": "4.2.4",
+  "ignore": [
+    "docs",
+    "tests",
+    "tools",
+    ".gitignore",
+    "package.json"
+  ],
+  "homepage": "https://github.com/Olical/EventEmitter",
+  "_release": "4.3.0",
   "_resolution": {
     "type": "version",
-    "tag": "v4.2.4",
-    "commit": "616a919fbe89fa6d8024b9c6e37f074f2c71bf88"
+    "tag": "v4.3.0",
+    "commit": "34545d1b761fca48d7e4d9c71efc868a8d101419"
   },
-  "_source": "git://github.com/Wolfy87/EventEmitter.git",
+  "_source": "https://github.com/Olical/EventEmitter.git",
   "_target": "4.x",
   "_originalSource": "eventEmitter"
 }

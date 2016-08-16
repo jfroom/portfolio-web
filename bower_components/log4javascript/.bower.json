@@ -1,15 +1,14 @@
 {
   "name": "log4javascript",
   "homepage": "https://github.com/toushay/log4javascript",
-  "version": "1.4.5",
-  "_release": "1.4.5",
+  "version": "1.4.9",
+  "_release": "1.4.9",
   "_resolution": {
     "type": "version",
-    "tag": "v1.4.5",
-    "commit": "f7fa261fdc9da6e388f72de790a97952658f4bc3"
+    "tag": "v1.4.9",
+    "commit": "9c7a7fc6f2a6a63dfd5b520a928c8f3f5d8386ff"
   },
-  "_source": "git://github.com/toushay/log4javascript.git",
+  "_source": "https://github.com/toushay/log4javascript.git",
   "_target": "~1.4.5",
-  "_originalSource": "log4javascript",
-  "_direct": true
+  "_originalSource": "log4javascript"
 }

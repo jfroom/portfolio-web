@@ -25,10 +25,9 @@
   "_resolution": {
     "type": "version",
     "tag": "2.2.1",
-    "commit": "3fb0846d88e31db31b45ce37a2a8a8a605761cbd"
+    "commit": "6c5313977214d33503e96fdb761afc61011341d1"
   },
-  "_source": "git://github.com/lodash/lodash.git",
+  "_source": "https://github.com/lodash/lodash.git",
   "_target": "~2.2.1",
-  "_originalSource": "lodash",
-  "_direct": true
+  "_originalSource": "lodash"
 }

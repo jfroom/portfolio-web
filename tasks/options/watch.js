@@ -49,10 +49,6 @@ module.exports = {
       nospawn: true
     }
   },
-  recess: {
-    files: 'app/styles/less/*.less',
-    tasks: ['recess']
-  },
   js: {
     files: ['app/scripts/{,*/}*.js'],
     tasks: ['watchcontexthelper:js'],

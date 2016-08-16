@@ -1,0 +1,20 @@
+{
+  "name": "example-typescript",
+  "version": "1.0.0",
+  "description": "a typescript example",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "tsc": "tsc",
+    "typings": "typings install",
+    "postinstall": "typings install",
+    "pretest": "tsc",
+    "test": "protractor conf.js"
+  },
+  "dependencies": {
+    "jasmine": "^2.4.1",
+    "protractor": "file:../",
+    "typescript": "^1.8.10",
+    "typings": "^1.0.5"
+  }
+}

@@ -1,12 +1,12 @@
 /* License: MIT.
- * Copyright (C) 2013, Uri Shaked.
+ * Copyright (C) 2013, 2014, 2015, Uri Shaked.
  */
 
 'use strict';
 
 module.exports = function (grunt) {
-	// load all grunt tasks
-	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+	// Load grunt tasks automatically
+	require('load-grunt-tasks')(grunt);
 
 	grunt.initConfig({
 		karma: {
@@ -27,6 +27,9 @@ module.exports = function (grunt) {
 		},
 		uglify: {
 			dist: {
+				options: {
+					sourceMap: true
+				},
 				files: {
 					'angular-moment.min.js': 'angular-moment.js'
 				}

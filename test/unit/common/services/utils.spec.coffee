@@ -1,13 +1,13 @@
 describe 'Unit: Testing services.utils', ->
   $scope = utils = $timeout = $location = 0
   jQuery.fx.off = true
-  beforeEach(module('services.utils'))
-  beforeEach(inject ($injector) ->
-    $scope = $injector.get('$rootScope')
-    utils = $injector.get('utils')
-    $timeout = $injector.get("$timeout")
-    $location = $injector.get("$location")
-  )
+  beforeEach ->
+    module('services.utils')
+    inject ($injector) ->
+      $scope = $injector.get('$rootScope')
+      utils = $injector.get('utils')
+      $timeout = $injector.get("$timeout")
+      $location = $injector.get("$location")
 
   #===========================================================
   # assignBtnHover
@@ -48,19 +48,17 @@ describe 'Unit: Testing services.utils', ->
       #
       # getScrollTop - cross browser
       #
-      if !isMobileBrowser
+      unless isMobileBrowser
         describe 'getScrollTop', ->
           fixture = 0
           beforeEach ->
             fixture = setFixtures(sandbox({style: 'height:10000px;background-color:blue;'}))
-          it 'should get accruate scrollTop value', ->
+          it 'should get accurate scrollTop value', (done) ->
             window.scrollTo(0, 50)
-
-            waits(500)
-            runs ->
-              top = utils.getScrollTop()
-              expect(top > 40 && top < 60).toBe(true)
-
+            setTimeout ->
+              expect(40 < utils.getScrollTop() < 60).toBe(true)
+              done()
+            , 0 # one dom redraw cycle
 
       describe 'scrollAnimateTo Suite', ->
 
@@ -71,7 +69,6 @@ describe 'Unit: Testing services.utils', ->
         describe 'scrollAnimateTo', ->
           fixture = page = scrollY = 0
 
-
           beforeEach ->
             window.scrollTo(0, 0)
             fixture = setFixtures(sandbox({style: 'height:10000px;background-color:blue;'}))
@@ -79,33 +76,31 @@ describe 'Unit: Testing services.utils', ->
             fixture.append('<span style=\'padding-top:500px;\' id=\'anchor\'>anchor</span>')
             scrollY = utils.getScrollTop()
 
-          if !isMobileBrowser
-            it 'should change page scroll based on numeric value', ->
+          unless isMobileBrowser
+            it 'should change page scroll based on numeric value', (done) ->
               utils.scrollAnimateTo(100, 0)
               $timeout.flush()
-              debugger
-              waits(scrollWaitTime)
-              runs ->
-
-                #console.log '100 spec: scrollTop:' + utils.getScrollTop()  + ' window/height():' + $(window).height() + ' scrollY:' + scrollY
-                #console.log('10000 spec: scrollTop:' + utils.getScrollTop()  + ' window/height():' + $(window).height())
+              setTimeout ->
                 expect(utils.getScrollTop() > scrollY).toBe(true)
+                done()
+              , 0 # one dom cycle
 
-            it 'should change page scroll based on anchor', ->
-              #debugger
+            it 'should change page scroll based on anchor', (done) ->
               utils.scrollAnimateTo('#anchor', 0)
               $timeout.flush()
-              waits(scrollWaitTime)
-              runs ->
+              setTimeout ->
                 expect(utils.getScrollTop() > scrollY).toBe(true)
+                done()
+              , 0 # one dom cycle
 
-          it 'should dispatch complete event', ->
+          it 'should dispatch complete event', (done) ->
             spyEvent = spyOnEvent(document, utils.EVENT_SCROLL_ANIMATE_COMPLETE)
             utils.scrollAnimateTo('#anchor', 0)
             $timeout.flush()
-            waits(scrollWaitTime)
-            runs ->
+            setTimeout ->
               expect(spyEvent).toHaveBeenTriggered()
+              done()
+            , 0
 
         #=============================================================
         # assignScrollAnimateToAnchors
