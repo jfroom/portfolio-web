@@ -67,9 +67,7 @@
     "selenium-webdriver": "~2.37.0",
     "time-grunt": "~0.2.0"
   },
-  "dep": {
-
-  },
+  "dep": {},
   "engines": {
     "node": ">=4.0"
   },
