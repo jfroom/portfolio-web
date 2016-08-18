@@ -11,13 +11,13 @@ module.exports = function(config) {
 
     //test files
     'test/unit/**/*.spec.coffee',
+    //'test/unit/common/directives/video.spec.coffee',
+    //'test/unit/common/services/utils.spec.coffee',
+    //'test/unit/plugins/offcanvasNav.spec.coffee',
 
     // fixtures
-    {
-      pattern: 'test/fixtures/html/*.html', watched: true, included: true, served: true
-    }
-    ,{pattern: 'test/fixtures/assets/data/*.json', watched: true, included:false, served:true}
-
+    {pattern: 'test/fixtures/html/*.html', watched: true, included: true, served: true},
+    {pattern: 'test/fixtures/assets/data/*.json', watched: true, included:false, served:true}
   ]);
 
   if (process.env.isTravisBuild == 'true') {

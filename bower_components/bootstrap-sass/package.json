@@ -1,40 +1,44 @@
 {
-    "name": "bootstrap"
-  , "description": "Sleek, intuitive, and powerful front-end framework for faster and easier web development."
-  , "version": "3.0.2"
-  , "keywords": ["bootstrap", "css"]
-  , "homepage": "http://getbootstrap.com"
-  , "author": "Twitter, Inc."
-  , "scripts": { "test": "grunt test" }
-  , "repository": {
-      "type": "git"
-    , "url": "https://github.com/twbs/bootstrap.git"
-  }
-  , "bugs": {
-      "url": "https://github.com/twbs/bootstrap/issues"
-  }
-  , "licenses": [
-    {
-        "type": "Apache-2.0"
-      , "url": "http://www.apache.org/licenses/LICENSE-2.0"
-    }
-  ]
-  , "devDependencies": {
-      "browserstack-runner": "~0.0.12"
-    , "btoa": "~1.1.1"
-    , "grunt": "~0.4.1"
-    , "grunt-contrib-clean": "~0.5.0"
-    , "grunt-contrib-concat": "~0.3.0"
-    , "grunt-contrib-connect": "~0.5.0"
-    , "grunt-contrib-copy": "~0.4.1"
-    , "grunt-contrib-jshint": "~0.7.0"
-    , "grunt-contrib-qunit": "~0.3.0"
-    , "grunt-contrib-uglify": "~0.2.4"
-    , "grunt-contrib-watch": "~0.5.3"
-    , "grunt-html-validation": "~0.1.6"
-    , "grunt-jekyll": "~0.4.0"
-    , "grunt-recess": "~0.4.0"
-    , "grunt-sed": "~0.1.1"
-    , "regexp-quote": "~0.0.0"
+  "name": "bootstrap-sass",
+  "version": "3.3.7",
+  "description": "bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.",
+  "main": "assets/javascripts/bootstrap.js",
+  "style": "assets/stylesheets/_bootstrap.scss",
+  "sass": "assets/stylesheets/_bootstrap.scss",
+  "files": [
+    "assets",
+    "eyeglass-exports.js",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/twbs/bootstrap-sass"
+  },
+  "keywords": [
+    "bootstrap",
+    "sass",
+    "css",
+    "eyeglass-module"
+  ],
+  "contributors": [
+    "Thomas McDonald",
+    "Tristan Harward",
+    "Peter Gumeson",
+    "Gleb Mazovetskiy"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/twbs/bootstrap-sass/issues"
+  },
+  "devDependencies": {
+    "node-sass": "^3.8.0",
+    "mincer": "~1.4.0",
+    "ejs": "~2.4.2"
+  },
+  "eyeglass": {
+    "exports": "eyeglass-exports.js",
+    "needs": "^0.7.1"
   }
 }

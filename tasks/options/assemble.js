@@ -15,7 +15,7 @@ module.exports = {
         flatten: true,
         data: assembleData,
         plugins: [
-            'assemble-contrib-permalinks', 'assemble-contrib-wordcount', 'assemble-contrib-contextual'
+            'grunt-assemble-permalinks', 'grunt-assemble-wordcount', 'grunt-assemble-contextual'
         ],
         contextual: {
             dest: '.tmp/assemble-context/'

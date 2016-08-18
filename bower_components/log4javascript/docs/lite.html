@@ -80,7 +80,7 @@
 if(!Array.prototype.shift){Array.prototype.shift=function(){if(this.length>0){var firstItem=this[0];for(var i=0,len=this.length-1;i<len;i++){this[i]=this[i+1];}
 this.length--;return firstItem;}};}
 var log4javascript;(function(){var newLine="\r\n";function Log4JavaScript(){}
-log4javascript=new Log4JavaScript();log4javascript.version="1.4.5";log4javascript.edition="log4javascript_lite";function getExceptionMessage(ex){if(ex.message){return ex.message;}else if(ex.description){return ex.description;}else{return String(ex);}}
+log4javascript=new Log4JavaScript();log4javascript.version="1.4.9";log4javascript.edition="log4javascript_lite";function getExceptionMessage(ex){if(ex.message){return ex.message;}else if(ex.description){return ex.description;}else{return String(ex);}}
 function getUrlFileName(url){var lastSlashIndex=Math.max(url.lastIndexOf("/"),url.lastIndexOf("\\"));return url.substr(lastSlashIndex+1);}
 function getExceptionStringRep(ex){if(ex){var exStr="Exception: "+getExceptionMessage(ex);try{if(ex.lineNumber){exStr+=" on line number "+ex.lineNumber;}
 if(ex.fileName){exStr+=" in file "+getUrlFileName(ex.fileName);}}catch(localEx){}

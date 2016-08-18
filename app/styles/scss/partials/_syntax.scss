@@ -1,8 +1,5 @@
-@import '../vendor/highlight/styles/default';
-pre{
+@import '../vendor/highlight/styles/_default';
+pre {
   background-color: #fdf6e3;
 }
-/*code{
-  background-color: #fdf6e3; color: #657b83;
-}*/
-@import '../vendor/highlight/styles/solarized_light';
+@import '../vendor/highlight/styles/_solarized_light';

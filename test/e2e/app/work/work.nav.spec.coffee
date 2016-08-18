@@ -3,22 +3,13 @@ describe "E2E: Testing Work Nav", ->
   workData = []
 
   # load run time JSON data from page, tricky async
-  firstRun = true
-  beforeEach ->
-
-    if firstRun
-      hasData = false
-      #webPage.setWindowMax()
+  beforeEach (done) ->
+    unless workData.length
       browser.get global.specUtils.workUrl
       webPage.pause global.specUtils.anchorScrollDuration
-      waitsFor ->
-        hasData
-      runs ->
-        #nothing
       global.specUtils.getAppDataAsync (data) ->
         workData = __.clone(data.work.projects)
-        hasData = true
-      firstRun = false
+        done()
 
   describe 'nav buttons', ->
 

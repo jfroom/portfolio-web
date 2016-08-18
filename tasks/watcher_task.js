@@ -44,11 +44,6 @@ module.exports = function(grunt) {
           grunt.task.run(['clean:css', 'sass:dist', 'cssmin', 'clean:devcss']) :
           grunt.task.run(['clean:css', 'sass:development']);
         break;
-      case 'less':
-        (grunt.watchcontext === 'production') ?
-          grunt.task.run(['clean:css', 'recess:dist', 'cssmin', 'clean:devcss']) :
-          grunt.task.run(['clean:css', 'recess']);
-        break;
 
     }
   });

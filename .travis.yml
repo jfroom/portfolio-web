@@ -1,8 +1,18 @@
+sudo: false
+
 language: node_js
+
 node_js:
-  - "0.10"
+  - 4
+
+addons:
+  firefox:
+    "latest"
+
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - "npm install -g grunt-cli"
-install: true
+  # Make sure we have new NPM.
+  - npm install -g npm
+  - npm install -g grunt-cli
+  - npm config set loglevel warn
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start

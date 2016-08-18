@@ -49,6 +49,7 @@ Gemfile.lock
 /.sass-cache
 /.tmp
 /dist
+/node_modules
 /selenium
 /bower_components/video.js
 !/bower_components/video.js/dist
@@ -56,4 +57,3 @@ Gemfile.lock
 /bower_components/video.js/dist/lang
 /bower_components/video.js/dist/examples
 /bower_components/video.js/dist/*.zip
-

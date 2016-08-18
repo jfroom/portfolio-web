@@ -4,6 +4,7 @@ angular.module("app.enums", [])
     EventType:
       WorkLoad: "work.load",
       AnchorScroll: "anchor.scroll"
+      VideoReady: "video.ready"
       VideoStart: "video.start"
       VideoEnd: "video.end"
       TrackPageview: "track.pageview"

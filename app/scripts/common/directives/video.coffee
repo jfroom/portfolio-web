@@ -38,6 +38,8 @@ angular.module('directives.youtubeEmbed', ['app.enums'])
 
           if scope.hasStarted && newState.data == YT.PlayerState.ENDED
             $rootScope.$broadcast enums.EventType.VideoEnd, scope.videoData
+        scope.player.addEventListener 'onReady', ->
+          $rootScope.$broadcast enums.EventType.VideoReady, scope.videoData
     post: (scope) ->
       ytLoaded = window.YT != undefined && window.YT.Player != undefined
       if !ytLoaded

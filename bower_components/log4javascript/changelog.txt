@@ -1,6 +1,18 @@
 log4javascript change log
 -------------------------
 
+1.4.9 (12/5/2014)
+- Fix for typo in BrowserConsoleAppender
+
+1.4.8 (18/4/2014)
+- Added support for XMLHttpRequest's withCredentials to AjaxAppender
+
+1.4.7 (7/6/2013)
+- Improved multiple browser console argument handling as per feature request #4
+
+1.4.6 (19/3/2013)
+- Added fix to handle 1223 status code from XMLHttpRequest in IE
+
 1.4.5 (20/2/2013)
 - Changed AjaxAppender to send raw data rather than URL-encoded form data when
   content-type is not "application/x-www-form-urlencoded"

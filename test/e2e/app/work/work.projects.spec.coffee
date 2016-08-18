@@ -8,18 +8,13 @@ describe "E2E: Testing Work Projects", ->
   workDataOriginal = []
 
   # load run time JSON data from page, tricky async
-  firstRun = true
-  beforeEach ->
+  hasData = false
+  beforeEach (done) ->
 
-    if firstRun
-      hasData = false
+    unless hasData
       #webPage.setWindowMax()
       browser.get global.specUtils.workUrl
       webPage.pause global.specUtils.anchorScrollDuration
-      waitsFor ->
-        hasData
-      runs ->
-        registerDynamicAssertions()
       global.specUtils.getAppDataAsync (data) ->
         workDataOriginal = __.clone(data.work)
         workData = __.clone(workDataOriginal)
@@ -29,9 +24,11 @@ describe "E2E: Testing Work Projects", ->
             item.id == id
           return arr.length > 0
         hasData = true
-      firstRun = false
-
-
+        registerDynamicAssertions
+        done()
+    else
+      registerDynamicAssertions
+      done()
 
   # validate workData, this block also holds jasmine open for dymamic insertion
   describe 'assign project data', ->

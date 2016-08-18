@@ -11,7 +11,7 @@ describe("jasmine.Fixtures", function () {
 
   beforeEach(function () {
     jasmine.getFixtures().clearCache()
-    spyOn(jasmine.Fixtures.prototype, 'loadFixtureIntoCache_').andCallFake(function (relativeUrl){
+    spyOn(jasmine.Fixtures.prototype, 'loadFixtureIntoCache_').and.callFake(function (relativeUrl){
       this.fixturesCache_[relativeUrl] = ajaxData
     })
   })
@@ -32,18 +32,18 @@ describe("jasmine.Fixtures", function () {
         jasmine.getFixtures().read(fixtureUrl)
         jasmine.getFixtures().clearCache()
         jasmine.getFixtures().read(fixtureUrl)
-        expect(jasmine.Fixtures.prototype.loadFixtureIntoCache_.callCount).toEqual(2)
+        expect(jasmine.Fixtures.prototype.loadFixtureIntoCache_.calls.count()).toEqual(2)
       })
     })
 
     it("first-time read should go through AJAX", function () {
       jasmine.getFixtures().read(fixtureUrl)
-      expect(jasmine.Fixtures.prototype.loadFixtureIntoCache_.callCount).toEqual(1)
+      expect(jasmine.Fixtures.prototype.loadFixtureIntoCache_.calls.count()).toEqual(1)
     })
 
     it("subsequent read from the same URL should go from cache", function () {
       jasmine.getFixtures().read(fixtureUrl, fixtureUrl)
-      expect(jasmine.Fixtures.prototype.loadFixtureIntoCache_.callCount).toEqual(1)
+      expect(jasmine.Fixtures.prototype.loadFixtureIntoCache_.calls.count()).toEqual(1)
     })
   })
 
@@ -128,7 +128,6 @@ describe("jasmine.Fixtures", function () {
         expect($("#anchor_01")).toHaveClass('foo')
       })
     })
-
   })
 
   describe("appendLoad", function () {
@@ -194,7 +193,7 @@ describe("jasmine.Fixtures", function () {
       it("should go from cache", function () {
         jasmine.getFixtures().preload(fixtureUrl, anotherFixtureUrl)
         jasmine.getFixtures().read(fixtureUrl, anotherFixtureUrl)
-        expect(jasmine.Fixtures.prototype.loadFixtureIntoCache_.callCount).toEqual(2)
+        expect(jasmine.Fixtures.prototype.loadFixtureIntoCache_.calls.count()).toEqual(2)
       })
 
       it("should return correct HTMLs", function () {
@@ -206,13 +205,13 @@ describe("jasmine.Fixtures", function () {
 
     it("should not preload the same fixture twice", function () {
       jasmine.getFixtures().preload(fixtureUrl, fixtureUrl)
-      expect(jasmine.Fixtures.prototype.loadFixtureIntoCache_.callCount).toEqual(1)
+      expect(jasmine.Fixtures.prototype.loadFixtureIntoCache_.calls.count()).toEqual(1)
     })
 
     it("should have shortcut global method preloadFixtures", function () {
       preloadFixtures(fixtureUrl, anotherFixtureUrl)
       jasmine.getFixtures().read(fixtureUrl, anotherFixtureUrl)
-      expect(jasmine.Fixtures.prototype.loadFixtureIntoCache_.callCount).toEqual(2)
+      expect(jasmine.Fixtures.prototype.loadFixtureIntoCache_.calls.count()).toEqual(2)
     })
   })
 
@@ -221,12 +220,12 @@ describe("jasmine.Fixtures", function () {
 
     it("should insert HTML into container", function () {
       jasmine.getFixtures().set(html)
-      expect(fixturesContainer().html()).toEqual(jasmine.JQuery.browserTagCaseIndependentHtml(html))
+      expect(fixturesContainer().html()).toEqual(jasmine.jQuery.browserTagCaseIndependentHtml(html))
     })
 
     it("should insert jQuery element into container", function () {
       jasmine.getFixtures().set($(html))
-      expect(fixturesContainer().html()).toEqual(jasmine.JQuery.browserTagCaseIndependentHtml(html))
+      expect(fixturesContainer().html()).toEqual(jasmine.jQuery.browserTagCaseIndependentHtml(html))
     })
 
     describe("when fixture container does not exist", function () {
@@ -249,7 +248,7 @@ describe("jasmine.Fixtures", function () {
 
       it("should replace it with new content", function () {
         jasmine.getFixtures().set(html)
-        expect(fixturesContainer().html()).toEqual(jasmine.JQuery.browserTagCaseIndependentHtml(html))
+        expect(fixturesContainer().html()).toEqual(jasmine.jQuery.browserTagCaseIndependentHtml(html))
       })
 
       it("should return the fixture container", function (){
@@ -265,7 +264,7 @@ describe("jasmine.Fixtures", function () {
 
     it("should be a shortcut global method", function () {
       setFixtures(html)
-      expect(fixturesContainer().html()).toEqual(jasmine.JQuery.browserTagCaseIndependentHtml(html))
+      expect(fixturesContainer().html()).toEqual(jasmine.jQuery.browserTagCaseIndependentHtml(html))
     })
 
     it("should return the fixture container", function () {
@@ -279,17 +278,17 @@ describe("jasmine.Fixtures", function () {
     var html = '<div>some HTML</div>'
     it("should insert HTML into container", function () {
       jasmine.getFixtures().appendSet(html)
-      expect(fixturesContainer().html()).toEqual(jasmine.JQuery.browserTagCaseIndependentHtml(html))
+      expect(fixturesContainer().html()).toEqual(jasmine.jQuery.browserTagCaseIndependentHtml(html))
     })
 
     it("should insert jQuery element into container", function () {
       jasmine.getFixtures().appendSet($(html))
-      expect(fixturesContainer().html()).toEqual(jasmine.JQuery.browserTagCaseIndependentHtml(html))
+      expect(fixturesContainer().html()).toEqual(jasmine.jQuery.browserTagCaseIndependentHtml(html))
     })
 
     it("should have shortcut global method setFixtures", function () {
       appendSetFixtures(html)
-      expect(fixturesContainer().html()).toEqual(jasmine.JQuery.browserTagCaseIndependentHtml(html))
+      expect(fixturesContainer().html()).toEqual(jasmine.jQuery.browserTagCaseIndependentHtml(html))
     })
 
     describe("when fixture container does not exist", function () {
@@ -306,7 +305,7 @@ describe("jasmine.Fixtures", function () {
 
       it("should add new content", function () {
         jasmine.getFixtures().appendSet(html)
-        expect(fixturesContainer().html()).toEqual(jasmine.JQuery.browserTagCaseIndependentHtml(html)+jasmine.JQuery.browserTagCaseIndependentHtml(html))
+        expect(fixturesContainer().html()).toEqual(jasmine.jQuery.browserTagCaseIndependentHtml(html)+jasmine.jQuery.browserTagCaseIndependentHtml(html))
       })
     })
   })
@@ -399,38 +398,45 @@ describe("jasmine.Fixtures using real AJAX call", function () {
       }).toThrow()
     })
   })
+
+  describe("when fixture contains an <script src='to/your/source'> tag", function () {
+    var fixtureUrl = "fixture_with_javascript.html"
+
+    it("should load content of fixture file and javascript and bind events", function () {
+      jasmine.getFixtures().load(fixtureUrl)
+      $('#anchor_01').click()
+      expect($("#anchor_01")).toHaveClass('foo')
+    })
+
+    it("should load multiple javascripts and bind events in fixture", function () {
+      jasmine.getFixtures().load(fixtureUrl)
+      $('#anchor_01').click()
+      $('#anchor_01').trigger('hover')
+      expect($("#anchor_01")).toHaveClass('foo')
+      expect($("#anchor_01")).toHaveClass('bar')
+    })
+  })
+
+  describe("when fixture contains a <script> tag without a src attribute", function () {
+    var fixtureUrl = "fixture_with_javascript_block.html"
+
+    it("should load the fixture and ignore the script tag", function () {
+      jasmine.getFixtures().load(fixtureUrl)
+      expect($("#anchor_01").length).toBe(1)
+    })
+  })
+  
+  describe("When the fixture contains a HTML 5 style checked checkbox", function () {
+	var fixtureUrl = "fixture_with_checkbox_with_checked.html"
+	
+	it("Then the fixture is loaded successfully", function () {
+	  jasmine.getFixtures().load(fixtureUrl)
+	  expect('#' + jasmine.getFixtures().containerId).toContainElement('#checked-box')
+	})
+  })
 })
 
-
-describe("jQuery matchers", function () {
-  describe("when jQuery matcher hides original Jasmine matcher", function () {
-    describe("and tested item is jQuery object", function () {
-      it("should invoke jQuery version of matcher", function () {
-        expect($('<div />')).toBe('div')
-      })
-    })
-
-    describe("and tested item is not jQuery object", function () {
-      it("should invoke original version of matcher", function () {
-        expect(true).toBe(true)
-      })
-    })
-
-    describe("and tested item is a dom object", function () {
-      it("should invoke jquery version of matcher", function () {
-        expect($('<div />').get(0)).toBe('div')
-      })
-    })
-  })
-
-  describe("when jQuery matcher does not hide any original Jasmine matcher", function () {
-    describe("and tested item in not jQuery object", function () {
-      it("should pass negated", function () {
-        expect({}).not.toHaveClass("some-class")
-      })
-    })
-  })
-
+describe("jQuery matcher", function () {
   describe("when invoked multiple times on the same fixture", function () {
     it("should not reset fixture after first call", function () {
       setFixtures(sandbox())
@@ -568,7 +574,7 @@ describe("jQuery matchers", function () {
       $("#sandbox").css("height", "auto");
       $("#sandbox").css("margin-left", "auto");
       $("#sandbox").css("display", "none");
-      expect($("#sandbox")).toHaveCss({height: 'auto', 'margin-left': "0px", display: "none"});
+      expect($("#sandbox")).toHaveCss({height: 'auto', 'margin-left': "auto", display: "none"});
     })
   })
 
@@ -643,9 +649,15 @@ describe("jQuery matchers", function () {
       expect(element.get(0)).toHaveText(text)
     })
 
-    it("should ignore surrounding whitespace", function () {
+    it("should ignore surrounding whitespace in the element", function () {
       element = $('<div>\n' + text + '\n</div>')
       expect(element).toHaveText(text)
+      expect(element.get(0)).toHaveText(text)
+    })
+
+    it("should match with surrounding whitespace in the input", function () {
+      element = $('<div>\n' + text + '\n</div>')
+      expect(element).toHaveText('\n' + text + '\n')
       expect(element.get(0)).toHaveText(text)
     })
 
@@ -763,6 +775,32 @@ describe("jQuery matchers", function () {
         expect($('#sandbox').get(0)).not.toHaveData(wrongKey, value)
       })
     })
+
+    describe("when the value is a JSON object", function() {
+      var objectKey = 'object-key'
+      var objectValue = {'foo': 'bar'}
+      var objectString = '[object Object]'
+
+      beforeEach(function() {
+        setFixtures(sandbox().data(objectKey, objectValue))
+      })
+
+      it("should pass if element has matching key with matching value", function () {
+        expect($('#sandbox')).toHaveData(objectKey, objectValue)
+        expect($('#sandbox').get(0)).toHaveData(objectKey, objectValue)
+      })
+
+      it("should not pass if element has matching key but the value is just a string representation of the value", function () {
+        expect($('#sandbox')).not.toHaveData(objectKey, objectString)
+        expect($('#sandbox').get(0)).not.toHaveData(objectKey, objectString)
+      })
+
+      it("should not pass if element has matching key but the value is just a string representation of the value", function () {
+        setFixtures('<div id="foo" div data-bar="[object Object]"></div>')
+        expect($('#foo')).not.toHaveData('bar', { 'answer': 42 })
+        expect($('#foo').get(0)).not.toHaveData('bar', { 'answer': 42 })
+      })
+    })
   })
 
   describe("toBeVisible", function () {
@@ -817,7 +855,8 @@ describe("jQuery matchers", function () {
     beforeEach(function () {
       setFixtures('\
         <input type="checkbox" id="checked" checked="checked" />\n\
-        <input type="checkbox" id="not-checked" />')
+        <input type="checkbox" id="not-checked" />\n\
+        <input type="radio" name="radio-name" id="radio-checked" checked="checked" />')
     })
 
     it("should pass on checked element", function () {
@@ -828,6 +867,11 @@ describe("jQuery matchers", function () {
     it("should pass negated on not checked element", function () {
       expect($('#not-checked')).not.toBeChecked()
       expect($('#not-checked').get(0)).not.toBeChecked()
+    })
+
+    it("shoud not change the checked status of a radio button", function () {
+      expect($('#radio-checked')).toBeChecked()
+      expect($('#radio-checked')).toBeChecked()
     })
   })
 
@@ -848,6 +892,17 @@ describe("jQuery matchers", function () {
       setFixtures(sandbox().text('some text'))
       expect($('#sandbox')).not.toBeEmpty()
       expect($('#sandbox').get(0)).not.toBeEmpty()
+    })
+  })
+
+  describe("toBeInDOM", function () {
+    it("should pass on elements in the DOM", function () {
+      setFixtures(sandbox())
+      expect($('#sandbox')).toBeInDOM()
+    })
+
+    it("should pass negated on elements not in the DOM", function () {
+      expect($('<div>')).not.toBeInDOM()
     })
   })
 
@@ -876,6 +931,7 @@ describe("jQuery matchers", function () {
       expect($three.length).toBe(3)
       expect($three).toHaveLength(3)
     })
+
     it("should pass negated on an object with more than zero items", function () {
       var $three = $('<div>').add('<span>').add("<pre>")
       expect($three.length).toBe(3)
@@ -895,35 +951,35 @@ describe("jQuery matchers", function () {
     })
   })
 
-  describe("toBe", function () {
+  describe("toEqual", function () {
     beforeEach(function () {
       setFixtures(sandbox())
     })
 
     it("should pass if object matches selector", function () {
-      expect($('#sandbox')).toBe('#sandbox')
-      expect($('#sandbox').get(0)).toBe('#sandbox')
+      expect($('#sandbox')).toEqual('#sandbox')
+      expect($('#sandbox').get(0)).toEqual('#sandbox')
     })
 
     it("should pass negated if object does not match selector", function () {
-      expect($('#sandbox')).not.toBe('#wrong-id')
-      expect($('#sandbox').get(0)).not.toBe('#wrong-id')
+      expect($('#sandbox')).not.toEqual('#wrong-id')
+      expect($('#sandbox').get(0)).not.toEqual('#wrong-id')
     })
   })
 
-  describe("toContain", function () {
+  describe("toContainElement", function () {
     beforeEach(function () {
       setFixtures(sandbox().html('<span />'))
     })
 
     it("should pass if object contains selector", function () {
-      expect($('#sandbox')).toContain('span')
-      expect($('#sandbox').get(0)).toContain('span')
+      expect($('#sandbox')).toContainElement('span')
+      expect($('#sandbox').get(0)).toContainElement('span')
     })
 
     it("should pass negated if object does not contain selector", function () {
-      expect($('#sandbox')).not.toContain('div')
-      expect($('#sandbox').get(0)).not.toContain('div')
+      expect($('#sandbox')).not.toContainElement('div')
+      expect($('#sandbox').get(0)).not.toContainElement('div')
     })
   })
 
@@ -976,9 +1032,10 @@ describe("jQuery matchers", function () {
   })
 
   describe('toHaveBeenTriggeredOn', function () {
+    var spyEvents = {}
     beforeEach(function () {
       setFixtures(sandbox().html('<a id="clickme">Click Me</a> <a id="otherlink">Other Link</a>'))
-      spyOnEvent($('#clickme'), 'click')
+      spyEvents['#clickme'] = spyOnEvent($('#clickme'), 'click')
       spyOnEvent(document, 'click')
       spyOnEvent($('#otherlink'), 'click')
     })
@@ -1011,6 +1068,20 @@ describe("jQuery matchers", function () {
       expect('click').not.toHaveBeenTriggeredOn($('#clickme'))
       expect('click').not.toHaveBeenTriggeredOn('#clickme')
     })
+
+    it('should pass if the event call count is incremented', function () {
+      expect(spyEvents['#clickme'].calls.any()).toEqual(false);
+      expect(spyEvents['#clickme'].calls.count()).toEqual(0);
+      $('#clickme').click()
+      expect('click').toHaveBeenTriggeredOn($('#clickme'))
+      expect('click').toHaveBeenTriggeredOn('#clickme')
+      expect(spyEvents['#clickme'].calls.count()).toEqual(1);
+      expect(spyEvents['#clickme'].calls.any()).toEqual(true);
+      $('#clickme').click()
+      $('#clickme').click()
+      expect(spyEvents['#clickme'].calls.count()).toEqual(3);
+      expect(spyEvents['#clickme'].calls.any()).toEqual(true);
+    })
   })
 
   describe('toHaveBeenTriggeredOnAndWith', function () {
@@ -1042,6 +1113,11 @@ describe("jQuery matchers", function () {
         expect('event').not.toHaveBeenTriggeredOnAndWith(document, { key1: "value1" })
         $(document).trigger('event', { different_key: "value1" })
         expect('event').not.toHaveBeenTriggeredOnAndWith(document, { key1: "value1" })
+      })
+
+      it('should pass if the arguments match using jasmine.objectContaining', function () {
+        $(document).trigger('event', { key1: "value1", key2: "value2" })
+        expect('event').toHaveBeenTriggeredOnAndWith(document, jasmine.objectContaining({ key1: "value1" }))
       })
     })
 
@@ -1102,6 +1178,19 @@ describe("jQuery matchers", function () {
       expect('click').not.toHaveBeenTriggeredOn($('#clickme'))
       expect('click').not.toHaveBeenTriggeredOn('#clickme')
       expect(spyEvents['#clickme']).not.toHaveBeenTriggered()
+    })
+
+    it('should pass if the event call count is incremented', function () {
+      expect(spyEvents['#clickme'].calls.any()).toEqual(false);
+      expect(spyEvents['#clickme'].calls.count()).toEqual(0);
+      $('#clickme').click()
+      expect(spyEvents['#clickme']).toHaveBeenTriggered()
+      expect(spyEvents['#clickme'].calls.count()).toEqual(1);
+      expect(spyEvents['#clickme'].calls.any()).toEqual(true);
+      $('#clickme').click()
+      $('#clickme').click()
+      expect(spyEvents['#clickme'].calls.count()).toEqual(3);
+      expect(spyEvents['#clickme'].calls.any()).toEqual(true);
     })
   })
 
@@ -1291,6 +1380,15 @@ describe("jQuery matchers", function () {
       $(object).bind('click', function (){})
       expect($(object)).toHandle('click')
     })
+
+    it('should not fail when actual has no matches', function (){
+        expect($('#notreal')).not.toHandle('click')
+    })
+
+    it('should not fail when actual is null', function (){
+        expect(null).not.toHandle('click')
+    })
+
   })
 
   describe('toHandleWith', function () {
@@ -1365,6 +1463,15 @@ describe("jQuery matchers", function () {
       $(object).bind('click.namespaced', handler)
       expect($(object)).toHandleWith('click.namespaced', handler)
     })
+
+    it('should not fail when actual has no matches', function (){
+      expect($('#notreal')).not.toHandleWith('click')
+    })
+
+    it('should not fail when actual is null', function (){
+      expect(null).not.toHandleWith('click')
+    })
+
   })
 })
 
@@ -1378,7 +1485,7 @@ describe("jasmine.StyleFixtures", function () {
 
   beforeEach(function () {
     jasmine.getStyleFixtures().clearCache()
-    spyOn(jasmine.StyleFixtures.prototype, 'loadFixtureIntoCache_').andCallFake(function (relativeUrl){
+    spyOn(jasmine.StyleFixtures.prototype, 'loadFixtureIntoCache_').and.callFake(function (relativeUrl){
       this.fixturesCache_[relativeUrl] = ajaxData
     })
   })
@@ -1464,7 +1571,7 @@ describe("jasmine.StyleFixtures", function () {
       it("should go from cache", function () {
         jasmine.getStyleFixtures().preload(fixtureUrl, anotherFixtureUrl)
         jasmine.getStyleFixtures().load(fixtureUrl, anotherFixtureUrl)
-        expect(jasmine.StyleFixtures.prototype.loadFixtureIntoCache_.callCount).toEqual(2)
+        expect(jasmine.StyleFixtures.prototype.loadFixtureIntoCache_.calls.count()).toEqual(2)
       })
 
       it("should return correct CSSs", function () {
@@ -1476,12 +1583,12 @@ describe("jasmine.StyleFixtures", function () {
 
     it("should not preload the same fixture twice", function () {
       jasmine.getStyleFixtures().preload(fixtureUrl, fixtureUrl)
-      expect(jasmine.StyleFixtures.prototype.loadFixtureIntoCache_.callCount).toEqual(1)
+      expect(jasmine.StyleFixtures.prototype.loadFixtureIntoCache_.calls.count()).toEqual(1)
     })
 
     it("should have shortcut global method preloadStyleFixtures", function () {
       preloadStyleFixtures(fixtureUrl, anotherFixtureUrl)
-      expect(jasmine.StyleFixtures.prototype.loadFixtureIntoCache_.callCount).toEqual(2)
+      expect(jasmine.StyleFixtures.prototype.loadFixtureIntoCache_.calls.count()).toEqual(2)
     })
   })
 
@@ -1584,7 +1691,6 @@ describe("jasmine.StyleFixtures using real AJAX call", function () {
   })
 })
 
-
 describe("jasmine.JSONFixtures", function () {
   var ajaxData = {a:1, b:2, arr: [1,2,'stuff'], hsh: { blurp: 8, blop: 'blip' }}
   var moreAjaxData = [1,2,'stuff']
@@ -1598,7 +1704,7 @@ describe("jasmine.JSONFixtures", function () {
 
   beforeEach(function () {
     jasmine.getJSONFixtures().clearCache()
-    spyOn(jasmine.JSONFixtures.prototype, 'loadFixtureIntoCache_').andCallFake(function (relativeUrl){
+    spyOn(jasmine.JSONFixtures.prototype, 'loadFixtureIntoCache_').and.callFake(function (relativeUrl){
       fakeData = {}
       // we put the data directly here, instead of using the variables to simulate rereading the file
       fakeData[fixtureUrl] = {a:1, b:2, arr: [1,2,'stuff'], hsh: { blurp: 8, blop: 'blip' }}
@@ -1645,14 +1751,14 @@ describe("jasmine.JSONFixtures", function () {
       expect(getJSONFixture(fixtureUrl)).toEqual(ajaxData)
       expect(jasmine.JSONFixtures.prototype.loadFixtureIntoCache_).toHaveBeenCalled()
       expect(getJSONFixture(anotherFixtureUrl)).toEqual(moreAjaxData)
-      expect(jasmine.JSONFixtures.prototype.loadFixtureIntoCache_.calls.length).toEqual(2)
+      expect(jasmine.JSONFixtures.prototype.loadFixtureIntoCache_.calls.count()).toEqual(2)
     })
 
     it("retrieves from cache on subsequent requests for the same fixture", function () {
       expect(getJSONFixture(fixtureUrl)).toEqual(ajaxData)
-      expect(jasmine.JSONFixtures.prototype.loadFixtureIntoCache_.calls.length).toEqual(1)
+      expect(jasmine.JSONFixtures.prototype.loadFixtureIntoCache_.calls.count()).toEqual(1)
       expect(getJSONFixture(fixtureUrl)).toEqual(ajaxData)
-      expect(jasmine.JSONFixtures.prototype.loadFixtureIntoCache_.calls.length).toEqual(1)
+      expect(jasmine.JSONFixtures.prototype.loadFixtureIntoCache_.calls.count()).toEqual(1)
     })
   })
 

@@ -4,7 +4,6 @@ module.exports = function(grunt) {
         'clean:dist',
         'spritesheet:passive',
         'sass:development',
-        //'recess',
         'coffee:development',
         //'plato:mycode',
 
