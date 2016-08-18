@@ -40,7 +40,6 @@
     "grunt-karma": "^2.0.0",
     "grunt-open": "~0.2.3",
     "grunt-plato": "~1.2.1",
-    "grunt-protractor-runner": "~3.2.0",
     "grunt-rev": "~0.1.0",
     "grunt-s3": "~0.2.0-alpha.3",
     "grunt-sass": "~1.2.1",
@@ -62,12 +61,11 @@
     "nconf": "~0.6.7",
     "node-spritesheet": "~0.4.2",
     "phantomjs": "~1.9.2-2",
-    "protractor": "~4.0.3",
     "sauce-connect-launcher": "~0.5.0",
     "selenium-webdriver": "~2.37.0",
-    "time-grunt": "~0.2.0"
+    "time-grunt": "~0.2.0",
+    "protractor": "^4.0.3"
   },
-  "dep": {},
   "engines": {
     "node": ">=4.0"
   },

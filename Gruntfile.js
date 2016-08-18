@@ -45,11 +45,7 @@ function loadConfig(path) {
 module.exports = function (grunt) {
 
   // Load all grunt tasks
-  //require('load-grunt-tasks')(grunt, {pattern: ['*', 'grunt-*', '!grunt-assemble-*']});
   require('load-grunt-tasks')(grunt, {pattern: ['grunt-*', '@*/grunt-*', '!grunt-assemble-*']});
-
-  //require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  //grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('node-spritesheet');
 
   require('handlebars-helpers');
@@ -61,12 +57,6 @@ module.exports = function (grunt) {
   };
 
   grunt.util._.extend(config, loadConfig('./tasks/options/'));
-  //grunt.util._.extend(config, config_manual);
-  //console.log(config);
   grunt.config.init(config);
-
-  ///////////////////////////////////////////
-  // TASKS
-  ///////////////////////////////////////////
   grunt.loadTasks('tasks');
 };

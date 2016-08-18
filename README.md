@@ -108,27 +108,20 @@ For configuration options, see _tasks/test_task.js_, _tasks/options/karma.js_, _
 ###Integration/E2E
 The integration tests use [Protractor][^protractor] and [Selenium's WebDriver][^seleniumwebdriver] API for browser automation.
 
-1. See these instructions on [how to get Selenium server installed][^seleniumserver] on your system.
+1. See these instructions on [how to get Selenium & Protractor installed locally on your system](https://github.com/angular/protractor/blob/master/docs/getting-started.md).
 
-2. Start the server `webdriver-manager start` in a separate terminal process.
+2. `protractor ./test/protractor-e2e.conf.js` runs the protractor/jasmine tests located in _test/e2e_.
 
-3. Start the served version (either the development or production builds) of the project in a separate terminal process.
-
-4. `grunt test:e2e` runs the protractor/jasmine tests located in _test/e2e_.
-
-`grunt test` runs both unit and integration tests.
-
-####Configuration
-For configuration options, target browsers and [SauceLabs][^sauce] connections, see _tasks/test_task.js_, _tasks/options/protractor.js_, _test/protractor-e2e.conf.js_.
-
-[^seleniumserver]: https://github.com/angular/protractor#appendix-a-setting-up-a-standalone-selenium-server
-[^seleniumwebdriver]: http://www.seleniumhq.org/projects/webdriver/
-
-
+*Note: In the past `grunt-protractor-runner` was installed to leverage grunt to launch the tests.
+But there's some type of version conflict in that repo that needs to be resolved. So for now we need
+to have protractor globally installed and run locally.
+I've also removed [SauceLabs][^sauce] support as it's not vital at the moment, and needs
+some further testing after latest updates.*
 
 ##Demo Data
-This repository contains vanilla demo data for the projects section. The `PATH_PORTFOLIO_DATA` settings/enviornment variables provide a way to pass in data from an alternate location. This is how I'm able to store the project data in a private repository.
-
+This repository contains generic demo data for the projects section.
+The `PATH_PORTFOLIO_DATA` settings/environment variables provide a way to pass in data from an alternate location.
+This is how I'm able to store the project data in a private repository.
 
 
 ##License

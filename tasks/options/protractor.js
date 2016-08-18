@@ -3,16 +3,19 @@ module.exports = {
 
   options: {
     //configFile: "node_modules/protractor/referenceConf.js", // Default config file
-    keepAlive: true, // If false, the grunt process stops when the test fails.
-    verbose:true,
-    args: {
+    //keepAlive: true, // If false, the grunt process stops when the test fails.
+    //verbose: true,
+    //args: {
       //seleniumAddress: 'http://localhost:4444/wd/hub'
-    }
+    //}
+    webdriverManagerUpdate: true
   },
 
+
   e2e: {
-    configFile: './test/protractor-e2e.conf.js',
-    keepAlive: false
+    //configFile: './test/protractor-e2e.conf.js',
+    configFile: './test/example/conf.js',
+    //keepAlive: false
   },
   e2e_sauce_sl_chrome_win8: {
     configFile: './test/protractor-e2e-sauce.chrome.win8.conf.js'

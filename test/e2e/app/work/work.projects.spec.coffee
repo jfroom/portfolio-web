@@ -1,136 +1,107 @@
+app = new (require('../../pageObjects/appPage.coffee'))()
+__ = require('lodash')
+
+# projects that go thru each variation of optional/required
+testWorkIds = ['test-1', 'test-2', 'test-3']
+workData = []
+workDataOriginal = []
+
 describe "E2E: Testing Work Projects", ->
 
-  # projects that go thru each variation of optional/required
-  testWorkIds = ['body-of-work', 'elicit-client', 'harley-finder']
-
-
-  workData = []
-  workDataOriginal = []
-
-  # load run time JSON data from page, tricky async
-  hasData = false
-  beforeEach (done) ->
-
-    unless hasData
-      #webPage.setWindowMax()
-      browser.get global.specUtils.workUrl
-      webPage.pause global.specUtils.anchorScrollDuration
-      global.specUtils.getAppDataAsync (data) ->
-        workDataOriginal = __.clone(data.work)
-        workData = __.clone(workDataOriginal)
-        #filter down to only test ids
-        workData = __.filter workData, (item) ->
-          arr = __.filter testWorkIds, (id) ->
-            item.id == id
-          return arr.length > 0
-        hasData = true
-        registerDynamicAssertions
-        done()
-    else
-      registerDynamicAssertions
+  beforeAll (done) ->
+    app.get app.URL_HASH.WORK
+    app.getAppDataAsync (data) ->
+      workDataOriginal = data.work.projects
+      workData = __.clone workDataOriginal
+      workData = __.filter workData, (item) ->
+        item.id in testWorkIds
       done()
 
-  # validate workData, this block also holds jasmine open for dymamic insertion
-  describe 'assign project data', ->
+  it 'should have appData', ->
+    expect(workData).toBeDefined()
 
-    it 'should have appData', ->
-      expect(workData != undefined).toBe(true)
+  for id in testWorkIds
+    project = {}
+    describe "Work Project: #{id}", ->
+      beforeAll ->
+        project = __.find workData, (project) -> project.id is id
+      beforeEach ->
+        app.get "#{app.URL_HASH.WORK}/#{project.id}"
 
-  registerDynamicAssertions = ->
-    # log 'registerDynamicAssertions'
-    testProject = (project, done) ->
-
-      browser.get global.specUtils.workUrl + '/' + project.id
-      webPage.pause 0
-      # log 'testProject ' + project.ids
-      describe 'Work Projects', ->
-        # BROWSER URL (required)
-        it 'should load have url with id in it', ->
-          webPage.url().then (url)->
-            expect(url.indexOf(global.specUtils.workUrl + '/' + project.id) > -1).toBe(true)
+      # BROWSER URL (required)
+      it 'should have required: url, title, description', (done) ->
+        browser.getCurrentUrl().then (url) ->
+          expect(url).toEqual(app.getUrl "#{app.URL_HASH.WORK}/#{project.id}")
 
         # TITLE (required)
-        it 'should have title set', ->
-          expect(webPage.find.binding('workCur.title').getText()).toEqual(project.title)
-
-        # MEDIA (required)
-        it 'should have media', ->
-          browser.$$('.detail-media .item-media').then (arr) ->
-            # each item should have at least one media element
-            i = 0
-            expect(arr.length > 0).toBe(true)
-            expect(project.detailMedia.length > 0).toBe(true)
-
-            __.forEach arr, (item) ->
-              dataItem = project.detailMedia[i]
-              i += 1
-              #log 'dataItem.type:' + dataItem.type + " src:" + dataItem.src
-              switch dataItem.type
-                when 'image'
-                  item.findElement(protractor.By.css('img')).then (el) ->
-                    #log 'found el:' + el + ' is object?'
-                    expect(__.isObject(el)).toBe(true)
-                    el.getAttribute('src').then (src) ->
-                      expect(src.indexOf(dataItem.src) > -1).toBe(true)
-                when 'youtube'
-                  item.findElement(protractor.By.css('iframe')).then (el) ->
-                    expect(__.isObject(el)).toBe(true)
-                    el.getAttribute('src').then (src) ->
-                      expect(src.indexOf(dataItem.id) > -1).toBe(true)
-                else
-                  #nothing
+        expect(element(By.binding('workCur.title')).getText()).toEqual(project.title)
 
         # DESCRIPTION (required)
-        it 'should have description set', ->
-          browser.$('.work-detail .description').getText().then (str) ->
-          #webPage.find.binding('workCur.descProcessed').getText().then (str) ->
-
-            expect(__.isString(str)).toBe(true)
-            expect(str.length > 0).toBe(true)
-
-        # PRESS (optional)
-        if __.isArray(project.pressArr) and project.pressArr.length > 0
-          it 'should have press links', ->
-            browser.findElements(protractor.By.repeater('item in workCur.pressArr')).then (arr) ->
-              el = arr[0]
-              expect(el.isDisplayed()).toBe(true)
-              el.getText().then (str) ->
-                expect(str.indexOf(project.pressArr[0].source) > -1).toBe(true)
-        else
-          it 'should not have press section', ->
-            expect(browser.$('.work-detail .press').isDisplayed()).toBe(false)
-
-        # TECH (required)
-        if __.isArray(project.techArr) and project.techArr.length > 0
-          it 'should have technology logos', ->
-            browser.findElements(protractor.By.repeater('item in workCur.techProcessedArr')).then (arr) ->
-              el = arr[0]
-              expect(el.isDisplayed()).toBe(true)
-              el.getAttribute('href').then (href) ->
-                expect(href.length > 0).toBe(true)
-
-        # TEAM (optional)
-        if __.isArray(project.teamArr) and project.teamArr.length > 0
-          it 'should have team members', ->
-            browser.findElements(protractor.By.repeater('item in workCur.teamProcessedArr')).then (arr) ->
-              el = arr[0]
-              expect(el.isDisplayed()).toBe(true)
-        else
-          it 'should not have team section', ->
-            expect(browser.$('.work-detail .team').isDisplayed()).toBe(false)
-
-        it 'should kick off next project', ->
+        $('.work-detail .description').getText().then (str) ->
+          expect(__.isString(str)).toBe(true)
+          expect(str.length).toBeGreaterThan(0)
           done()
 
-    kickOffProjects = ->
-      log 'kickOffProjects'
+      # MEDIA (required)
+      it 'should have media', (done) ->
+        $$('.detail-media .item-media').then (arr) ->
+          # each item should have at least one media element
+          expect(arr.length).toBeGreaterThan(0)
+          expect(project.detailMedia.length).toBeGreaterThan(0)
 
-      curProject = -1
-      testProjectNext = ->
+          doneIdx = 0
+          checkDone = ->
+            doneIdx++
+            done() if doneIdx is arr.length
 
-        curProject += 1
-        #log 'testProjectNext ' + curProject
-        if (curProject < workData.length)
-          testProject(workData[curProject], testProjectNext)
-      testProjectNext()
-    kickOffProjects()
+          for item, idx in arr
+            dataItem = project.detailMedia[idx]
+            switch dataItem.type
+              when 'image'
+                item.$('img').getAttribute('src').then (src) ->
+                  expect(src).toMatch(new RegExp(dataItem.src))
+                  checkDone()
+              when 'youtube'
+                item.$('iframe').getAttribute('src').then (src) ->
+                  expect(src).toMatch(new RegExp(dataItem.id))
+                  checkDone()
+              when 'video'
+                item.$('video').getAttribute('poster').then (poster) ->
+                  expect(poster).toMatch(RegExp(dataItem.poster))
+                  item.$('video').getAttribute('src').then (src) ->
+                    if src.indexOf('.mp4') > -1
+                      expect(src).toMatch(RegExp(dataItem.mp4))
+                    else if src.indexOf('.ogg') > -1
+                      expect(src).toMatch(RegExp(dataItem.ogg))
+                    checkDone()
+
+      it 'should optionally have: description, press, team', (done) ->
+        doneIdx = 0
+        checkDone = ->
+          doneIdx++
+          done() if doneIdx += 1 is 3
+
+        # PRESS (optional)
+        if project.pressArr?.length
+          $$('.work-detail .press li').first().getText().then (str) ->
+            expect(str).toMatch(new RegExp(project.pressArr[0].source))
+            checkDone()
+        else
+          expect($('.work-detail .press').isDisplayed()).toBe(false)
+          checkDone()
+
+        # TECH (required)
+        if project.techArr?.length
+          first = $$('.work-detail .tech-icons a').first()
+          expect(first.isDisplayed()).toBe(true)
+          first.getAttribute('href').then (href) ->
+            expect(href.length).toBeGreaterThan(0)
+            checkDone()
+        else checkDone()
+
+        # TEAM (optional)
+        if project.teamArr?.length
+          expect($$('.work-detail .team .list li').first().isDisplayed()).toBe(true)
+        else
+          expect($('.work-detail .team').isDisplayed()).toBe(false)
+        checkDone()

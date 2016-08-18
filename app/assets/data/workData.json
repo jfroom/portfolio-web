@@ -1,5 +1,6 @@
 {
-    "projects": [{
+    "projects": [
+      {
         "id": "test-1",
         "thumbImage": "http://placehold.it/400x533&text=thumb-1",
         "thumbIcon": "http://placehold.it/150x150/E8117F/FFFFFF/&text=LOGO",
@@ -9,57 +10,64 @@
         "read_time": "8",
         "timestamp": "2013-11-22",
         "desc": [
-            "[Lorem ipsum][^lorem] dolor sit amet, consectetur adipiscing elit. Proin molestie lacus ac neque tempus, et iaculis mi volutpat.",
-            "List:",
-            "- Curabitur imperdiet lacus eros",
-            "- Quis convallis nisl commodo eu",
-            "- Donec sapien velit",
-            "    - consectetur et congue quis",
-            "    - commodo in odio",
-            "Quisque tincidunt neque non lacinia consequat. Aliquam vel aliquet elit. Fusce pharetra sapien et molestie mattis. Integer scelerisque gravida leo, quis dictum dolor gravida a. Curabitur nec dui mollis, volutpat libero non, sodales augue. Aenean luctus augue sed diam rhoncus dictum. Mauris fermentum auctor orci, vel condimentum ipsum viverra in. Mauris aliquam a leo sit amet convallis. Integer dignissim, dolor a commodo suscipit, lectus massa elementum mauris, sit amet sollicitudin tortor enim ut velit.\n",
-            "[^lorem]: http://www.lipsum.com/",
-
-            "<img img-caption data-caption-hide src='http://placehold.it/1000x562&text=inset+photo+1' alt='Test' >",
-
-            "\n### Amet",
-            "<img img-caption data-caption-link='http://placehold.it/' src='http://placehold.it/1000x562&text=inset+photo+2' alt='Image: Placehold.it' >",
-            "\n### Amet2",
-            "Dolor sit amet, consectetur adipiscing elit. Proin molestie lacus ac neque tempus, et iaculis mi volutpat.",
-
-            "<div class='inset-image-full'>",
-
-            "<img src='http://placehold.it/400x350' alt='Image' >",
-            "<img src='http://placehold.it/400x350' alt='Image' >",
-            "<img src='http://placehold.it/400x350' alt='Image' >",
-            "<img src='http://placehold.it/400x350' alt='Image' >",
-
-            "</div>"
-
+          "[Lorem ipsum][^lorem] dolor sit amet, consectetur adipiscing elit. Proin molestie lacus ac neque tempus, et iaculis mi volutpat.",
+          "List:",
+          "- Curabitur imperdiet lacus eros",
+          "- Quis convallis nisl commodo eu",
+          "- Donec sapien velit",
+          "    - consectetur et congue quis",
+          "    - commodo in odio",
+          "Quisque tincidunt neque non lacinia consequat. Aliquam vel aliquet elit. Fusce pharetra sapien et molestie mattis. Integer scelerisque gravida leo, quis dictum dolor gravida a. Curabitur nec dui mollis, volutpat libero non, sodales augue. Aenean luctus augue sed diam rhoncus dictum. Mauris fermentum auctor orci, vel condimentum ipsum viverra in. Mauris aliquam a leo sit amet convallis. Integer dignissim, dolor a commodo suscipit, lectus massa elementum mauris, sit amet sollicitudin tortor enim ut velit.\n",
+          "[^lorem]: http://www.lipsum.com/",
+          "<img img-caption data-caption-hide src='http://placehold.it/1000x562&text=inset+photo+1' alt='Test' >",
+          "\n### Amet",
+          "<img img-caption data-caption-link='http://placehold.it/' src='http://placehold.it/1000x562&text=inset+photo+2' alt='Image: Placehold.it' >",
+          "\n### Amet2",
+          "Dolor sit amet, consectetur adipiscing elit. Proin molestie lacus ac neque tempus, et iaculis mi volutpat.",
+          "<div class='inset-image-full'>",
+          "<img src='http://placehold.it/400x350' alt='Image' >",
+          "<img src='http://placehold.it/400x350' alt='Image' >",
+          "<img src='http://placehold.it/400x350' alt='Image' >",
+          "<img src='http://placehold.it/400x350' alt='Image' >",
+          "</div>"
         ],
-
         "techArr": [
-            "html5",
-            "responsive",
-            "css3",
-            "sass",
-            "js",
-            "coffeescript",
-            "jquery",
-            "yeoman",
-            "grunt",
-            "bower",
-            "angular",
-            "bootstrap",
-            "intellij",
-            "sublime",
-            "photoshop",
-            "browserstack",
-            "git"
+          "html5",
+          "responsive",
+          "css3",
+          "sass",
+          "js",
+          "coffeescript",
+          "jquery",
+          "yeoman",
+          "grunt",
+          "bower",
+          "angular",
+          "bootstrap",
+          "intellij",
+          "sublime",
+          "photoshop",
+          "browserstack",
+          "git"
         ],
         "detailMedia": [
           {
             "type": "youtube",
             "id": "P4boyXQuUIw"
+          }
+        ],
+        "pressArr": [
+          {
+            "url": "http://news.google.com",
+            "source": "Google News",
+            "title": "Google news test link",
+            "date": "4/3/2013"
+          },
+          {
+            "url": "http://space.com",
+            "source": "Space News",
+            "title": "Space news test link",
+            "date": "5/15/2012"
           }
         ]
     }, {
