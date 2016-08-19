@@ -19,6 +19,8 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - npm install -g grunt-cli
   - npm install -g protractor@4.0.3
+  # http://julianveling.com/?p=347
   - webdriver-manager update
-  - webdriver-manager start
+  - webdriver-manager start 2>&1 &
+  - sleep 3
 
