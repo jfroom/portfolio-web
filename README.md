@@ -110,11 +110,11 @@ The integration tests use [Protractor][^protractor] and [Selenium's WebDriver][^
 
 1. See these instructions on [how to get Selenium & Protractor installed locally on your system](https://github.com/angular/protractor/blob/master/docs/getting-started.md).
 
-2. `protractor ./test/protractor-e2e.conf.js` runs the protractor/jasmine tests located in _test/e2e_.
+2. `grunt test:e2e` runs the protractor/jasmine tests located in _test/e2e_.
 
 *Note: In the past `grunt-protractor-runner` was installed to leverage grunt to launch the tests.
-But there's some type of version conflict in that repo that needs to be resolved. So for now we need
-to have protractor globally installed and run locally.
+But there's some type of version conflict in that repo that needs to be resolved.
+So for now we need to have protractor globally installed and run locally with `grunt-shell``.
 I've also removed [SauceLabs][^sauce] support as it's not vital at the moment, and needs
 some further testing after latest updates.*
 
