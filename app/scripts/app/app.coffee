@@ -75,11 +75,12 @@ app.run ["utils", "enums", "$rootScope", "$location", "$routeParams", "$route", 
     # TRACKING
     $rootScope.$on enums.EventType.TrackPageview, (scope, path) ->
       #$log.info 'catch trackpage view for GA path: ' + path + " lastRoutePath:" + lastRoutePath
-      if window.ga != undefined && lastRoutePath != path
-        window.ga 'send', 'pageview', path
+      if lastRoutePath isnt path
+        window.ga 'send', 'pageview', path if window.ga?
         lastRoutePath = path
+
     $rootScope.$on enums.EventType.TrackEvent, (scope, category, action, label, value) ->
       $log.info 'caught track event category:' + category + " action:" + action + " label:" + label + " value:" + value
-      if window.ga != undefined
+      if window.ga?
         window.ga 'send', 'event', category, action, label, value
 ]

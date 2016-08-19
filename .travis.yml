@@ -7,12 +7,27 @@ node_js:
 
 addons:
   firefox:
-    "latest"
+    "latest-esr"
 
-before_script:
+before_install:
   # Make sure we have new NPM.
   - npm install -g npm
-  - npm install -g grunt-cli
   - npm config set loglevel warn
+
+before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+  - npm install -g grunt-cli
+
+  # TODO: try use grunt-protractor-runner once protractor 4.0 integration is fixed
+  # https://github.com/teerapap/grunt-protractor-runner/issues/165
+  # http://julianveling.com/?p=347
+
+  #- npm install -g protractor@4.0.3
+  #- webdriver-manager update
+  #- nohup bash -c "webdriver-manager start 2>&1 &"
+  #- sleep 3
+  #- nohup bash -c "grunt serve:prod 2>&1 &"
+  # wait for prod compile and serve to finish...
+  #- sleep 120
+

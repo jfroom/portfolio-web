@@ -1,22 +1,13 @@
 module.exports = {
   server: [
-    //'compass',
-    'coffee:dist' //,
-    //'copy:styles'
+    'coffee:dist'
   ],
   test: [
-    'coffee' //,
-    //'copy:styles'
+    'coffee'
   ],
   dist: [
     'coffee:dist',
     'sass:dist'
-    //'compass',
-    //'copy:styles',
-    //'imagemin',
-    //'svgmin',
-    //'htmlmin'
-    //,'htmlcompressor'
   ],
   copy: [
     'copy:jsApp',
@@ -27,8 +18,6 @@ module.exports = {
     'copy:bowerComponents',
     'copy:data',
     'copy:feed'
-    //'copy:jsVendor'
-
   ],
   dev_copy:[
     'copy:dev_bowerComponents',
@@ -44,20 +33,5 @@ module.exports = {
     'clean:css',
     'clean:html',
     'clean:img'
-  ],
-  protractor:{
-
-    options: {
-      limit:2,
-      logConcurrentOutput:true
-    },
-    tasks: [
-      'protractor:e2e_sauce_sl_chrome_linux'
-      ,'protractor:e2e_sauce_sl_firefox_linux'
-      ,'protractor:e2e_sauce_sl_chrome_win8'
-      //'protractor:e2e_sauce_sl_safari_ios6_1'
-      //'protractor:e2e_sauce_sl_android4'
-    ]
-
-  }
+  ]
 };
