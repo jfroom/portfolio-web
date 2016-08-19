@@ -18,6 +18,7 @@ after_install:
   - npm install -g grunt-cli
   - npm install -g protractor@4.0.3
   - webdriver-manager update
+  - webdriver-manager start
 
 before_script:
   - export DISPLAY=:99.0
