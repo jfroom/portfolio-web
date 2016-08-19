@@ -25,5 +25,5 @@ before_script:
   - sleep 3
   - grunt serve:prod 2>&1 &
   # wait for prod compile and serve to finish...
-  - sleep 60
+  - sleep 120
 
