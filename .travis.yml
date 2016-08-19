@@ -24,5 +24,6 @@ before_script:
   - webdriver-manager start 2>&1 &
   - sleep 3
   - grunt serve:prod 2>&1 &
-  - sleep 20
+  # wait for prod compile and serve to finish...
+  - sleep 60
 
