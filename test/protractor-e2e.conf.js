@@ -1,6 +1,7 @@
 // An example configuration file.
 exports.config = {
-  directConnect: true,
+  //directConnect: true,
+  seleniumAddress: 'http://localhost:4444/wd/hub',
 
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
