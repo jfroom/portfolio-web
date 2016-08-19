@@ -80,6 +80,7 @@ angular.module('directives.videoJsEmbed', ['app.enums'])
             $rootScope.$broadcast enums.EventType.VideoStart, scope.videoData
           player.one 'ended', ->
             $rootScope.$broadcast enums.EventType.VideoEnd, scope.videoData
+          $rootScope.$broadcast enums.EventType.VideoReady, scope.videoData
         scope.$on '$destroy', ->
           player?.dispose()
 ]

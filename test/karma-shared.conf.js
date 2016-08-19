@@ -63,6 +63,7 @@ shared.files = [
   'bower_components/log4javascript/log4javascript.js',
   'bower_components/moment/moment.js',
   'bower_components/angular-moment/angular-moment.js',
+  'bower_components/video.js/dist/video.min.js',
 
   'app/scripts/vendor/bootstrap-scrollspy.2.3.js',
   'app/scripts/vendor/modernizr.2.6.2.custom.js',
