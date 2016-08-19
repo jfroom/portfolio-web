@@ -107,7 +107,7 @@ This is how I'm able to store the project data in a private repository.
 ###Units
 `grunt test:unit` Runs the Karma Runner tests localed in `test/unit` folder.
 
-For configuration options, see _tasks/test_task.js_, _tasks/options/karma.js_, _test/karma-unit.conf.js_.
+For configuration options, see _tasks/test_task.js_ and _tasks/options/karma.js_.
 
 ###Integration/E2E
 The integration tests use [Protractor][^protractor] and [Selenium's WebDriver][^seleniumwebdriver] API for browser automation.
@@ -117,15 +117,15 @@ You can see these instructions on [how to get Selenium & Protractor installed lo
 
 2. `webdriver-update`
 
-3. 'grunt serve' (or `grunt serve:prod`).
+3. `grunt serve` (or `grunt serve:prod`).
 
-3. Run this in a new terminal `grunt test:e2e` to run the protractor/jasmine tests located in _test/e2e_.
+3. In a new terminal, `grunt test:e2e` to run the protractor/jasmine tests located in _test/e2e_.
 
 
 ###TODO
 - In the past `grunt-protractor-runner` was installed to leverage grunt to launch the tests.
 But there's some type of [version conflict](https://github.com/teerapap/grunt-protractor-runner/issues/165)
-in that repo that needs to be resolved.
+in that repo that needs to be resolved. (not a priority)
 So for now we need to have protractor globally installed and run locally with `grunt-shell`.
 - Integrate protractor into travis after protractor-runner working again (not a priority)
 - Re-integrate [SauceLabs][^sauce] support (not a priority)
