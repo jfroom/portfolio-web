@@ -44,9 +44,9 @@ The project leverages:
 
 ## Getting Started
 
-This website requires Node/NPM `~0.10.31`, and Grunt `~0.4.5`
+This website requires Node `>=4.0`, NPM `>=3`, and Grunt `~1.0`
 
-_If you haven't used [Node][^node] or [NPM][^npm] before, be sure to check out the linked documentation._
+_If you haven't used [Node][^node] and [NPM][^npm] before, be sure to check out the linked documentation._
 
 _If you haven't used [grunt][^grunt] before, be sure to check out the [Getting Started][^gruntstart] guide._
 
@@ -56,7 +56,7 @@ _If you haven't used [grunt][^grunt] before, be sure to check out the [Getting S
 
 ###Dependencies
 
-I have added all *bower_components* and *node_module* dependencies directly to the repository so that this project will be more self contained for deployment purposes. This is a best practice outlined by [Mikeal Rogers for NPM modules][^mikael] and [Addy Osmani for Bower components][^addy].
+Run `npm install` in the project folder to install all node dependencies. All bower components are currently part of this repo. (There is some debate on best practices with this - more reading by this [SO thread](http://stackoverflow.com/a/19416403/281809) for NPM and [Addy Osmani for Bower components][^addy].)
 
 `node-spritesheet` requires [ImageMagick be installed](https://github.com/richardbutler/node-spritesheet#requirements).
 
@@ -66,7 +66,7 @@ I have added all *bower_components* and *node_module* dependencies directly to t
 
 ##Build
 
-These build tasks are derived from [Yeoman][^yeoman]'s [WebApp][^webapp] generator and a handful of other tools in the grunt ecosystem.
+These build tasks are derived from [Yeoman][^yeoman]'s [WebApp][^webapp] generator (on older grunt version, they've now moved over to gulp!) and a handful of other tools in the grunt ecosystem.
 [^webapp]: https://github.com/yeoman/generator-webapp
 
 ####Development
@@ -97,6 +97,10 @@ These values can also be overwritten by any __environment variables__, this is h
 
 In a shell, an alternate settings file can be loaded: `PATH_PORTFOLIO_SETTINGS=~/sites/private/settings.json grunt serve`. This is how I can use the same codebase to develop the generic framework and my personal portfolio and blog.
 
+##Demo Data
+This repository contains generic demo data for the projects section.
+The `PATH_PORTFOLIO_DATA` settings/environment variables provide a way to pass in data from an alternate location.
+This is how I'm able to store the project data in a private repository.
 
 
 ##Test
@@ -107,21 +111,24 @@ For configuration options, see _tasks/test_task.js_, _tasks/options/karma.js_, _
 
 ###Integration/E2E
 The integration tests use [Protractor][^protractor] and [Selenium's WebDriver][^seleniumwebdriver] API for browser automation.
+You can see these instructions on [how to get Selenium & Protractor installed locally on your system](https://github.com/angular/protractor/blob/master/docs/getting-started.md). Here's a quick list of how to get this working (which worked as of this writing).
 
-1. See these instructions on [how to get Selenium & Protractor installed locally on your system](https://github.com/angular/protractor/blob/master/docs/getting-started.md).
+1. `npm install -g protractor@4.0.3`
 
-2. `grunt test:e2e` runs the protractor/jasmine tests located in _test/e2e_.
+2. `webdriver-update`
 
-*Note: In the past `grunt-protractor-runner` was installed to leverage grunt to launch the tests.
-But there's some type of version conflict in that repo that needs to be resolved.
-So for now we need to have protractor globally installed and run locally with `grunt-shell``.
-I've also removed [SauceLabs][^sauce] support as it's not vital at the moment, and needs
-some further testing after latest updates.*
+3. 'grunt serve' (or `grunt serve:prod`).
 
-##Demo Data
-This repository contains generic demo data for the projects section.
-The `PATH_PORTFOLIO_DATA` settings/environment variables provide a way to pass in data from an alternate location.
-This is how I'm able to store the project data in a private repository.
+3. Run this in a new terminal `grunt test:e2e` to run the protractor/jasmine tests located in _test/e2e_.
+
+
+###TODO
+- In the past `grunt-protractor-runner` was installed to leverage grunt to launch the tests.
+But there's some type of [version conflict](https://github.com/teerapap/grunt-protractor-runner/issues/165)
+in that repo that needs to be resolved.
+So for now we need to have protractor globally installed and run locally with `grunt-shell`.
+- Integrate protractor into travis after protractor-runner working again (not a priority)
+- Re-integrate [SauceLabs][^sauce] support (not a priority)
 
 
 ##License
