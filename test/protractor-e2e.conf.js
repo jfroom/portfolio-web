@@ -1,11 +1,11 @@
 // An example configuration file.
 exports.config = {
-  //directConnect: true,
-  seleniumAddress: 'http://localhost:4444/wd/hub',
+  directConnect: true,
+  //seleniumAddress: 'http://localhost:4444/wd/hub', # travis needs this?
 
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
-    'browserName': 'firefox'
+    'browserName': 'chrome' // travis needs 'firefox'?
   },
 
   // Framework to use. Jasmine is recommended.
