@@ -3,8 +3,8 @@ app = new (require('../pageObjects/appPage.coffee'))()
 describe "E2E: Testing App.Nav", ->
 
   describe "Header Nav:", ->
-    beforeEach ->
-      app.get()
+    beforeEach (done) ->
+      app.get done
 
     testNavItemCss = ".navbar-top .navbar-nav li:nth-child(1) a"
     testNavItemCss2 = ".navbar-top .navbar-nav li:nth-child(2) a"
@@ -33,13 +33,13 @@ describe "E2E: Testing App.Nav", ->
     rwdNavItemActiveCss = "header.flyout .navbar-nav li.active"
     rwdHeaderNavSelector = "header.flyout"
 
-    beforeEach ->
-      app.get '', false
-      app.setWindowSize 320, 480
+    beforeEach (done) ->
+      app.get done, false
+      browser.driver.manage().window().setSize(320, 480).then done
 
     it "should have nav when window is less than breakpoint for mobile", ->
 
-      #toggle visible?
+      # toggle visible?
       expect($(rwdToggleBtnSelector).isPresent()).toBe true
       expect($(rwdToggleBtnSelector).isDisplayed()).toBe true
 
@@ -69,7 +69,7 @@ describe "E2E: Testing App.Nav", ->
       browser.sleep slideDelay
       expect($(rwdHeaderNavSelector).isDisplayed()).toBe false
 
-getNavClickResults = (clickOnItemCssSelector, clickOnItemCssSelectorActive, clickDelay, cb) ->
+getNavClickResults = (clickOnItemCssSelector, clickOnItemCssSelectorActive, clickDelay, done) ->
   navItemEl = undefined
   out =
     targetPath: ""
@@ -94,13 +94,12 @@ getNavClickResults = (clickOnItemCssSelector, clickOnItemCssSelectorActive, clic
 
   # find active element, get it's label - if exists (mobile doesn't use active class)
   $(clickOnItemCssSelectorActive).isPresent().then (bol) ->
-  #webPage.exists.css(clickOnItemCssSelectorActive).then (bol) ->
     if bol
-      $(clickOnItemCssSelectorActive).getText().then (str, err) ->
+      $(clickOnItemCssSelectorActive).getText().then (str) ->
         out.curLabel = str
 
   # get current url
   browser.getCurrentUrl().then (url) ->
     parts = url.split("#!")
     out.curPath = parts[1]
-    cb out
+    done out

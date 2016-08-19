@@ -18,21 +18,19 @@ class AppPage
     ",isSafariBrowser: /Safari/i.test(navigator.userAgent) && !(/Chrome/i.test(navigator.userAgent))" +
     "};"
 
-  get: (hash = null, isMaxSize = true) ->
+  get: (done, hash = null, isMaxSize = true) ->
     browser.get(@getUrl(hash)).then =>
+      browser.waitForAngular()
       @loadUtilsJS()
-      @setWindowMax() if isMaxSize
+      if isMaxSize
+        browser.driver.manage().window().maximize().then done
+      else
+        done()
 
   getUrl: (hash = null) ->
     url = BASE_URL
     url += "#!/#{hash}" if hash?
     url
-
-  setWindowMax: ->
-    browser.driver.manage().window().maximize()
-
-  setWindowSize: (w, h) ->
-    browser.driver.manage().window().setSize w, h
 
   getAppDataAsync: (done) ->
     return done(@appData) if @appData?
@@ -54,24 +52,33 @@ class AppPage
     console.log s if logDebug
 
   _assertUrlHash: (hash, done) ->
-    targetUrl = BASE_URL + "/#!/" + hash
-    browser.navigate().to(targetUrl).then ->
-      browser.getCurrentUrl().then (url) ->
-        parts = url.split("#!")
-        expect(parts[1]).toEqual "/" + hash
-        done()
+    targetUrl = @getUrl hash
+    browser.navigate().to(targetUrl)
+    browser.getCurrentUrl().then (url) ->
+      parts = url.split("#!")
+      expect(parts[1]).toEqual "/" + hash
+      done()
 
-  navigateAssert: (hash, anchorId = hash) ->
+  navigateAssert: (hash, done, anchorId = hash) ->
     anchorId = "home" if hash is ''
     if @isPhantomBrowser
-      @_assertUrlHash hash, (->)
+      @_assertUrlHash hash, done
     else
-      browser.getCurrentUrl().then (url, err) =>
-        @_assertUrlHash hash, =>
-          browser.sleep @ANCHOR_SCROLL_DURATION
-          browser.executeScript(@utilsJS + ";return window.testUtils.getScrollTop();").then (scrollY) =>
-            script = "return $('##{anchorId}').position().top;"
-            browser.executeScript(script).then (anchorY, err) ->
-              expect(scrollY).toEqual(anchorY)
+      @_assertUrlHash hash, =>
+        browser.sleep @ANCHOR_SCROLL_DURATION
+        browser.executeScript(@utilsJS + ";return window.testUtils.getScrollTop();").then (scrollY) =>
+          script = "return $('##{anchorId}').position().top;"
+          browser.executeScript(script).then (anchorY) ->
+            expect(Math.floor(scrollY)).toEqual(Math.floor(anchorY))
+            done()
+
+  scrollTo: (y, done) ->
+    browser.executeScript("$('html,body').scrollTop(#{y});").then done
+
+  scrollToCss: (css, done = (->)) ->
+    # Scroll target onto screen, with a little offset for possible sticky nav
+    script = "$('html,body').scrollTop($('#{css}').first().offset().top - 100);"
+    browser.executeScript(script).then ->
+      done()
 
 module.exports = AppPage

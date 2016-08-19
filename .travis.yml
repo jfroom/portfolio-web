@@ -9,10 +9,16 @@ addons:
   firefox:
     "latest"
 
-before_script:
+before_install:
   # Make sure we have new NPM.
   - npm install -g npm
-  - npm install -g grunt-cli
   - npm config set loglevel warn
+
+after_install:
+  - npm install -g grunt-cli
+  - npm install -g protractor@4.0.3
+  - webdriver-manager update
+
+before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start

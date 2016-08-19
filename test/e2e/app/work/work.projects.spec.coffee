@@ -8,14 +8,16 @@ workDataOriginal = []
 
 describe "E2E: Testing Work Projects", ->
 
+  # load page and grab static copy of work data. only need to do this once
   beforeAll (done) ->
-    app.get app.URL_HASH.WORK
-    app.getAppDataAsync (data) ->
-      workDataOriginal = data.work.projects
-      workData = __.clone workDataOriginal
-      workData = __.filter workData, (item) ->
-        item.id in testWorkIds
-      done()
+    app.get ->
+      app.getAppDataAsync (data) ->
+        workDataOriginal = data.work.projects
+        workData = __.clone workDataOriginal
+        workData = __.filter workData, (item) ->
+          item.id in testWorkIds
+        done()
+    , app.URL_HASH.WORK
 
   it 'should have appData', ->
     expect(workData).toBeDefined()
@@ -25,8 +27,8 @@ describe "E2E: Testing Work Projects", ->
     describe "Work Project: #{id}", ->
       beforeAll ->
         project = __.find workData, (project) -> project.id is id
-      beforeEach ->
-        app.get "#{app.URL_HASH.WORK}/#{project.id}"
+      beforeEach (done) ->
+        app.get done, "#{app.URL_HASH.WORK}/#{project.id}"
 
       # BROWSER URL (required)
       it 'should have required: url, title, description', (done) ->

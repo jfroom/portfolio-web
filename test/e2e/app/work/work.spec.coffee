@@ -4,27 +4,27 @@ describe "E2E: Testing Work", ->
   workThumbsSelector = '.work-thumb-list .work-thumb-item a'
 
   describe 'Basic Navigating', ->
-    beforeEach ->
-      app.get app.URL_HASH.WORK
+    beforeEach (done) ->
+      app.get done, app.URL_HASH.WORK
 
     it 'should have work thumbnails', ->
       $$('.work-thumb-list .work-thumb-item a').count().then (num) ->
         expect(num).not.toBe(0)
 
-    it 'should scroll to work section when loading a project URL', ->
-      app.get app.URL_HASH.HOME
+    it 'should scroll to work section when loading a project URL', (done) ->
+      browser.navigate().to(app.getUrl(app.URL_HASH.HOME))
       $$(workThumbsSelector).first().getAttribute('href').then (url) ->
         parts = url.split('#!/')
         hash = parts[1]
         hash = hash.split("/")[0]
-        app.navigateAssert hash, 'work'
+        app.navigateAssert hash, done, 'work'
 
     it 'should update URL when clicking project to be project URL', ->
-      #already validated that url will load projcet, so just validate url change
-
+      # already validated that url will load project, so just validate url change
       thumb = $$(workThumbsSelector).first()
       thumb.click()
       expect(thumb.getAttribute('href')).toBe(browser.getCurrentUrl())
+
     it 'should have hidden work detail section before load', ->
       detail = $$('.work-detail').first()
       expect(detail.isDisplayed()).toBe false

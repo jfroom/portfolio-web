@@ -125,7 +125,7 @@ This is how I'm able to store the project data in a private repository.
 
 
 ##License
-Copyright (c) 2013-2016 JFMK, LLC.
+Copyright © JFMK, LLC
 Released under the [MIT License][^license].
 [^license]: https://github.com/jfroom/portfolio-web/blob/master/LICENSE
 
