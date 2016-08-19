@@ -13,6 +13,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test:travis', function (){
     process.env.isTravisBuild = 'true';
-    grunt.task.run( ['serve:prod', 'test:unit', 'test:e2e'] );
+    grunt.task.run( ['test:unit', 'test:e2e'] );
   });
 };
