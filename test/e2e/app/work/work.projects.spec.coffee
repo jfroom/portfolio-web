@@ -70,12 +70,9 @@ describe "E2E: Testing Work Projects", ->
               when 'video'
                 item.$('video').getAttribute('poster').then (poster) ->
                   expect(poster).toMatch(RegExp(dataItem.poster))
-                  checkDone()
-                  ### phantom can't seem to test this?
                   item.$('video').getAttribute('src').then (src) ->
                     expect(src).toMatch(RegExp("#{dataItem.mp4}|#{dataItem.ogg}|#{dataItem.webm}"))
                     checkDone()
-                  ###
 
       it 'should optionally have: description, press, team', (done) ->
         doneIdx = 0
