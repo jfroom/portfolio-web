@@ -27,6 +27,9 @@ describe "Midway: Testing Modules", ->
       it "should have directives.utils as a dependency", ->
         expect(hasModule("directives.utils")).toBe true
 
+      it "should have directives.html as a dependency", ->
+        expect(hasModule("directives.html")).toBe true
+
       it "should have services.navigation as a dependency", ->
         expect(hasModule("services.navigation")).toBe true
 

@@ -30,23 +30,22 @@ describe 'Unit: Testing directives.html', ->
 
     element = $compile(fixture)($scope)
     $scope.$digest()
-
   )
 
   describe 'angularBindHtml', ->
 
     it 'should filter allow unsafe HTML', ->
-      expect(element.find("img").attr('src') != undefined).toBe(true)
+      expect(element.find("img").attr('src')).toBeDefined()
 
   describe 'A tag override for _blank targets', ->
 
     it 'should add a blank target', ->
-      expect(element.find("#link1").attr('target') == "_blank").toBe(true)
+      expect(element.find("#link1").attr('target')).toEqual("_blank")
 
     it 'should not add a blank target to link without http in front', ->
-      expect(element.find("#link2").attr('target') == undefined).toBe(true)
+      expect(element.find("#link2").attr('target')).not.toBeDefined()
 
     it 'should not add a blank target to link with existing target', ->
-      expect(element.find("#link3").attr('target') == 'mytarget').toBe(true)
+      expect(element.find("#link3").attr('target')).toEqual('mytarget')
 
 
