@@ -26,7 +26,7 @@
     "angular-route": "~1.5.8",
     "angular-moment": "~1.0.0-beta.6",
     "modernizr": "~2.6.2",
-    "font-awesome": "~4.0.3",
+    "font-awesome": "~4.6.3",
     "jquery": "~2.0.3",
     "imagesloaded": "~3.0.4",
     "bootstrap-sass": "~3.3.6",
