@@ -9240,39 +9240,16 @@ header.navbar-top {
 .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:active {
   background-color: #859900; }
 
-.touch .navbar-inverse .navbar-nav {
-  /*
-      > .active-persist{
-        background-color:$navbar-inverse-link-hover-bg;
-        > a:hover, > a:focus, > a:active{
-          background-color:$navbar-inverse-link-hover-bg;
-        }
-      }*/ }
-  .touch .navbar-inverse .navbar-nav > .active > a:active, .touch .navbar-inverse .navbar-nav > .active > a:hover, .touch .navbar-inverse .navbar-nav > .active > a:focus {
-    background-color: #596600; }
+.touch .navbar-inverse .navbar-nav > .active > a:active, .touch .navbar-inverse .navbar-nav > .active > a:hover, .touch .navbar-inverse .navbar-nav > .active > a:focus {
+  background-color: #596600; }
 
 .touch .navbar-inverse .navbar-brand:hover, .touch .navbar-inverse .navbar-brand:focus {
   background-color: transparent; }
 
-.touch header.navbar-top {
-  position: relative; }
-  .touch header.navbar-top .navbar-fixed-top {
-    position: relative; }
-
-.touch.ios header.navbar-top {
-  position: fixed; }
-  .touch.ios header.navbar-top .navbar-fixed-top {
-    position: fixed; }
-
-.touch.ios.ios5 header.navbar-top {
-  position: relative; }
-  .touch.ios.ios5 header.navbar-top .navbar-fixed-top {
-    position: relative; }
-
 @media only screen and (orientation: landscape) {
-  .touch.ios header.navbar-top {
+  .mobile header.navbar-top {
     position: relative; }
-    .touch.ios header.navbar-top .navbar-fixed-top {
+    .mobile header.navbar-top .navbar-fixed-top {
       position: relative; } }
 
 @media screen and (min-aspect-ratio: 13 / 9) {

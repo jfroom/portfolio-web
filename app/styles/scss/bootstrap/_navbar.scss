@@ -76,13 +76,6 @@ header.navbar-top{
           background-color:$navbar-inverse-link-active-bg;
         }
       }
-      /*
-      > .active-persist{
-        background-color:$navbar-inverse-link-hover-bg;
-        > a:hover, > a:focus, > a:active{
-          background-color:$navbar-inverse-link-hover-bg;
-        }
-      }*/
     }
     .navbar-brand{
       &:hover, &:focus{
@@ -106,19 +99,8 @@ header.navbar-top{
   }
 }
 
-.touch {
-  @include toggleFixedNavbar(relative);
-  &.ios{
-    @include toggleFixedNavbar(fixed);
-    &.ios5{
-      @include toggleFixedNavbar(relative);
-    }
-  }
-
-}
-
 @media only screen and (orientation : landscape) {
-  .touch.ios{
+  .mobile {
     @include toggleFixedNavbar(relative);
   }
 }
