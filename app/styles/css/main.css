@@ -5838,382 +5838,612 @@ button.close {
 
 .sprite {
   background: url("../../assets/spritesheet/icon-sprite.png") no-repeat;
-  background-size: 630px 594px; }
+  background-size: 810px 756px; }
 
-.sprite.tech-jasmine {
+.sprite.tech-aws {
   width: 90px;
   height: 54px;
   background-position: 0px 0px; }
 
-.sprite.brand-fpo-0 {
+.sprite.brand-aol {
   width: 90px;
   height: 54px;
   background-position: -90px 0px; }
 
-.sprite.brand-fpo-2 {
+.sprite.brand-elicit {
   width: 90px;
   height: 54px;
   background-position: 0px -54px; }
 
-.sprite.brand-fpo-3 {
+.sprite.brand-harrisbank {
   width: 90px;
   height: 54px;
   background-position: -90px -54px; }
 
-.sprite.brand-fpo-4 {
+.sprite.brand-karamann {
   width: 90px;
   height: 54px;
   background-position: 0px -108px; }
 
-.sprite.brand-fpo-5 {
+.sprite.brand-legalzoom {
   width: 90px;
   height: 54px;
   background-position: -90px -108px; }
 
-.sprite.brand-fpo-6 {
+.sprite.brand-mcd {
   width: 90px;
   height: 54px;
   background-position: -180px 0px; }
 
-.sprite.brand-fpo-7 {
+.sprite.brand-panasonic {
   width: 90px;
   height: 54px;
   background-position: -180px -54px; }
 
-.sprite.brand-fpo-8 {
+.sprite.brand-randallreilly {
   width: 90px;
   height: 54px;
   background-position: -180px -108px; }
 
-.sprite.brand-fpo-9 {
+.sprite.brand-rca {
   width: 90px;
   height: 54px;
   background-position: 0px -162px; }
 
-.sprite.recog-fpo-0 {
+.sprite.brand-truevalue {
   width: 90px;
   height: 54px;
   background-position: -90px -162px; }
 
-.sprite.recog-fpo-1 {
+.sprite.brand-allstate {
   width: 90px;
   height: 54px;
   background-position: -180px -162px; }
 
-.sprite.recog-fpo-2 {
+.sprite.brand-atlantic {
   width: 90px;
   height: 54px;
   background-position: 0px -216px; }
 
-.sprite.recog-fpo-3 {
+.sprite.brand-blackberry {
   width: 90px;
   height: 54px;
   background-position: -90px -216px; }
 
-.sprite.recog-fpo-4 {
+.sprite.brand-cadillac {
   width: 90px;
   height: 54px;
   background-position: -180px -216px; }
 
-.sprite.recog-fpo-5 {
+.sprite.brand-cmegroup {
   width: 90px;
   height: 54px;
   background-position: -270px 0px; }
 
-.sprite.recog-fpo-6 {
+.sprite.brand-discoverboating {
   width: 90px;
   height: 54px;
   background-position: -270px -54px; }
 
-.sprite.recog-fpo-7 {
+.sprite.brand-endurance {
   width: 90px;
   height: 54px;
   background-position: -270px -108px; }
 
-.sprite.recog-fpo-8 {
+.sprite.brand-energizer {
   width: 90px;
   height: 54px;
   background-position: -270px -162px; }
 
-.sprite.recog-fpo-9 {
+.sprite.brand-espn {
   width: 90px;
   height: 54px;
   background-position: -270px -216px; }
 
-.sprite.tech-analytics {
+.sprite.brand-ggp {
   width: 90px;
   height: 54px;
   background-position: 0px -270px; }
 
-.sprite.tech-angular {
+.sprite.brand-goodyear {
   width: 90px;
   height: 54px;
   background-position: -90px -270px; }
 
-.sprite.tech-assemble {
+.sprite.brand-h2o {
   width: 90px;
   height: 54px;
   background-position: -180px -270px; }
 
-.sprite.tech-backbone {
+.sprite.brand-hallmark {
   width: 90px;
   height: 54px;
   background-position: -270px -270px; }
 
-.sprite.tech-bootstrap {
+.sprite.brand-harley {
   width: 90px;
   height: 54px;
   background-position: -360px 0px; }
 
-.sprite.tech-bower {
+.sprite.brand-hostway {
   width: 90px;
   height: 54px;
   background-position: -360px -54px; }
 
-.sprite.tech-browserstack {
+.sprite.brand-huggies {
   width: 90px;
   height: 54px;
   background-position: -360px -108px; }
 
-.sprite.tech-coffeescript {
+.sprite.brand-kelloggs {
   width: 90px;
   height: 54px;
   background-position: -360px -162px; }
 
-.sprite.tech-css3 {
+.sprite.brand-maytag {
   width: 90px;
   height: 54px;
   background-position: -360px -216px; }
 
-.sprite.tech-flash {
+.sprite.brand-mms {
   width: 90px;
   height: 54px;
   background-position: -360px -270px; }
 
-.sprite.tech-gaia {
+.sprite.brand-motorola {
   width: 90px;
   height: 54px;
   background-position: 0px -324px; }
 
-.sprite.tech-git {
+.sprite.brand-oldsmobile {
   width: 90px;
   height: 54px;
   background-position: -90px -324px; }
 
-.sprite.tech-github {
+.sprite.brand-orbitz {
   width: 90px;
   height: 54px;
   background-position: -180px -324px; }
 
-.sprite.tech-grunt {
+.sprite.brand-pella {
   width: 90px;
   height: 54px;
   background-position: -270px -324px; }
 
-.sprite.tech-html5 {
+.sprite.brand-pillsbury {
   width: 90px;
   height: 54px;
   background-position: -360px -324px; }
 
-.sprite.tech-intellij {
+.sprite.brand-princess {
   width: 90px;
   height: 54px;
   background-position: 0px -378px; }
 
-.sprite.tech-ios {
+.sprite.brand-purina {
   width: 90px;
   height: 54px;
   background-position: -90px -378px; }
 
-.sprite.brand-fpo-1 {
+.sprite.brand-slimjim {
   width: 90px;
   height: 54px;
   background-position: -180px -378px; }
 
-.sprite.tech-jenkins {
+.sprite.brand-trx {
   width: 90px;
   height: 54px;
   background-position: -270px -378px; }
 
-.sprite.tech-jquery-ui {
+.sprite.brand-united {
   width: 90px;
   height: 54px;
   background-position: -360px -378px; }
 
-.sprite.tech-jquery {
+.sprite.brand-xerox {
   width: 90px;
   height: 54px;
   background-position: -450px 0px; }
 
-.sprite.tech-js {
+.sprite.recog-adtech {
   width: 90px;
   height: 54px;
   background-position: -450px -54px; }
 
-.sprite.tech-jshint {
+.sprite.recog-bma {
   width: 90px;
   height: 54px;
   background-position: -450px -108px; }
 
-.sprite.tech-karma {
+.sprite.recog-creativity-intl {
   width: 90px;
   height: 54px;
   background-position: -450px -162px; }
 
-.sprite.tech-modernizr {
+.sprite.recog-creativity {
   width: 90px;
   height: 54px;
   background-position: -450px -216px; }
 
-.sprite.tech-ms-azure {
+.sprite.recog-davey {
   width: 90px;
   height: 54px;
   background-position: -450px -270px; }
 
-.sprite.tech-mssql {
+.sprite.recog-flashforward {
   width: 90px;
   height: 54px;
   background-position: -450px -324px; }
 
-.sprite.tech-net {
+.sprite.recog-fwa {
   width: 90px;
   height: 54px;
   background-position: -450px -378px; }
 
-.sprite.tech-nodejs {
+.sprite.recog-how {
   width: 90px;
   height: 54px;
   background-position: 0px -432px; }
 
-.sprite.tech-npm {
+.sprite.recog-iac {
   width: 90px;
   height: 54px;
   background-position: -90px -432px; }
 
-.sprite.tech-photoshop {
+.sprite.recog-iava {
   width: 90px;
   height: 54px;
   background-position: -180px -432px; }
 
-.sprite.tech-php {
+.sprite.recog-id {
   width: 90px;
   height: 54px;
   background-position: -270px -432px; }
 
-.sprite.tech-pingdom {
+.sprite.recog-marcom {
   width: 90px;
   height: 54px;
   background-position: -360px -432px; }
 
-.sprite.tech-protractor {
+.sprite.recog-taschen {
   width: 90px;
   height: 54px;
   background-position: -450px -432px; }
 
-.sprite.tech-raphael {
+.sprite.recog-w3 {
   width: 90px;
   height: 54px;
   background-position: 0px -486px; }
 
-.sprite.tech-require {
+.sprite.recog-webaward {
   width: 90px;
   height: 54px;
   background-position: -90px -486px; }
 
-.sprite.tech-responsive {
+.sprite.recog-webby {
   width: 90px;
   height: 54px;
   background-position: -180px -486px; }
 
-.sprite.tech-ror {
+.sprite.tech-analytics {
   width: 90px;
   height: 54px;
   background-position: -270px -486px; }
 
-.sprite.tech-ruby {
+.sprite.tech-angular {
   width: 90px;
   height: 54px;
   background-position: -360px -486px; }
 
-.sprite.tech-sass {
+.sprite.tech-assemble {
   width: 90px;
   height: 54px;
   background-position: -450px -486px; }
 
-.sprite.tech-saucelabs {
+.sprite.brand-dentsply {
   width: 90px;
   height: 54px;
   background-position: -540px 0px; }
 
-.sprite.tech-screenflow {
+.sprite.tech-backbone {
   width: 90px;
   height: 54px;
   background-position: -540px -54px; }
 
-.sprite.tech-selenium {
+.sprite.tech-basecamp {
   width: 90px;
   height: 54px;
   background-position: -540px -108px; }
 
-.sprite.tech-sublime {
+.sprite.tech-bootstrap {
   width: 90px;
   height: 54px;
   background-position: -540px -162px; }
 
-.sprite.tech-svn {
+.sprite.tech-bower {
   width: 90px;
   height: 54px;
   background-position: -540px -216px; }
 
-.sprite.tech-teamwork {
+.sprite.tech-browserstack {
   width: 90px;
   height: 54px;
   background-position: -540px -270px; }
 
-.sprite.tech-testacular {
+.sprite.tech-coffeescript {
   width: 90px;
   height: 54px;
   background-position: -540px -324px; }
 
-.sprite.tech-tomcat {
+.sprite.tech-css3 {
   width: 90px;
   height: 54px;
   background-position: -540px -378px; }
 
-.sprite.tech-travis {
+.sprite.tech-docker {
   width: 90px;
   height: 54px;
   background-position: -540px -432px; }
 
-.sprite.tech-typekit {
+.sprite.tech-flash {
   width: 90px;
   height: 54px;
   background-position: -540px -486px; }
 
-.sprite.tech-visualstudio {
+.sprite.tech-gaia {
   width: 90px;
   height: 54px;
   background-position: 0px -540px; }
 
-.sprite.tech-webstorm {
+.sprite.tech-git {
   width: 90px;
   height: 54px;
   background-position: -90px -540px; }
 
-.sprite.tech-wp {
+.sprite.tech-github {
   width: 90px;
   height: 54px;
   background-position: -180px -540px; }
 
-.sprite.tech-yeoman {
+.sprite.tech-grunt {
   width: 90px;
   height: 54px;
   background-position: -270px -540px; }
 
+.sprite.tech-heroku {
+  width: 90px;
+  height: 54px;
+  background-position: -360px -540px; }
+
+.sprite.tech-html5 {
+  width: 90px;
+  height: 54px;
+  background-position: -450px -540px; }
+
+.sprite.tech-intellij {
+  width: 90px;
+  height: 54px;
+  background-position: -540px -540px; }
+
+.sprite.tech-ios {
+  width: 90px;
+  height: 54px;
+  background-position: -630px 0px; }
+
+.sprite.tech-jasmine {
+  width: 90px;
+  height: 54px;
+  background-position: -630px -54px; }
+
+.sprite.tech-jenkins {
+  width: 90px;
+  height: 54px;
+  background-position: -630px -108px; }
+
+.sprite.tech-jquery-ui {
+  width: 90px;
+  height: 54px;
+  background-position: -630px -162px; }
+
+.sprite.tech-jquery {
+  width: 90px;
+  height: 54px;
+  background-position: -630px -216px; }
+
+.sprite.tech-js {
+  width: 90px;
+  height: 54px;
+  background-position: -630px -270px; }
+
+.sprite.tech-jshint {
+  width: 90px;
+  height: 54px;
+  background-position: -630px -324px; }
+
+.sprite.tech-karma {
+  width: 90px;
+  height: 54px;
+  background-position: -630px -378px; }
+
+.sprite.tech-modernizr {
+  width: 90px;
+  height: 54px;
+  background-position: -630px -432px; }
+
+.sprite.tech-ms-azure {
+  width: 90px;
+  height: 54px;
+  background-position: -630px -486px; }
+
+.sprite.tech-mssql {
+  width: 90px;
+  height: 54px;
+  background-position: -630px -540px; }
+
+.sprite.tech-net {
+  width: 90px;
+  height: 54px;
+  background-position: 0px -594px; }
+
+.sprite.tech-nodejs {
+  width: 90px;
+  height: 54px;
+  background-position: -90px -594px; }
+
+.sprite.tech-npm {
+  width: 90px;
+  height: 54px;
+  background-position: -180px -594px; }
+
+.sprite.tech-photoshop {
+  width: 90px;
+  height: 54px;
+  background-position: -270px -594px; }
+
+.sprite.tech-php {
+  width: 90px;
+  height: 54px;
+  background-position: -360px -594px; }
+
+.sprite.tech-pingdom {
+  width: 90px;
+  height: 54px;
+  background-position: -450px -594px; }
+
+.sprite.tech-pivotaltracker {
+  width: 90px;
+  height: 54px;
+  background-position: -540px -594px; }
+
+.sprite.tech-postgresql {
+  width: 90px;
+  height: 54px;
+  background-position: -630px -594px; }
+
+.sprite.tech-protractor {
+  width: 90px;
+  height: 54px;
+  background-position: 0px -648px; }
+
+.sprite.tech-raphael {
+  width: 90px;
+  height: 54px;
+  background-position: -90px -648px; }
+
+.sprite.tech-require {
+  width: 90px;
+  height: 54px;
+  background-position: -180px -648px; }
+
+.sprite.tech-responsive {
+  width: 90px;
+  height: 54px;
+  background-position: -270px -648px; }
+
+.sprite.tech-ror {
+  width: 90px;
+  height: 54px;
+  background-position: -360px -648px; }
+
+.sprite.tech-rspec {
+  width: 90px;
+  height: 54px;
+  background-position: -450px -648px; }
+
+.sprite.tech-ruby {
+  width: 90px;
+  height: 54px;
+  background-position: -540px -648px; }
+
+.sprite.tech-sass {
+  width: 90px;
+  height: 54px;
+  background-position: -630px -648px; }
+
+.sprite.tech-saucelabs {
+  width: 90px;
+  height: 54px;
+  background-position: -720px 0px; }
+
+.sprite.tech-screenflow {
+  width: 90px;
+  height: 54px;
+  background-position: -720px -54px; }
+
+.sprite.tech-selenium {
+  width: 90px;
+  height: 54px;
+  background-position: -720px -108px; }
+
+.sprite.tech-spinejs {
+  width: 90px;
+  height: 54px;
+  background-position: -720px -162px; }
+
+.sprite.tech-sublime {
+  width: 90px;
+  height: 54px;
+  background-position: -720px -216px; }
+
+.sprite.tech-svn {
+  width: 90px;
+  height: 54px;
+  background-position: -720px -270px; }
+
+.sprite.tech-teamwork {
+  width: 90px;
+  height: 54px;
+  background-position: -720px -324px; }
+
+.sprite.tech-teaspoon {
+  width: 90px;
+  height: 54px;
+  background-position: -720px -378px; }
+
+.sprite.tech-testacular {
+  width: 90px;
+  height: 54px;
+  background-position: -720px -432px; }
+
+.sprite.tech-tomcat {
+  width: 90px;
+  height: 54px;
+  background-position: -720px -486px; }
+
+.sprite.tech-travis {
+  width: 90px;
+  height: 54px;
+  background-position: -720px -540px; }
+
+.sprite.tech-typekit {
+  width: 90px;
+  height: 54px;
+  background-position: -720px -594px; }
+
+.sprite.tech-visualstudio {
+  width: 90px;
+  height: 54px;
+  background-position: -720px -648px; }
+
+.sprite.tech-webstorm {
+  width: 90px;
+  height: 54px;
+  background-position: 0px -702px; }
+
+.sprite.tech-wp {
+  width: 90px;
+  height: 54px;
+  background-position: -90px -702px; }
+
+.sprite.tech-yeoman {
+  width: 90px;
+  height: 54px;
+  background-position: -180px -702px; }
+
 @media (min--moz-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2 / 1), (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
   .sprite {
     background: url("../../assets/spritesheet/icon-sprite__2x.png") no-repeat;
-    background-size: 630px 594px; } }
+    background-size: 810px 756px; } }
 
 /*
 Animate.css - http://daneden.me/animate
@@ -6440,24 +6670,23 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   animation-name: pulse; }
 
 /*!
- *  Font Awesome 4.0.3 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../../bower_components/font-awesome/fonts/fontawesome-webfont.eot?v=4.0.3");
-  src: url("../../bower_components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.0.3") format("embedded-opentype"), url("../../bower_components/font-awesome/fonts/fontawesome-webfont.woff?v=4.0.3") format("woff"), url("../../bower_components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.0.3") format("truetype"), url("../../bower_components/font-awesome/fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular") format("svg");
+  src: url("../../bower_components/font-awesome/fonts/fontawesome-webfont.eot?v=4.6.3");
+  src: url("../../bower_components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.6.3") format("embedded-opentype"), url("../../bower_components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3") format("woff2"), url("../../bower_components/font-awesome/fonts/fontawesome-webfont.woff?v=4.6.3") format("woff"), url("../../bower_components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.6.3") format("truetype"), url("../../bower_components/font-awesome/fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 .fa {
   display: inline-block;
-  font-family: FontAwesome;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
@@ -6504,6 +6733,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   border: solid 0.08em #eee;
   border-radius: .1em; }
 
+.fa-pull-left {
+  float: left; }
+
+.fa-pull-right {
+  float: right; }
+
+.fa.fa-pull-left {
+  margin-right: .3em; }
+
+.fa.fa-pull-right {
+  margin-left: .3em; }
+
+/* Deprecated as of 4.4.0 */
 .pull-right {
   float: right; }
 
@@ -6517,80 +6759,65 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   margin-left: .3em; }
 
 .fa-spin {
-  -webkit-animation: spin 2s infinite linear;
-  -moz-animation: spin 2s infinite linear;
-  -o-animation: spin 2s infinite linear;
-  animation: spin 2s infinite linear; }
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear; }
 
-@-moz-keyframes spin {
-  0% {
-    -moz-transform: rotate(0deg); }
-  100% {
-    -moz-transform: rotate(359deg); } }
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8); }
 
-@-webkit-keyframes spin {
+@-webkit-keyframes fa-spin {
   0% {
-    -webkit-transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(359deg); } }
-
-@-o-keyframes spin {
-  0% {
-    -o-transform: rotate(0deg); }
-  100% {
-    -o-transform: rotate(359deg); } }
-
-@-ms-keyframes spin {
-  0% {
-    -ms-transform: rotate(0deg); }
-  100% {
-    -ms-transform: rotate(359deg); } }
-
-@keyframes spin {
-  0% {
+    -webkit-transform: rotate(0deg);
     transform: rotate(0deg); }
   100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
     transform: rotate(359deg); } }
 
 .fa-rotate-90 {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=$rotation);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
   -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
   transform: rotate(90deg); }
 
 .fa-rotate-180 {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=$rotation);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
   -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
   transform: rotate(180deg); }
 
 .fa-rotate-270 {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=$rotation);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
   -webkit-transform: rotate(270deg);
-  -moz-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
   transform: rotate(270deg); }
 
 .fa-flip-horizontal {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=$rotation);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
   -webkit-transform: scale(-1, 1);
-  -moz-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
-  -o-transform: scale(-1, 1);
   transform: scale(-1, 1); }
 
 .fa-flip-vertical {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=$rotation);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
   -webkit-transform: scale(1, -1);
-  -moz-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
-  -o-transform: scale(1, -1);
   transform: scale(1, -1); }
+
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical {
+  filter: none; }
 
 .fa-stack {
   position: relative;
@@ -6656,6 +6883,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .fa-check:before {
   content: ""; }
 
+.fa-remove:before,
+.fa-close:before,
 .fa-times:before {
   content: ""; }
 
@@ -6797,6 +7026,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .fa-video-camera:before {
   content: ""; }
 
+.fa-photo:before,
+.fa-image:before,
 .fa-picture-o:before {
   content: ""; }
 
@@ -6983,7 +7214,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .fa-arrows-h:before {
   content: ""; }
 
-.fa-bar-chart-o:before {
+.fa-bar-chart-o:before,
+.fa-bar-chart:before {
   content: ""; }
 
 .fa-twitter-square:before {
@@ -7059,6 +7291,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .fa-twitter:before {
   content: ""; }
 
+.fa-facebook-f:before,
 .fa-facebook:before {
   content: ""; }
 
@@ -7071,6 +7304,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .fa-credit-card:before {
   content: ""; }
 
+.fa-feed:before,
 .fa-rss:before {
   content: ""; }
 
@@ -7160,6 +7394,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .fa-square:before {
   content: ""; }
 
+.fa-navicon:before,
+.fa-reorder:before,
 .fa-bars:before {
   content: ""; }
 
@@ -7219,11 +7455,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   content: ""; }
 
 .fa-sort-down:before,
-.fa-sort-asc:before {
+.fa-sort-desc:before {
   content: ""; }
 
 .fa-sort-up:before,
-.fa-sort-desc:before {
+.fa-sort-asc:before {
   content: ""; }
 
 .fa-envelope:before {
@@ -7413,10 +7649,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .fa-code:before {
   content: ""; }
 
+.fa-mail-reply-all:before,
 .fa-reply-all:before {
-  content: ""; }
-
-.fa-mail-reply-all:before {
   content: ""; }
 
 .fa-star-half-empty:before,
@@ -7708,7 +7942,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .fa-male:before {
   content: ""; }
 
-.fa-gittip:before {
+.fa-gittip:before,
+.fa-gratipay:before {
   content: ""; }
 
 .fa-sun-o:before {
@@ -7763,6 +7998,867 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 .fa-plus-square-o:before {
   content: ""; }
+
+.fa-space-shuttle:before {
+  content: ""; }
+
+.fa-slack:before {
+  content: ""; }
+
+.fa-envelope-square:before {
+  content: ""; }
+
+.fa-wordpress:before {
+  content: ""; }
+
+.fa-openid:before {
+  content: ""; }
+
+.fa-institution:before,
+.fa-bank:before,
+.fa-university:before {
+  content: ""; }
+
+.fa-mortar-board:before,
+.fa-graduation-cap:before {
+  content: ""; }
+
+.fa-yahoo:before {
+  content: ""; }
+
+.fa-google:before {
+  content: ""; }
+
+.fa-reddit:before {
+  content: ""; }
+
+.fa-reddit-square:before {
+  content: ""; }
+
+.fa-stumbleupon-circle:before {
+  content: ""; }
+
+.fa-stumbleupon:before {
+  content: ""; }
+
+.fa-delicious:before {
+  content: ""; }
+
+.fa-digg:before {
+  content: ""; }
+
+.fa-pied-piper-pp:before {
+  content: ""; }
+
+.fa-pied-piper-alt:before {
+  content: ""; }
+
+.fa-drupal:before {
+  content: ""; }
+
+.fa-joomla:before {
+  content: ""; }
+
+.fa-language:before {
+  content: ""; }
+
+.fa-fax:before {
+  content: ""; }
+
+.fa-building:before {
+  content: ""; }
+
+.fa-child:before {
+  content: ""; }
+
+.fa-paw:before {
+  content: ""; }
+
+.fa-spoon:before {
+  content: ""; }
+
+.fa-cube:before {
+  content: ""; }
+
+.fa-cubes:before {
+  content: ""; }
+
+.fa-behance:before {
+  content: ""; }
+
+.fa-behance-square:before {
+  content: ""; }
+
+.fa-steam:before {
+  content: ""; }
+
+.fa-steam-square:before {
+  content: ""; }
+
+.fa-recycle:before {
+  content: ""; }
+
+.fa-automobile:before,
+.fa-car:before {
+  content: ""; }
+
+.fa-cab:before,
+.fa-taxi:before {
+  content: ""; }
+
+.fa-tree:before {
+  content: ""; }
+
+.fa-spotify:before {
+  content: ""; }
+
+.fa-deviantart:before {
+  content: ""; }
+
+.fa-soundcloud:before {
+  content: ""; }
+
+.fa-database:before {
+  content: ""; }
+
+.fa-file-pdf-o:before {
+  content: ""; }
+
+.fa-file-word-o:before {
+  content: ""; }
+
+.fa-file-excel-o:before {
+  content: ""; }
+
+.fa-file-powerpoint-o:before {
+  content: ""; }
+
+.fa-file-photo-o:before,
+.fa-file-picture-o:before,
+.fa-file-image-o:before {
+  content: ""; }
+
+.fa-file-zip-o:before,
+.fa-file-archive-o:before {
+  content: ""; }
+
+.fa-file-sound-o:before,
+.fa-file-audio-o:before {
+  content: ""; }
+
+.fa-file-movie-o:before,
+.fa-file-video-o:before {
+  content: ""; }
+
+.fa-file-code-o:before {
+  content: ""; }
+
+.fa-vine:before {
+  content: ""; }
+
+.fa-codepen:before {
+  content: ""; }
+
+.fa-jsfiddle:before {
+  content: ""; }
+
+.fa-life-bouy:before,
+.fa-life-buoy:before,
+.fa-life-saver:before,
+.fa-support:before,
+.fa-life-ring:before {
+  content: ""; }
+
+.fa-circle-o-notch:before {
+  content: ""; }
+
+.fa-ra:before,
+.fa-resistance:before,
+.fa-rebel:before {
+  content: ""; }
+
+.fa-ge:before,
+.fa-empire:before {
+  content: ""; }
+
+.fa-git-square:before {
+  content: ""; }
+
+.fa-git:before {
+  content: ""; }
+
+.fa-y-combinator-square:before,
+.fa-yc-square:before,
+.fa-hacker-news:before {
+  content: ""; }
+
+.fa-tencent-weibo:before {
+  content: ""; }
+
+.fa-qq:before {
+  content: ""; }
+
+.fa-wechat:before,
+.fa-weixin:before {
+  content: ""; }
+
+.fa-send:before,
+.fa-paper-plane:before {
+  content: ""; }
+
+.fa-send-o:before,
+.fa-paper-plane-o:before {
+  content: ""; }
+
+.fa-history:before {
+  content: ""; }
+
+.fa-circle-thin:before {
+  content: ""; }
+
+.fa-header:before {
+  content: ""; }
+
+.fa-paragraph:before {
+  content: ""; }
+
+.fa-sliders:before {
+  content: ""; }
+
+.fa-share-alt:before {
+  content: ""; }
+
+.fa-share-alt-square:before {
+  content: ""; }
+
+.fa-bomb:before {
+  content: ""; }
+
+.fa-soccer-ball-o:before,
+.fa-futbol-o:before {
+  content: ""; }
+
+.fa-tty:before {
+  content: ""; }
+
+.fa-binoculars:before {
+  content: ""; }
+
+.fa-plug:before {
+  content: ""; }
+
+.fa-slideshare:before {
+  content: ""; }
+
+.fa-twitch:before {
+  content: ""; }
+
+.fa-yelp:before {
+  content: ""; }
+
+.fa-newspaper-o:before {
+  content: ""; }
+
+.fa-wifi:before {
+  content: ""; }
+
+.fa-calculator:before {
+  content: ""; }
+
+.fa-paypal:before {
+  content: ""; }
+
+.fa-google-wallet:before {
+  content: ""; }
+
+.fa-cc-visa:before {
+  content: ""; }
+
+.fa-cc-mastercard:before {
+  content: ""; }
+
+.fa-cc-discover:before {
+  content: ""; }
+
+.fa-cc-amex:before {
+  content: ""; }
+
+.fa-cc-paypal:before {
+  content: ""; }
+
+.fa-cc-stripe:before {
+  content: ""; }
+
+.fa-bell-slash:before {
+  content: ""; }
+
+.fa-bell-slash-o:before {
+  content: ""; }
+
+.fa-trash:before {
+  content: ""; }
+
+.fa-copyright:before {
+  content: ""; }
+
+.fa-at:before {
+  content: ""; }
+
+.fa-eyedropper:before {
+  content: ""; }
+
+.fa-paint-brush:before {
+  content: ""; }
+
+.fa-birthday-cake:before {
+  content: ""; }
+
+.fa-area-chart:before {
+  content: ""; }
+
+.fa-pie-chart:before {
+  content: ""; }
+
+.fa-line-chart:before {
+  content: ""; }
+
+.fa-lastfm:before {
+  content: ""; }
+
+.fa-lastfm-square:before {
+  content: ""; }
+
+.fa-toggle-off:before {
+  content: ""; }
+
+.fa-toggle-on:before {
+  content: ""; }
+
+.fa-bicycle:before {
+  content: ""; }
+
+.fa-bus:before {
+  content: ""; }
+
+.fa-ioxhost:before {
+  content: ""; }
+
+.fa-angellist:before {
+  content: ""; }
+
+.fa-cc:before {
+  content: ""; }
+
+.fa-shekel:before,
+.fa-sheqel:before,
+.fa-ils:before {
+  content: ""; }
+
+.fa-meanpath:before {
+  content: ""; }
+
+.fa-buysellads:before {
+  content: ""; }
+
+.fa-connectdevelop:before {
+  content: ""; }
+
+.fa-dashcube:before {
+  content: ""; }
+
+.fa-forumbee:before {
+  content: ""; }
+
+.fa-leanpub:before {
+  content: ""; }
+
+.fa-sellsy:before {
+  content: ""; }
+
+.fa-shirtsinbulk:before {
+  content: ""; }
+
+.fa-simplybuilt:before {
+  content: ""; }
+
+.fa-skyatlas:before {
+  content: ""; }
+
+.fa-cart-plus:before {
+  content: ""; }
+
+.fa-cart-arrow-down:before {
+  content: ""; }
+
+.fa-diamond:before {
+  content: ""; }
+
+.fa-ship:before {
+  content: ""; }
+
+.fa-user-secret:before {
+  content: ""; }
+
+.fa-motorcycle:before {
+  content: ""; }
+
+.fa-street-view:before {
+  content: ""; }
+
+.fa-heartbeat:before {
+  content: ""; }
+
+.fa-venus:before {
+  content: ""; }
+
+.fa-mars:before {
+  content: ""; }
+
+.fa-mercury:before {
+  content: ""; }
+
+.fa-intersex:before,
+.fa-transgender:before {
+  content: ""; }
+
+.fa-transgender-alt:before {
+  content: ""; }
+
+.fa-venus-double:before {
+  content: ""; }
+
+.fa-mars-double:before {
+  content: ""; }
+
+.fa-venus-mars:before {
+  content: ""; }
+
+.fa-mars-stroke:before {
+  content: ""; }
+
+.fa-mars-stroke-v:before {
+  content: ""; }
+
+.fa-mars-stroke-h:before {
+  content: ""; }
+
+.fa-neuter:before {
+  content: ""; }
+
+.fa-genderless:before {
+  content: ""; }
+
+.fa-facebook-official:before {
+  content: ""; }
+
+.fa-pinterest-p:before {
+  content: ""; }
+
+.fa-whatsapp:before {
+  content: ""; }
+
+.fa-server:before {
+  content: ""; }
+
+.fa-user-plus:before {
+  content: ""; }
+
+.fa-user-times:before {
+  content: ""; }
+
+.fa-hotel:before,
+.fa-bed:before {
+  content: ""; }
+
+.fa-viacoin:before {
+  content: ""; }
+
+.fa-train:before {
+  content: ""; }
+
+.fa-subway:before {
+  content: ""; }
+
+.fa-medium:before {
+  content: ""; }
+
+.fa-yc:before,
+.fa-y-combinator:before {
+  content: ""; }
+
+.fa-optin-monster:before {
+  content: ""; }
+
+.fa-opencart:before {
+  content: ""; }
+
+.fa-expeditedssl:before {
+  content: ""; }
+
+.fa-battery-4:before,
+.fa-battery-full:before {
+  content: ""; }
+
+.fa-battery-3:before,
+.fa-battery-three-quarters:before {
+  content: ""; }
+
+.fa-battery-2:before,
+.fa-battery-half:before {
+  content: ""; }
+
+.fa-battery-1:before,
+.fa-battery-quarter:before {
+  content: ""; }
+
+.fa-battery-0:before,
+.fa-battery-empty:before {
+  content: ""; }
+
+.fa-mouse-pointer:before {
+  content: ""; }
+
+.fa-i-cursor:before {
+  content: ""; }
+
+.fa-object-group:before {
+  content: ""; }
+
+.fa-object-ungroup:before {
+  content: ""; }
+
+.fa-sticky-note:before {
+  content: ""; }
+
+.fa-sticky-note-o:before {
+  content: ""; }
+
+.fa-cc-jcb:before {
+  content: ""; }
+
+.fa-cc-diners-club:before {
+  content: ""; }
+
+.fa-clone:before {
+  content: ""; }
+
+.fa-balance-scale:before {
+  content: ""; }
+
+.fa-hourglass-o:before {
+  content: ""; }
+
+.fa-hourglass-1:before,
+.fa-hourglass-start:before {
+  content: ""; }
+
+.fa-hourglass-2:before,
+.fa-hourglass-half:before {
+  content: ""; }
+
+.fa-hourglass-3:before,
+.fa-hourglass-end:before {
+  content: ""; }
+
+.fa-hourglass:before {
+  content: ""; }
+
+.fa-hand-grab-o:before,
+.fa-hand-rock-o:before {
+  content: ""; }
+
+.fa-hand-stop-o:before,
+.fa-hand-paper-o:before {
+  content: ""; }
+
+.fa-hand-scissors-o:before {
+  content: ""; }
+
+.fa-hand-lizard-o:before {
+  content: ""; }
+
+.fa-hand-spock-o:before {
+  content: ""; }
+
+.fa-hand-pointer-o:before {
+  content: ""; }
+
+.fa-hand-peace-o:before {
+  content: ""; }
+
+.fa-trademark:before {
+  content: ""; }
+
+.fa-registered:before {
+  content: ""; }
+
+.fa-creative-commons:before {
+  content: ""; }
+
+.fa-gg:before {
+  content: ""; }
+
+.fa-gg-circle:before {
+  content: ""; }
+
+.fa-tripadvisor:before {
+  content: ""; }
+
+.fa-odnoklassniki:before {
+  content: ""; }
+
+.fa-odnoklassniki-square:before {
+  content: ""; }
+
+.fa-get-pocket:before {
+  content: ""; }
+
+.fa-wikipedia-w:before {
+  content: ""; }
+
+.fa-safari:before {
+  content: ""; }
+
+.fa-chrome:before {
+  content: ""; }
+
+.fa-firefox:before {
+  content: ""; }
+
+.fa-opera:before {
+  content: ""; }
+
+.fa-internet-explorer:before {
+  content: ""; }
+
+.fa-tv:before,
+.fa-television:before {
+  content: ""; }
+
+.fa-contao:before {
+  content: ""; }
+
+.fa-500px:before {
+  content: ""; }
+
+.fa-amazon:before {
+  content: ""; }
+
+.fa-calendar-plus-o:before {
+  content: ""; }
+
+.fa-calendar-minus-o:before {
+  content: ""; }
+
+.fa-calendar-times-o:before {
+  content: ""; }
+
+.fa-calendar-check-o:before {
+  content: ""; }
+
+.fa-industry:before {
+  content: ""; }
+
+.fa-map-pin:before {
+  content: ""; }
+
+.fa-map-signs:before {
+  content: ""; }
+
+.fa-map-o:before {
+  content: ""; }
+
+.fa-map:before {
+  content: ""; }
+
+.fa-commenting:before {
+  content: ""; }
+
+.fa-commenting-o:before {
+  content: ""; }
+
+.fa-houzz:before {
+  content: ""; }
+
+.fa-vimeo:before {
+  content: ""; }
+
+.fa-black-tie:before {
+  content: ""; }
+
+.fa-fonticons:before {
+  content: ""; }
+
+.fa-reddit-alien:before {
+  content: ""; }
+
+.fa-edge:before {
+  content: ""; }
+
+.fa-credit-card-alt:before {
+  content: ""; }
+
+.fa-codiepie:before {
+  content: ""; }
+
+.fa-modx:before {
+  content: ""; }
+
+.fa-fort-awesome:before {
+  content: ""; }
+
+.fa-usb:before {
+  content: ""; }
+
+.fa-product-hunt:before {
+  content: ""; }
+
+.fa-mixcloud:before {
+  content: ""; }
+
+.fa-scribd:before {
+  content: ""; }
+
+.fa-pause-circle:before {
+  content: ""; }
+
+.fa-pause-circle-o:before {
+  content: ""; }
+
+.fa-stop-circle:before {
+  content: ""; }
+
+.fa-stop-circle-o:before {
+  content: ""; }
+
+.fa-shopping-bag:before {
+  content: ""; }
+
+.fa-shopping-basket:before {
+  content: ""; }
+
+.fa-hashtag:before {
+  content: ""; }
+
+.fa-bluetooth:before {
+  content: ""; }
+
+.fa-bluetooth-b:before {
+  content: ""; }
+
+.fa-percent:before {
+  content: ""; }
+
+.fa-gitlab:before {
+  content: ""; }
+
+.fa-wpbeginner:before {
+  content: ""; }
+
+.fa-wpforms:before {
+  content: ""; }
+
+.fa-envira:before {
+  content: ""; }
+
+.fa-universal-access:before {
+  content: ""; }
+
+.fa-wheelchair-alt:before {
+  content: ""; }
+
+.fa-question-circle-o:before {
+  content: ""; }
+
+.fa-blind:before {
+  content: ""; }
+
+.fa-audio-description:before {
+  content: ""; }
+
+.fa-volume-control-phone:before {
+  content: ""; }
+
+.fa-braille:before {
+  content: ""; }
+
+.fa-assistive-listening-systems:before {
+  content: ""; }
+
+.fa-asl-interpreting:before,
+.fa-american-sign-language-interpreting:before {
+  content: ""; }
+
+.fa-deafness:before,
+.fa-hard-of-hearing:before,
+.fa-deaf:before {
+  content: ""; }
+
+.fa-glide:before {
+  content: ""; }
+
+.fa-glide-g:before {
+  content: ""; }
+
+.fa-signing:before,
+.fa-sign-language:before {
+  content: ""; }
+
+.fa-low-vision:before {
+  content: ""; }
+
+.fa-viadeo:before {
+  content: ""; }
+
+.fa-viadeo-square:before {
+  content: ""; }
+
+.fa-snapchat:before {
+  content: ""; }
+
+.fa-snapchat-ghost:before {
+  content: ""; }
+
+.fa-snapchat-square:before {
+  content: ""; }
+
+.fa-pied-piper:before {
+  content: ""; }
+
+.fa-first-order:before {
+  content: ""; }
+
+.fa-yoast:before {
+  content: ""; }
+
+.fa-themeisle:before {
+  content: ""; }
+
+.fa-google-plus-circle:before,
+.fa-google-plus-official:before {
+  content: ""; }
+
+.fa-fa:before,
+.fa-font-awesome:before {
+  content: ""; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto; }
 
 /*.mobile body{
   font-size:14px;
@@ -8094,22 +9190,9 @@ blockquote {
     border-color: #596600;
     background-color: #6f8000; }
 
-.touch {
-  /*.btn-primary{
-    &:hover, &:focus, &:active{
-      background-color:$btn-primary-bg;
-      border-color: $btn-primary-border;
-    }
-  }
-  .btn-default{
-    &:hover, &:focus, &:active{
-      background-color:$btn-default-bg;
-      border-color: $btn-default-border;
-    }
-  }*/ }
-  .touch .btn:hover, .touch .btn:focus, .touch .btn:active {
-    box-shadow: none;
-    -webkit-box-shadow: none; }
+.touch .btn:hover, .touch .btn:focus, .touch .btn:active {
+  box-shadow: none;
+  -webkit-box-shadow: none; }
 
 nav[role=navigation] {
   font-size: 12px; }
@@ -8597,7 +9680,7 @@ article[role=work] .work-thumbs, article[role=blog] .work-thumbs {
       margin: 0 0 14px 0;
       width: 100%;
       text-decoration: none;
-      -webkit-transform: rotate(0); }
+      -webkit-transform: rotate(0deg); }
       article[role=work] .work-thumbs .work-thumb-container .work-thumb-list .item-link:hover .item-img-outer, article[role=blog] .work-thumbs .work-thumb-container .work-thumb-list .item-link:hover .item-img-outer {
         opacity: .8;
         -webkit-transition: opacity .3s ease-out;
@@ -8621,20 +9704,21 @@ article[role=work] .work-thumbs, article[role=blog] .work-thumbs {
       border: 0; }
     article[role=work] .work-thumbs .work-thumb-container .work-thumb-list .item-img-inner, article[role=blog] .work-thumbs .work-thumb-container .work-thumb-list .item-img-inner {
       padding: 0px;
-      padding-bottom: 130%;
+      padding-bottom: 132%;
       overflow: hidden;
       height: 0;
       max-width: 100%;
       position: relative;
-      -webkit-backface-visibility: hidden;
-      border: 1px dashed #777777; }
+      -webkit-backface-visibility: hidden; }
     article[role=work] .work-thumbs .work-thumb-container .work-thumb-list .item-img, article[role=blog] .work-thumbs .work-thumb-container .work-thumb-list .item-img {
       display: inline-block;
       width: 100%;
+      height: 100%;
       float: left;
       position: absolute;
       border: 0;
-      outline: 0; }
+      outline: 0;
+      border: 1px dashed #777777; }
     article[role=work] .work-thumbs .work-thumb-container .work-thumb-list .item-icon-outer, article[role=blog] .work-thumbs .work-thumb-container .work-thumb-list .item-icon-outer {
       display: table-cell;
       vertical-align: middle;
@@ -8654,7 +9738,15 @@ article[role=work] .work-thumbs, article[role=blog] .work-thumbs {
   article[role=work] .work-thumb-item:nth-of-type(2n+1) {
     clear: none !important; }
   article[role=work] .work-thumb-item:nth-of-type(4n+1) {
-    clear: both !important; } }
+    clear: both !important; }
+  article[role=work] .press ul {
+    padding: 0;
+    column-count: 2;
+    -moz-column-count: 2; }
+    article[role=work] .press ul li {
+      break-inside: avoid-column;
+      -moz-break-inside: avoid-column;
+      display: inline-block; } }
 
 .work-detail, .blog-detail {
   padding-top: 20px; }
@@ -8811,10 +9903,14 @@ article[role=blog] .detail-title {
   .detail-sub-info .title {
     margin-top: 0; }
   .detail-sub-info ul.list {
-    list-style: disk;
-    margin-bottom: 0; }
-  .detail-sub-info .humans {
-    margin-left: 10px; }
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0;
+    column-count: 2;
+    -moz-column-count: 2; }
+    .detail-sub-info ul.list li {
+      break-inside: avoid-column;
+      -moz-break-inside: avoid-column; }
 
 .tech:before {
   width: 20%;
@@ -8862,7 +9958,8 @@ article[role=blog] .detail-media .detail-item {
 .detail-post-meta {
   min-height: 16px;
   color: #777777;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  text-align: right; }
   .detail-post-meta > span {
     margin-right: 10px;
     display: inline-block; }
@@ -9020,7 +10117,7 @@ nav[role=footer] {
     width: 100%;
     height: 100%; }
 
-.video-js.vjs-my-skin {
+.video-js {
   /* The base font size controls the size of everything, not just text.
      All dimensions use em-based sizes so that the scale along with the font size.
      Try increasing it to 15px and see what happens. */
@@ -9038,9 +10135,9 @@ nav[role=footer] {
   /* The main progress bar also has a bar that shows how much has been loaded. */
   /* The load progress bar also has internal divs that represent
      smaller disconnected loaded time ranges */ }
-  .video-js.vjs-my-skin .vjs-fullscreen {
+  .video-js .vjs-fullscreen {
     padding-top: 0; }
-  .video-js.vjs-my-skin .vjs-big-play-button {
+  .video-js .vjs-big-play-button {
     /* The font size is what makes the big play button...big.
        All width/height values use ems, which are a multiple of the font size.
        If the .video-js font-size is 10px, then 3em equals 30px.*/
@@ -9063,39 +10160,46 @@ nav[role=footer] {
     top: 50%;
     margin-left: -1.5em;
     margin-top: -1.5em; }
-    .video-js.vjs-my-skin .vjs-big-play-button::before {
+    .video-js .vjs-big-play-button::before {
       font-size: 2em; }
-  .video-js.vjs-my-skin .vjs-control-bar, .video-js.vjs-my-skin .vjs-big-play-button, .video-js.vjs-my-skin .vjs-menu-button .vjs-menu-content {
+  .video-js .vjs-control-bar, .video-js .vjs-big-play-button, .video-js .vjs-menu-button .vjs-menu-content {
     /* IE8 - has no alpha support */
     background-color: #333;
     /* Opacity: 1.0 = 100%, 0.0 = 0% */
     background-color: rgba(51, 51, 51, 0.7); }
-  .video-js.vjs-my-skin .vjs-slider {
+  .video-js .vjs-slider {
     background-color: #878787;
     background-color: rgba(135, 135, 135, 0.5); }
-  .video-js.vjs-my-skin .vjs-volume-level, .video-js.vjs-my-skin .vjs-play-progress, .video-js.vjs-my-skin .vjs-slider-bar {
+  .video-js .vjs-volume-level, .video-js .vjs-play-progress, .video-js .vjs-slider-bar {
     background: #fff; }
-  .video-js.vjs-my-skin .vjs-load-progress {
+  .video-js .vjs-load-progress {
     /* For IE8 we'll lighten the color */
     background: #c7c7c7;
     /* Otherwise we'll rely on stacked opacities */
     background: rgba(135, 135, 135, 0.5); }
-  .video-js.vjs-my-skin .vjs-load-progress div {
+  .video-js .vjs-load-progress div {
     /* For IE8 we'll lighten the color */
     background: white;
     /* Otherwise we'll rely on stacked opacities */
     background: rgba(135, 135, 135, 0.75); }
-  .video-js.vjs-my-skin .vjs-control:focus:before, .video-js.vjs-my-skin .vjs-control:hover:before, .video-js.vjs-my-skin .vjs-control:focus {
+  .video-js .vjs-control:focus:before, .video-js .vjs-control:hover:before, .video-js .vjs-control:focus {
     opacity: .8;
     text-shadow: none; }
-  .video-js.vjs-my-skin:hover .vjs-big-play-button {
+  .video-js:hover .vjs-big-play-button {
     background-color: #dc302d; }
-  .video-js.vjs-my-skin .vjs-volume-control {
+  .video-js .vjs-volume-control {
     display: none; }
-  .video-js.vjs-my-skin .vjs-mouse-display, .video-js.vjs-my-skin .vjs-play-progress, .video-js.vjs-my-skin .vjs-control-text {
+  .video-js .vjs-mouse-display, .video-js .vjs-play-progress, .video-js .vjs-control-text {
     font-family: Arial; }
-  .video-js.vjs-my-skin .vjs-play-progress::before {
+  .video-js .vjs-play-progress::before {
     font-family: VideoJS; }
+
+.vjs-my-skin .vjs-poster {
+  display: none; }
+
+.vjs-my-skin video {
+  cursor: pointer;
+  background-color: black; }
 
 .fpo-play-btn {
   z-index: 2; }

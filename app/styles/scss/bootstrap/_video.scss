@@ -33,7 +33,7 @@ $videoHeightAspectRatio: 56.25%;
 // VIDEO JS
 //
 
-.video-js.vjs-my-skin {
+.video-js {
   // The color of icons, text, and the big play button border.
   $primary-foreground-color: #fff; // #fff default
 
@@ -162,6 +162,16 @@ $videoHeightAspectRatio: 56.25%;
     font-family: VideoJS;
   }
 
+
+}
+.vjs-my-skin {
+  .vjs-poster {
+    display: none;
+  }
+  video {
+    cursor: pointer;
+    background-color: black;
+  }
 }
 
 
