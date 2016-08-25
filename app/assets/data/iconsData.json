@@ -31,6 +31,11 @@
       "url": "http://jqueryui.com/"
     },
     {
+      "id": "spinejs",
+      "name": "Spine.JS",
+      "url": "http://spinejs.com/"
+    },
+    {
       "id": "angular",
       "name": "AngularJS",
       "url": "http://angularjs.org/"
@@ -258,10 +263,7 @@
       "name": "Assemble",
       "url": "http://assemble.io/"
     }
-
-
   ],
-
   "brand": [
     {
       "id": "fpo-0",
@@ -319,7 +321,6 @@
       "url": "http://google.com"
     }
   ],
-
   "recognition": [
     {
       "id": "fpo-0",
