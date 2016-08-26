@@ -3,14 +3,12 @@
   font-size: 10px;
 }
 
-.btn{
-  //border-color:transparent;
-}
 .btn-default{
   border-color:#ccc;
 }
 .btn-primary{
-  background-color:$blue;
+  background-color: $blue;
+  border-color: darken($blue, 10%);
 }
 .btn-success{
   background-color:$green;
@@ -25,6 +23,10 @@
     &:hover, &:focus, &:active{
       box-shadow:none;
       -webkit-box-shadow:none;
+      &.btn-primary { // Prevent arrow buttons from looking 'stuck' down on mobile
+        background-color: $blue;
+        border-color: darken($blue, 10%);
+      }
     }
   }
 

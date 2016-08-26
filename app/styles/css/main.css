@@ -8985,7 +8985,8 @@ blockquote {
   border-color: #ccc; }
 
 .btn-primary {
-  background-color: #268bd2; }
+  background-color: #268bd2;
+  border-color: #1e6ea7; }
 
 .btn-success {
   background-color: #859900;
@@ -8997,6 +8998,9 @@ blockquote {
 .touch .btn:hover, .touch .btn:focus, .touch .btn:active {
   box-shadow: none;
   -webkit-box-shadow: none; }
+  .touch .btn:hover.btn-primary, .touch .btn:focus.btn-primary, .touch .btn:active.btn-primary {
+    background-color: #268bd2;
+    border-color: #1e6ea7; }
 
 nav[role=navigation] {
   font-size: 12px; }
