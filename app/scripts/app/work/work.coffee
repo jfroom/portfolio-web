@@ -26,19 +26,18 @@ angular
     adjustWorkData()
     render()
     $document.bind 'keydown', onKeyDown
-    $rootScope.$on enums.EventType.VideoStart, onVideoStart
-    $rootScope.$on enums.EventType.VideoEnd, onVideoEnd
-    $scope.$on '$routeChangeSuccess', onRouteChangeSuccess
+    $scope.unbindVideoStart = $rootScope.$on enums.EventType.VideoStart, onVideoStart
+    $scope.unbindVideoEnd = $rootScope.$on enums.EventType.VideoEnd, onVideoEnd
+    $scope.unbindRouteChangeSuccess = $scope.$on '$routeChangeSuccess', onRouteChangeSuccess
 
   #==============================================
   # DESTROY
   #==============================================
   $scope.$on "$destroy", ->
-    alert 'destroy'
     $document.unbind 'keydown', onKeyDown
-    $rootScope.$off enums.EventType.VideoStart, onVideoStart
-    $rootScope.$off enums.EventType.VideoEnd, onVideoEnd
-    $scope.$off '$routeChangeSuccess', onRouteChangeSuccess
+    $scope.unbindVideoStart?()
+    $scope.unbindVideoEnd?()
+    $scope.unbindRouteChangeSuccess?()
 
   #==============================================
   # DATA
