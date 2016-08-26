@@ -69,7 +69,7 @@ angular.module('directives.videoJsEmbed', ['app.enums'])
           mp4src = scope.videoData.mp4.toString()
           if Modernizr.video.h264 and scope.videoData.mp4_low
             mp4src = scope.videoData.mp4_low
-        player = videojs iElement.attr("id"), {}, ->
+        player = videojs iElement.attr("id"), {controlBar: {volumeMenuButton: false}}, ->
           player.poster scope.videoData.poster
           player.src(
             {type: "video/mp4", src: mp4src}
