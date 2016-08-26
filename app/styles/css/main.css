@@ -8902,19 +8902,8 @@ p {
   z-index: 2;
   min-height: 100vh; }
 
-.touch body {
-  overflow-scrolling: touch; }
-
-.touch .scrollable {
-  padding-top: 0; }
-
-.touch.ios .scrollable {
-  padding-top: 40px; }
-  .touch.ios .scrollable.ios5 {
-    padding-top: 0; }
-
 @media only screen and (orientation: landscape) {
-  .touch.ios {
+  .touch.ios .scrollable {
     padding-top: 0; } }
 
 h1, h2, h3, h4, h5, h6 {
@@ -9250,12 +9239,6 @@ header.navbar-top {
   .mobile header.navbar-top {
     position: relative; }
     .mobile header.navbar-top .navbar-fixed-top {
-      position: relative; } }
-
-@media screen and (min-aspect-ratio: 13 / 9) {
-  .touch.android header.navbar-top {
-    position: relative; }
-    .touch.android header.navbar-top .navbar-fixed-top {
       position: relative; } }
 
 header.flyout {

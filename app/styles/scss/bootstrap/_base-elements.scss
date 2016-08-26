@@ -52,29 +52,12 @@ p{
   min-height: 100vh;
 }
 
-// only ios has docked - see navbar.scss for pared cases
-.touch{
-  body{
-    //following code kills touch status bar to scroll to top
-    //-webkit-overflow-scrolling:touch;
-    overflow-scrolling:touch;
-  }
-  .scrollable{
-    padding-top:0;
-  }
-  &.ios .scrollable{
-    padding-top:$navbar-height;
-    &.ios5{
-      padding-top:0;
-    }
+@media only screen and (orientation : landscape) {
+  .touch.ios .scrollable {
+    padding-top:0; // see navbar.scss for paired cases
   }
 }
 
-@media only screen and (orientation : landscape) {
-  .touch.ios{
-    padding-top:0;
-  }
-}
 //
 // TYPOGRAPHY
 h1,h2,h3,h4,h5,h6{
