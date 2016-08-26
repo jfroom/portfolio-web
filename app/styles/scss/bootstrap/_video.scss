@@ -3,7 +3,7 @@ $videoHeightAspectRatio: 56.25%;
 .mobile .video-container.youtube{
   padding-top: 0px;
 }
-.video-container.vime{
+.video-container.vimeo {
   padding-top:0;
 }
 .video-container {
@@ -33,7 +33,7 @@ $videoHeightAspectRatio: 56.25%;
 // VIDEO JS
 //
 
-.video-js {
+.video-js.vjs-my-skin {
   // The color of icons, text, and the big play button border.
   $primary-foreground-color: #fff; // #fff default
 
@@ -50,14 +50,6 @@ $videoHeightAspectRatio: 56.25%;
 
   /* The main font color changes the ICON COLORS as well as the text */
   color: $primary-foreground-color;
-
-  // Stretch to fit container
-  width: 100%;
-  height: 100%;
-  padding-top: $videoHeightAspectRatio;
-  .vjs-fullscreen {
-    padding-top:0;
-  }
 
   .vjs-big-play-button {
     /* The font size is what makes the big play button...big.
@@ -162,28 +154,22 @@ $videoHeightAspectRatio: 56.25%;
     font-family: VideoJS;
   }
 
+  // custom - not imported from video.js theme tool
 
-}
-.vjs-my-skin {
+  // Stretch to fit container before fluid layout figures things out. Prevents flash of unstyled content
+  &:not(.video-player-dimensions){
+    width: 100%;
+    height: 100%;
+    padding-top: $videoHeightAspectRatio;
+  }
   .vjs-poster {
-    display: none;
+    background-color: transparent;
+    &:active, &:focus {
+      outline: none;
+    }
   }
   video {
     cursor: pointer;
-    background-color: black;
+    background-color: transparent;
   }
-}
-
-
-.fpo-play-btn{
-  z-index:2;
-}
-.fpo-video-click-load{
-  display:inline-block;
-}
-.fpo-play-btn{
-  width:100%;
-  height:0;
-  padding-bottom:56%;
-  background-position: center center;
 }

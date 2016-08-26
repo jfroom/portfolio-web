@@ -10074,7 +10074,7 @@ nav[role=footer] {
 .mobile .video-container.youtube {
   padding-top: 0px; }
 
-.video-container.vime {
+.video-container.vimeo {
   padding-top: 0; }
 
 .video-container {
@@ -10094,16 +10094,13 @@ nav[role=footer] {
     width: 100%;
     height: 100%; }
 
-.video-js {
+.video-js.vjs-my-skin {
   /* The base font size controls the size of everything, not just text.
      All dimensions use em-based sizes so that the scale along with the font size.
      Try increasing it to 15px and see what happens. */
   font-size: 10px;
   /* The main font color changes the ICON COLORS as well as the text */
   color: #fff;
-  width: 100%;
-  height: 100%;
-  padding-top: 56.25%;
   /* The default color of control backgrounds is mostly black but with a little
    bit of blue so it can still be seen on all-black video frames, which are common. */
   /* Slider - used for Volume bar and Progress bar */
@@ -10112,9 +10109,7 @@ nav[role=footer] {
   /* The main progress bar also has a bar that shows how much has been loaded. */
   /* The load progress bar also has internal divs that represent
      smaller disconnected loaded time ranges */ }
-  .video-js .vjs-fullscreen {
-    padding-top: 0; }
-  .video-js .vjs-big-play-button {
+  .video-js.vjs-my-skin .vjs-big-play-button {
     /* The font size is what makes the big play button...big.
        All width/height values use ems, which are a multiple of the font size.
        If the .video-js font-size is 10px, then 3em equals 30px.*/
@@ -10137,55 +10132,47 @@ nav[role=footer] {
     top: 50%;
     margin-left: -1.5em;
     margin-top: -1.5em; }
-    .video-js .vjs-big-play-button::before {
+    .video-js.vjs-my-skin .vjs-big-play-button::before {
       font-size: 2em; }
-  .video-js .vjs-control-bar, .video-js .vjs-big-play-button, .video-js .vjs-menu-button .vjs-menu-content {
+  .video-js.vjs-my-skin .vjs-control-bar, .video-js.vjs-my-skin .vjs-big-play-button, .video-js.vjs-my-skin .vjs-menu-button .vjs-menu-content {
     /* IE8 - has no alpha support */
     background-color: #333;
     /* Opacity: 1.0 = 100%, 0.0 = 0% */
     background-color: rgba(51, 51, 51, 0.7); }
-  .video-js .vjs-slider {
+  .video-js.vjs-my-skin .vjs-slider {
     background-color: #878787;
     background-color: rgba(135, 135, 135, 0.5); }
-  .video-js .vjs-volume-level, .video-js .vjs-play-progress, .video-js .vjs-slider-bar {
+  .video-js.vjs-my-skin .vjs-volume-level, .video-js.vjs-my-skin .vjs-play-progress, .video-js.vjs-my-skin .vjs-slider-bar {
     background: #fff; }
-  .video-js .vjs-load-progress {
+  .video-js.vjs-my-skin .vjs-load-progress {
     /* For IE8 we'll lighten the color */
     background: #c7c7c7;
     /* Otherwise we'll rely on stacked opacities */
     background: rgba(135, 135, 135, 0.5); }
-  .video-js .vjs-load-progress div {
+  .video-js.vjs-my-skin .vjs-load-progress div {
     /* For IE8 we'll lighten the color */
     background: white;
     /* Otherwise we'll rely on stacked opacities */
     background: rgba(135, 135, 135, 0.75); }
-  .video-js .vjs-control:focus:before, .video-js .vjs-control:hover:before, .video-js .vjs-control:focus {
+  .video-js.vjs-my-skin .vjs-control:focus:before, .video-js.vjs-my-skin .vjs-control:hover:before, .video-js.vjs-my-skin .vjs-control:focus {
     opacity: .8;
     text-shadow: none; }
-  .video-js:hover .vjs-big-play-button {
+  .video-js.vjs-my-skin:hover .vjs-big-play-button {
     background-color: #dc302d; }
-  .video-js .vjs-volume-control {
+  .video-js.vjs-my-skin .vjs-volume-control {
     display: none; }
-  .video-js .vjs-mouse-display, .video-js .vjs-play-progress, .video-js .vjs-control-text {
+  .video-js.vjs-my-skin .vjs-mouse-display, .video-js.vjs-my-skin .vjs-play-progress, .video-js.vjs-my-skin .vjs-control-text {
     font-family: Arial; }
-  .video-js .vjs-play-progress::before {
+  .video-js.vjs-my-skin .vjs-play-progress::before {
     font-family: VideoJS; }
-
-.vjs-my-skin .vjs-poster {
-  display: none; }
-
-.vjs-my-skin video {
-  cursor: pointer;
-  background-color: black; }
-
-.fpo-play-btn {
-  z-index: 2; }
-
-.fpo-video-click-load {
-  display: inline-block; }
-
-.fpo-play-btn {
-  width: 100%;
-  height: 0;
-  padding-bottom: 56%;
-  background-position: center center; }
+  .video-js.vjs-my-skin:not(.video-player-dimensions) {
+    width: 100%;
+    height: 100%;
+    padding-top: 56.25%; }
+  .video-js.vjs-my-skin .vjs-poster {
+    background-color: transparent; }
+    .video-js.vjs-my-skin .vjs-poster:active, .video-js.vjs-my-skin .vjs-poster:focus {
+      outline: none; }
+  .video-js.vjs-my-skin video {
+    cursor: pointer;
+    background-color: transparent; }
