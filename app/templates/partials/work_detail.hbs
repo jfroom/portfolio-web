@@ -14,7 +14,7 @@
     <div class="detail-item " ng-repeat="item in workCur.detailMedia" ng-switch on="item.type">
 
       <!-- VIMEO EMBED -->
-      <div ng-switch-when="vimeo" class='video-container item-media loading-ani' item-index='{[$index]}'><iframe ng-src='{[item.src]}' id="foo" vimeo-embed="item" vvimeo-embed-src="item.src" frameborder='0' width='1280' height='720' webkitAllowFullScreen mozallowfullscreen allowFullScreen class="vimeo"></iframe></div>
+      <div ng-switch-when="vimeo" class='video-container item-media vimeo loading-ani' item-index='{[$index]}'><iframe ng-src='{[item.src]}' id="foo" vimeo-embed="item" vimeo-embed-src="item.src" frameborder='0' width='1280' height='720' webkitAllowFullScreen mozallowfullscreen allowFullScreen class="vimeo"></iframe></div>
 
       <!-- YOUTUBE EMBED -->
       <div ng-switch-when="youtube" class='video-container youtube item-media loading-ani' youtube-embed="item"><div id="youtube-player"></div></div>
