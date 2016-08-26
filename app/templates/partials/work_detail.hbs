@@ -2,7 +2,7 @@
   <header class="detail-title-wrap">
     <div class="work-nav" >
       <div class="btn-group work-nav-group">
-        <a href="" class="btn btn-sm btn-primary" button-blur ng-click="projectIncrement(-1)"><i class="fa fa-arrow-left"></i></a><a href="" class="btn btn-primary btn-sm" button-blur ng-click="projectIncrement(1)"><i class="fa fa-arrow-right"></i></a>
+        <a href="" class="btn btn-sm btn-primary" ng-click="projectIncrement(-1)"><i class="fa fa-arrow-left"></i></a><a href="" class="btn btn-primary btn-sm" ng-click="projectIncrement(1)"><i class="fa fa-arrow-right"></i></a>
       </div>
     </div>
     <div class="detail-title">
@@ -38,7 +38,7 @@
   </div>
 
   <ul class="detail-links" ng-show="workCur.projectLinksArr.length > 0">
-    <li ng-repeat="item in workCur.projectLinksArr"><a href="{[item.href]}" button-blur class="btn btn-default btn-sm" target="_blank" angular-bind-html="item.label"></a></li>
+    <li ng-repeat="item in workCur.projectLinksArr"><a href="{[item.href]}" class="btn btn-default btn-sm" target="_blank" angular-bind-html="item.label"></a></li>
   </ul>
 
   <section class="detail-desc-wrap">
