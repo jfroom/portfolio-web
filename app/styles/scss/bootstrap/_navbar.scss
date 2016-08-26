@@ -101,13 +101,6 @@ header.navbar-top{
 
 @media only screen and (orientation : landscape) {
   .mobile {
-    @include toggleFixedNavbar(relative);
-  }
-}
-
-//android landscape fix
-@media screen and (min-aspect-ratio: 13/9) {
-  .touch.android{
-    @include toggleFixedNavbar(relative);
+    @include toggleFixedNavbar(relative); // See base-elements.scss for paired cases
   }
 }
