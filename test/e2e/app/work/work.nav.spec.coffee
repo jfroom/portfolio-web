@@ -71,3 +71,20 @@ describe "E2E: Testing Work Nav", ->
               browser.executeScript("return window.testUtils.getScrollTop();").then (curScrollY) ->
                 expect(Math.floor(curScrollY) isnt Math.floor(oldScrollY)).toBe(true)
                 done()
+
+  it 'arrow keys will navigate', (done) ->
+    body = $('body')
+    body.sendKeys(protractor.Key.ARROW_RIGHT) # no action for right key when work detail hidden
+    browser.getCurrentUrl().then (url) ->
+      expect(url).toEqual app.getUrl(app.URL_HASH.WORK)
+      browser.navigate().to(urls.first).then ->
+        body.sendKeys(protractor.Key.ARROW_RIGHT) # nav forward
+        browser.getCurrentUrl().then (url) ->
+          expect(url).toEqual(urls.next)
+          body.sendKeys(protractor.Key.ARROW_LEFT) # nav back
+          browser.getCurrentUrl().then (url) ->
+            expect(url).toEqual(urls.first)
+            body.sendKeys(protractor.Key.ARROW_UP) # no action for up key
+            browser.getCurrentUrl().then (url) ->
+              expect(url).toEqual(urls.first)
+              done()

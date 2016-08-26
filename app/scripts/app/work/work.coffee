@@ -1,13 +1,11 @@
 angular
   .module("app.work", ["app", "app.enums", "services.utils", "services.log", "filters.accessor", "filters.sanitize", "directives.videoJsEmbed", "directives.youtubeEmbed"])
-  .controller 'WorkCtrl', ['$scope', '$http', 'log', '$route', 'enums', 'utils', '$timeout', '$location', '$filter', '$rootScope'
-, ($scope, $http, $log, $route, enums, utils, $timeout, $location, $filter, $rootScope) ->
+  .controller 'WorkCtrl', ['$scope', '$document', '$http', 'log', '$route', 'enums', 'utils', '$timeout', '$location', '$filter', '$rootScope'
+, ($scope, $document, $http, $log, $route, enums, utils, $timeout, $location, $filter, $rootScope) ->
 
   $log.info 'work controller init.'
-  #console.dir appData
 
   markdownConverter = new Showdown.converter()
-
   techData = appData.icons.tech
   workData = appData.work.projects
   humansData = appData.humans
@@ -27,6 +25,19 @@ angular
   startup = ->
     adjustWorkData()
     render()
+    $document.bind 'keydown', onKeyDown
+    $scope.unbindVideoStart = $rootScope.$on enums.EventType.VideoStart, onVideoStart
+    $scope.unbindVideoEnd = $rootScope.$on enums.EventType.VideoEnd, onVideoEnd
+    $scope.unbindRouteChangeSuccess = $scope.$on '$routeChangeSuccess', onRouteChangeSuccess
+
+  #==============================================
+  # DESTROY
+  #==============================================
+  $scope.$on "$destroy", ->
+    $document.unbind 'keydown', onKeyDown
+    $scope.unbindVideoStart?()
+    $scope.unbindVideoEnd?()
+    $scope.unbindRouteChangeSuccess?()
 
   #==============================================
   # DATA
@@ -50,8 +61,7 @@ angular
   #==============================================
   # ROUTES
   #==============================================
-  $scope.$on '$routeChangeSuccess', ($currentRoute, $previousRoute) ->
-
+  onRouteChangeSuccess = ($currentRoute, $previousRoute) ->
     if $scope.curPath != $location.path()
       #$log.info "$routeChangeSuccess $currentRoute: #{$currentRoute} path:" + $location.path()
       $scope.curPath = $location.path()
@@ -59,7 +69,6 @@ angular
       $scope.state = $scope.STATE_DETAIL if $route.current?.event == enums.EventType.WorkLoad
       $log.info 'work state:' + $scope.state
       render()
-
 
   #==============================================
   # RENDER
@@ -169,18 +178,33 @@ angular
       link = getProjectLink workData[nextIndex].id
     $location.path link
 
+  #==============================================
+  # KEY EVENTS
+  #==============================================
+  onKeyDown = ($event) ->
+    return false unless $scope.state is $scope.STATE_DETAIL
+    switch $event.keyCode
+      when 37 # left
+        $scope.projectIncrement -1
+        $scope.$apply()
+      when 39 # right
+        $scope.projectIncrement 1
+        $scope.$apply()
 
-  $rootScope.$on enums.EventType.VideoStart, (scope, videoData) ->
+
+  #==============================================
+  # VIDEO EVENTS
+  #==============================================
+  onVideoStart = (scope, videoData) ->
     $log.info "VideoStart caught" + videoData.id
     vidId = videoData.id
     if videoData.id = $scope.workCur.id
       utils.scrollAnimateTo '#work'
       $rootScope.$broadcast enums.EventType.TrackEvent, 'video', 'start', $scope.workCur.id + " : " + vidId
 
-  $rootScope.$on enums.EventType.VideoEnd, (scope, videoData) ->
+  onVideoEnd = (scope, videoData) ->
     vidId = videoData.id
     $rootScope.$broadcast enums.EventType.TrackEvent, 'video', 'end', $scope.workCur.id + " : " + vidId
-
 
   #==============================================
   # GET PROJECT LINK
