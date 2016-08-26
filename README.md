@@ -2,7 +2,7 @@
 &nbsp;
 
 ##Overview
-Static portfolio website template [http://jfroom.github.io/portfolio-web](http://jfroom.github.io/portfolio-web)
+Static portfolio website & blog template [http://jfroom.github.io/portfolio-web](http://jfroom.github.io/portfolio-web)
 
 ###Intent
 This project is used to generate my portfolio site and blog. It's a loose framework stubbed out with generic data. Via the settings and data files, meaningful content can be loaded in. The project has been open sourced for academic and sharing purposes. Fork it if you want to, but it not closely maintained.
@@ -21,7 +21,6 @@ The project leverages:
 - [Bower][^bower]
 - [Yeoman][^yeoman]
 - [Travis][^travis]
-- [SauceLabs][^sauce]
 - [Plato Reporter][^plato]
 
 [^yeoman]: http://yeoman.io/
@@ -36,7 +35,6 @@ The project leverages:
 [^protractor]: https://github.com/angular/protractor
 [^jenkins]: http://jenkins-ci.org/
 [^bootstrap]: http://getbooktstrap/
-[^sauce]: https://saucelabs.com/
 [^travis]: https://travis-ci.org/
 [^plato]: https://github.com/es-analysis/plato
 
@@ -44,7 +42,9 @@ The project leverages:
 
 ## Getting Started
 
-This website requires Node `>=4.0`, NPM `>=3`, and Grunt `~1.0`
+If you'd like to see the functional end product, the demo site is at [http://jfroom.github.io/portfolio-web](http://jfroom.github.io/portfolio-web). Those final static production files, can be found on [`gh-pages` branch](https://github.com/jfroom/portfolio-web/tree/gh-pages).
+
+This codebase requires Node `>=4.0`, NPM `>=3`, and Grunt `~1.0`.
 
 _If you haven't used [Node][^node] and [NPM][^npm] before, be sure to check out the linked documentation._
 
@@ -91,9 +91,9 @@ These build tasks are derived from [Yeoman][^yeoman]'s [WebApp][^webapp] generat
 
 ##Project Settings
 
-In `settings.json` are configuration variables that will be merged back into node's globally accessible `process.env` object. Example variables include: SERVER_HOSTNAME, SERVER_PORT, SAUCE_USERNAME, SAUCE_KEY, S3_PORTFOLIO_USER, PATH_BLOB.
+In `settings.json` are configuration variables that will be merged back into node's globally accessible `process.env` object. Example variables include: SERVER_HOSTNAME, SERVER_PORT, S3_PORTFOLIO_USER, PATH_BLOB.
 
-These values can also be overwritten by any __environment variables__, this is how secret values such as S3 or Sauce credentials get passed in. To learn more about configuring environment variables for your OS, reference google search.
+These values can also be overwritten by any __environment variables__, this is how secret values such as S3 or credentials get passed in. To learn more about configuring environment variables for your OS, reference google search.
 
 In a shell, an alternate settings file can be loaded: `PATH_PORTFOLIO_SETTINGS=~/sites/private/settings.json grunt serve`. This is how I can use the same codebase to develop the generic framework and my personal portfolio and blog.
 
@@ -122,13 +122,13 @@ You can see these instructions on [how to get Selenium & Protractor installed lo
 3. In a new terminal, `grunt test:e2e` to run the protractor/jasmine tests located in _test/e2e_.
 
 
-###TODO
+###TODOs (low priority)
 - In the past `grunt-protractor-runner` was installed to leverage grunt to launch the tests.
 But there's some type of [version conflict](https://github.com/teerapap/grunt-protractor-runner/issues/165)
-in that repo that needs to be resolved. (not a priority)
+in that repo that needs to be resolved.
 So for now we need to have protractor globally installed and run locally with `grunt-shell`.
-- Integrate protractor into travis after protractor-runner working again (not a priority)
-- Re-integrate [SauceLabs][^sauce] support (not a priority)
+- Integrate protractor into travis after protractor-runner working again
+- Re-integrate [SauceLabs][^sauce] support
 
 
 ##License
