@@ -114,8 +114,6 @@
         {
           "type": "video",
           "mp4": "http://vjs.zencdn.net/v/oceans.mp4",
-          "webm": "http://vjs.zencdn.net/v/oceans.webm",
-          "ogg": "http://vjs.zencdn.net/v/oceans.ogg",
           "poster": "http://vjs.zencdn.net/v/oceans.png"
         }
       ]

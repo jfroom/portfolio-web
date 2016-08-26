@@ -72,8 +72,7 @@ angular.module('directives.videoJsEmbed', ['app.enums'])
         player = videojs iElement.attr("id"), {}, ->
           player.poster scope.videoData.poster
           player.src(
-            {type: "video/mp4", src: mp4src},
-            {type: "video/webm", src: scope.videoData.webm}
+            {type: "video/mp4", src: mp4src}
           )
           player.addChild('BigPlayButton');
           player.one 'play', ->

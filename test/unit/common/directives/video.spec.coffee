@@ -47,8 +47,6 @@ describe 'Unit: Testing directives.videoJsEmbed', ->
         type: "video"
         poster: "http://vjs.zencdn.net/v/oceans.png"
         mp4: "http://vjs.zencdn.net/v/oceans.mp4"
-        webm: "http://vjs.zencdn.net/v/oceans.webm"
-        ogg: "http://vjs.zencdn.net/v/oceans.png"
       @fixture = setFixtures("<video video-js-embed='item' id='video-player' controls>")
       $rootScope.$on enums.EventType.VideoReady, => @isVideoReady = true
       $compile(@fixture)(@scope)

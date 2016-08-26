@@ -71,7 +71,7 @@ describe "E2E: Testing Work Projects", ->
                 item.$('video').getAttribute('poster').then (poster) ->
                   expect(poster).toMatch(RegExp(dataItem.poster))
                   item.$('video').getAttribute('src').then (src) ->
-                    expect(src).toMatch(RegExp("#{dataItem.mp4}|#{dataItem.ogg}|#{dataItem.webm}"))
+                    expect(src).toMatch(RegExp(dataItem.mp4))
                     checkDone()
 
       it 'should optionally have: description, press, team', (done) ->
