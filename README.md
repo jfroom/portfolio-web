@@ -123,6 +123,7 @@ You can see these instructions on [how to get Selenium & Protractor installed lo
 
 
 ###TODOs (low priority)
+- Remove compiled css from repo. Should be compiled only into served temp dir and prod dist dir.
 - In the past `grunt-protractor-runner` was installed to leverage grunt to launch the tests.
 But there's some type of [version conflict](https://github.com/teerapap/grunt-protractor-runner/issues/165)
 in that repo that needs to be resolved.
