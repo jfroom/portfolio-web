@@ -182,7 +182,7 @@ angular
   # KEY EVENTS
   #==============================================
   onKeyDown = ($event) ->
-    return false unless $scope.state is $scope.STATE_DETAIL
+    return true unless $scope.state is $scope.STATE_DETAIL
     switch $event.keyCode
       when 37 # left
         $scope.projectIncrement -1
@@ -190,7 +190,7 @@ angular
       when 39 # right
         $scope.projectIncrement 1
         $scope.$apply()
-
+    true # Allow browser to process keystrokes
 
   #==============================================
   # VIDEO EVENTS
