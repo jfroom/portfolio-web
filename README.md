@@ -21,7 +21,7 @@ The project leverages:
 - [Bower][^bower]
 - [Yeoman][^yeoman]
 - [Travis][^travis]
-- [Video.js][http://videojs.com]
+- [Video.js][^videojs]
 - [Plato Reporter][^plato]
 
 [^yeoman]: http://yeoman.io/
@@ -38,6 +38,7 @@ The project leverages:
 [^bootstrap]: http://getbooktstrap/
 [^travis]: https://travis-ci.org/
 [^plato]: https://github.com/es-analysis/plato
+[^videojs]: http://video.js
 
 
 
