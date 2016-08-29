@@ -1,0 +1,11 @@
+// Hide social media button text on mobile - causes odd wrapping in header
+.social-btns li {
+  span {
+    display: none;
+  }
+}
+@media (min-width: $screen-xs) {
+  .social-btns li span {
+    display: inline;
+  }
+}
