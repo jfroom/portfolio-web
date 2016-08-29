@@ -21,6 +21,7 @@ The project leverages:
 - [Bower][^bower]
 - [Yeoman][^yeoman]
 - [Travis][^travis]
+- [Video.js][http://videojs.com]
 - [Plato Reporter][^plato]
 
 [^yeoman]: http://yeoman.io/
