@@ -9002,7 +9002,7 @@ blockquote {
     background-color: #268bd2;
     border-color: #1e6ea7; }
   .touch .btn:hover.btn-default, .touch .btn:focus.btn-default, .touch .btn:active.btn-default {
-    background-color: white;
+    background-color: #fff;
     border-color: #ccc; }
 
 nav[role=navigation] {
