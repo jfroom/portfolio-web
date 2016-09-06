@@ -9001,6 +9001,9 @@ blockquote {
   .touch .btn:hover.btn-primary, .touch .btn:focus.btn-primary, .touch .btn:active.btn-primary {
     background-color: #268bd2;
     border-color: #1e6ea7; }
+  .touch .btn:hover.btn-default, .touch .btn:focus.btn-default, .touch .btn:active.btn-default {
+    background-color: white;
+    border-color: #ccc; }
 
 nav[role=navigation] {
   font-size: 12px; }

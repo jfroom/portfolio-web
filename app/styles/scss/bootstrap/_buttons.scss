@@ -19,13 +19,17 @@
   }
 }
 .touch {
-  .btn{
-    &:hover, &:focus, &:active{
+  .btn {
+    &:hover, &:focus, &:active {
       box-shadow:none;
       -webkit-box-shadow:none;
       &.btn-primary { // Prevent arrow buttons from looking 'stuck' down on mobile
         background-color: $blue;
         border-color: darken($blue, 10%);
+      }
+      &.btn-default {
+        background-color: #fff;
+        border-color: #ccc;
       }
     }
   }
