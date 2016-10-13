@@ -16,7 +16,7 @@
   "S3_PORTFOLIO_PATH": "",
 
   "PATH_BLOB": "http://domain.com/blob/site",
-  "BLOG_URL": "/blog",
+  "BLOG_URL": "../../blog",
 
 
   "PATH_PORTFOLIO_DATA": "app/assets/data/",
