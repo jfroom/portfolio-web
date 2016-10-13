@@ -16,8 +16,7 @@
   "S3_PORTFOLIO_PATH": "",
 
   "PATH_BLOB": "http://domain.com/blob/site",
-  "BLOG_URL": "../../blog",
-
+  "BLOG_URL": "/portfolio-web/blog",
 
   "PATH_PORTFOLIO_DATA": "app/assets/data/",
   "PATH_PORTFOLIO_DATA_WORK": "app/assets/data/workData.json",
