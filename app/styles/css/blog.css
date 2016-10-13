@@ -9273,7 +9273,8 @@ section[role=index] .link-list {
   section[role=index] .link-list .title {
     color: #268bd2;
     font-size: 18px;
-    margin-bottom: 5px; }
+    margin-bottom: 5px;
+    margin-top: 0; }
   section[role=index] .link-list .info {
     display: inline-block; }
   section[role=index] .link-list .title, section[role=index] .link-list .description {

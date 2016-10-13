@@ -8,7 +8,7 @@
   "SAUCE_ACCESS_KEY": "sauce_key",
   "USE_SAUCE": "false",
 
-  "BUILD": "2016.08.15",
+  "BUILD": "2016.10.13",
   "S3_PORTFOLIO_USER": "username",
   "S3_PORTFOLIO_KEY": "key",
   "S3_PORTFOLIO_SECRET": "secret",
