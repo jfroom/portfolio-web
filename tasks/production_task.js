@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     'cssmin',
     'uglify',
     'concurrent:copy',
-    'rev',
+    // 'rev', // doesn't work well with blog template
     'usemin',
 
     'htmlmin',

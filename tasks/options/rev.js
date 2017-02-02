@@ -1,9 +1,9 @@
 module.exports = {
   files: {
     src: [
-      '.tmp/scripts/{,*/}*.min.js',
-      '.tmp/styles/css/{,*/}*.min.css',
-      '.tmp/assets/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
+      'dist/scripts/{,*/}*.min.js',
+      'dist/styles/css/{,*/}*.min.css'//,
+      //'dist/assets/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
     ]
   }
 };
