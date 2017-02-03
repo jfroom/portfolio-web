@@ -14,6 +14,8 @@
   "S3_PORTFOLIO_SECRET": "secret",
   "S3_PORTFOLIO_BUCKET": "bucket.id",
   "S3_PORTFOLIO_PATH": "",
+  "S3_PORTFOLIO_ACCESS": "public-read",
+  "S3_PORTFOLIO_INDEX_ACCESS": "public-read",
 
   "PATH_BLOB": "http://domain.com/blob/site",
   "BLOG_URL": "/portfolio-web/blog",
