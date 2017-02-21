@@ -117,7 +117,7 @@ You can see these instructions on [how to get Selenium & Protractor installed lo
 
 1. `npm install -g protractor@4.0.3`
 
-2. `webdriver-update`
+2. `webdriver-manager update`
 
 3. `grunt serve` (or `grunt serve:prod`).
 
