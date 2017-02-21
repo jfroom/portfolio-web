@@ -39,6 +39,7 @@
   "TWITTER_USERNAME": "twitter",
   "BLOG_HAS_TWITTER_EMBED": "true",
   "GA_ID": "UA-1000000-1",
+  "FB_APP_ID": "XXXXXXXXX",
   "FIREBASE_BLOG_DOMAIN": "https://username.firebaseio.com/blog/",
   "BLOG_BASE_URL": "http://domain.com/blog/",
   "BLOG_TWITTER_WIDGET_ID": "511267630187962368",

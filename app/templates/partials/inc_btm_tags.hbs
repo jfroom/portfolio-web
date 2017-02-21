@@ -18,7 +18,7 @@
     <script>
       window.fbAsyncInit = function() {
         FB.init({
-          appId      : '735445686473511',
+          appId      : '{{settings.FB_APP_ID}}',
           status     : true,
           xfbml      : true
         });
@@ -41,7 +41,7 @@
         }
         js = d.createElement(s); js.id = id;
         js.async = true;
-        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=735445686473511";
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId={{settings.FB_APP_ID}}";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
