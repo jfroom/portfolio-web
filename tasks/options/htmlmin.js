@@ -2,8 +2,8 @@ module.exports = {
   dist: {
     options: {
       collapseWhitespace: true,
-      removeComments: true,
-      removeCommentsFromCDATA: true,
+      //removeComments: true,
+      //removeCommentsFromCDATA: true,
        // https://github.com/yeoman/grunt-usemin/issues/44
        //collapseWhitespace: true,
       /* collapseBooleanAttributes: true,
