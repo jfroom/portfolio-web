@@ -7,7 +7,7 @@
     {{#is settings.PORTFOLIO_ABOUT_SHOW 'true'}}
       <li><a href="{{pathToRoot}}/#about" util-change-path="/about" ><i class="fa fa-male fa-lg"></i>About</a></li>
     {{/is}}
-    <li class="{{#is "blog" page.activeTab }} active {{/is}}"><a href="{{settings.BLOG_URL}}"><i class="fa fa-book fa-lg"></i>Blog</a></li>
+    <li class="{{#is "blog" page.activeTab }} active {{/is}}"><a href="{{settings.BLOG_URL}}" target="{{settings.BLOG_URL_TARGET}}"><i class="fa fa-book fa-lg"></i>Blog</a></li>
   </ul>
 </div>
 

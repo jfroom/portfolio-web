@@ -9,6 +9,8 @@
   "USE_SAUCE": "false",
 
   "BUILD": "2016.10.13",
+  "BLOG_URL": "http://jfroom.github.io/portfolio-web/blog",
+  "BLOG_URL_TARGET": "_self",
   "S3_PORTFOLIO_USER": "username",
   "S3_PORTFOLIO_KEY": "key",
   "S3_PORTFOLIO_SECRET": "secret",
@@ -18,8 +20,6 @@
   "S3_PORTFOLIO_INDEX_ACCESS": "public-read",
 
   "PATH_BLOB": "http://domain.com/blob/site",
-  "BLOG_URL": "/portfolio-web/blog",
-
   "PATH_PORTFOLIO_DATA": "app/assets/data/",
   "PATH_PORTFOLIO_DATA_WORK": "app/assets/data/workData.json",
   "PATH_PORTFOLIO_DATA_HUMANS": "app/assets/data/humansData.json",
