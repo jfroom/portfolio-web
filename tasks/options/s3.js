@@ -2,7 +2,6 @@ module.exports = {
   options: {
     accessKeyId: "<%= process.env['S3_PORTFOLIO_KEY'] %>",
     secretAccessKey: "<%= process.env['S3_PORTFOLIO_SECRET'] %>",
-    bucket: "<%= process.env['S3_PORTFOLIO_BUCKET'] %>",
     region: "<%= process.env['S3_PORTFOLIO_REGION'] %>",
     access: "<%= process.env['S3_PORTFOLIO_ACCESS'] %>",
     gzip: true,
@@ -13,8 +12,12 @@ module.exports = {
 
   dist: {
     cwd: 'dist',
-    src: '**',
-    dest: "<%= process.env['S3_PORTFOLIO_PATH'] %>"
+    src: ['**', '!index.html'],
+    dest: "<%= process.env['S3_PORTFOLIO_PATH'] %>",
+    options: {
+      bucket: "<%= process.env['S3_PORTFOLIO_BUCKET'] %>",
+    }
+
   },
 
   index_page: {
@@ -22,8 +25,7 @@ module.exports = {
     src: 'index.html',
     dest: "<%= process.env['S3_PORTFOLIO_PATH'] %>",
     options: {
-      // Personal app needs this to be private - so can be consumed by private rails app
-      access: "<%= process.env['S3_PORTFOLIO_INDEX_ACCESS'] %>"
+      bucket: "<%= process.env['S3_PORTFOLIO_INDEX_BUCKET'] %>",
     }
   }
 
