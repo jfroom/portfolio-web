@@ -37,9 +37,6 @@ angular.module("services.navigation", ["services.utils"]).service "navigation", 
         $log.info 'isPathPartOfLocation:' + isPathPartOfLocation
         if !isPathPartOfLocation
           $rootScope.$broadcast enums.EventType.TrackPageview, path
-        #$log.info 'active section:' + path
-        #if window.ga != undefined
-        #  window.ga 'send', 'pageview', path
       , 500)
 
 
