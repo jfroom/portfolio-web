@@ -362,7 +362,7 @@ handleTargetsTransitionEnd isOpen:' + _.isOpen + ' _.xCur:' + _.xCur
           _ = this
           $doc = $(document)
           _.$cover.width($doc.width()).height($doc.height())
-          $('header.flyout .nav').height($doc.height()+100)
+          $('header.flyout .navbar').height($doc.height()+100)
           log 'handleWindowResize _.isOpen:' + _.isOpen + " doc.width:" + $doc.width() + " breakpoint:" + settings.widthBreakPoint
           if _.isOpen
             if $doc.width() >= settings.widthBreakPoint
