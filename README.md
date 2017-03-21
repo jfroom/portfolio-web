@@ -119,7 +119,7 @@ You can see these instructions on [how to get Selenium & Protractor installed lo
 
 2. `webdriver-manager update`
 
-3. Have latest verison of FireFox installed.
+3. Have latest verison of [FireFox installed](https://www.mozilla.org/en-US/firefox/products/).
 
 4. `grunt serve` (or `grunt serve:prod`).
 
