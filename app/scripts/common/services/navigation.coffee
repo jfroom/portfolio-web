@@ -46,8 +46,9 @@ angular.module("services.navigation", ["services.utils"]).service "navigation", 
       # immediately add .active to clicks as opposed to waiting for scrollspy to do it
       #persist allows for styling to stick even when scrollspy has to shuffle thru adjacent links
 
-      $(".navbar li").removeClass('active active-persist')
-      $(this).closest("li").addClass('active active-persist').blur()
+      $(".navbar li:not([data-no-active-persist])").removeClass('active active-persist')
+      $(this).closest("li:not([data-no-active-persist])").addClass('active active-persist')
+      $(this).closest("li a").blur() # blur so active state doesn't stick (unless it's peristant)
 
     # remove active persist class when scrolled
     $(document).on utils.EVENT_SCROLL_ANIMATE_COMPLETE, ->
