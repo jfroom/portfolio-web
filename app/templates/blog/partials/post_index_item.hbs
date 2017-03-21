@@ -1,6 +1,6 @@
 
 <li class=" category-{{#withFirst data.categories}}{{hyphenate this}}{{/withFirst}}">
-  <a href ="{{this.basename}}" class="info-wrap">
+  <a href ="{{#isnt data.link undefined}} {{data.link}} {{else}} {{this.basename}} {{/isnt}}" class="info-wrap">
     <span class="info">
 
       <span class="title h2">{{data.title}}</span>
