@@ -5,7 +5,7 @@ exports.config = {
 
   // Capabilities to be passed to the webdriver instance.
   capabilities: {
-    'browserName': 'chrome' // travis needs 'firefox'?
+    'browserName': 'firefox' // travis needs 'firefox'?
   },
 
   // Framework to use. Jasmine is recommended.

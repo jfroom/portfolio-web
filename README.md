@@ -115,13 +115,15 @@ For configuration options, see _tasks/test_task.js_ and _tasks/options/karma.js_
 The integration tests use [Protractor][^protractor] and [Selenium's WebDriver][^seleniumwebdriver] API for browser automation.
 You can see these instructions on [how to get Selenium & Protractor installed locally on your system](https://github.com/angular/protractor/blob/master/docs/getting-started.md). Here's a quick list of how to get this working (which worked as of this writing).
 
-1. `npm install -g protractor@4.0.3`
+1. `npm install -g protractor@4.0.14`
 
 2. `webdriver-manager update`
 
-3. `grunt serve` (or `grunt serve:prod`).
+3. Have latest verison of FireFox installed.
 
-3. In a new terminal, `grunt test:e2e` to run the protractor/jasmine tests located in _test/e2e_.
+4. `grunt serve` (or `grunt serve:prod`).
+
+5. In a new terminal, `grunt test:e2e` to run the protractor/jasmine tests located in _test/e2e_.
 
 
 ### TODOs (low priority)
